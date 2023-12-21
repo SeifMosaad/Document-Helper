@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MS MARCO Cross-Encoders &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netdocs/pretrained-models/ce-msmarco.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../index.html">
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>MS MARCO Cross-Encoders</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/docs/pretrained-models/ce-msmarco.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ms-marco-cross-encoders">
+<h1>MS MARCO Cross-Encoders<a class="headerlink" href="#ms-marco-cross-encoders" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://microsoft.github.io/msmarco/">MS MARCO</a> is a large scale information retrieval corpus that was created based on real user search queries using Bing search engine. The provided models can be used for semantic search, i.e., given keywords / a search phrase / a question, the model will find passages that are relevant for the search query.</p>
+<p>The training data constist of over 500k examples, while the complete  corpus consist of over 8.8 Million passages.</p>
+<div class="section" id="usage-with-sentencetransformers">
+<h2>Usage with SentenceTransformers<a class="headerlink" href="#usage-with-sentencetransformers" title="Permalink to this headline">¶</a></h2>
+<p>Pre-trained models can be used like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">CrossEncoder</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">CrossEncoder</span><span class="p">(</span><span class="s1">&#39;model_name&#39;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([(</span><span class="s1">&#39;Query&#39;</span><span class="p">,</span> <span class="s1">&#39;Paragraph1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Query&#39;</span><span class="p">,</span> <span class="s1">&#39;Paragraph2&#39;</span><span class="p">)</span> <span class="p">,</span> <span class="p">(</span><span class="s1">&#39;Query&#39;</span><span class="p">,</span> <span class="s1">&#39;Paragraph3&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage-with-transformers">
+<h2>Usage with Transformers<a class="headerlink" href="#usage-with-transformers" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForSequenceClassification</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;model_name&#39;</span><span class="p">)</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;model_name&#39;</span><span class="p">)</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">([</span><span class="s1">&#39;Query&#39;</span><span class="p">,</span> <span class="s1">&#39;Query&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Paragraph1&#39;</span><span class="p">,</span> <span class="s1">&#39;Paragraph2&#39;</span><span class="p">],</span>  <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&quot;pt&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">features</span><span class="p">)</span><span class="o">.</span><span class="n">logits</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="models-performance">
+<h2>Models &amp; Performance<a class="headerlink" href="#models-performance" title="Permalink to this headline">¶</a></h2>
+<p>In the following table, we provide various pre-trained Cross-Encoders together with their performance on the <a class="reference external" href="https://microsoft.github.io/TREC-2019-Deep-Learning/">TREC Deep Learning 2019</a> and the <a class="reference external" href="https://github.com/microsoft/MSMARCO-Passage-Ranking/">MS Marco Passage Reranking</a> dataset.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Model-Name</th>
+<th align="center">NDCG@10 (TREC DL 19)</th>
+<th align="center">MRR@10 (MS Marco Dev)</th>
+<th align="right">Docs / Sec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Version 2 models</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>cross-encoder/ms-marco-TinyBERT-L-2-v2</td>
+<td align="center">69.84</td>
+<td align="center">32.56</td>
+<td align="right">9000</td>
+</tr>
+<tr>
+<td>cross-encoder/ms-marco-MiniLM-L-2-v2</td>
+<td align="center">71.01</td>
+<td align="center">34.85</td>
+<td align="right">4100</td>
+</tr>
+<tr>
+<td>cross-encoder/ms-marco-MiniLM-L-4-v2</td>
+<td align="center">73.04</td>
+<td align="center">37.70</td>
+<td align="right">2500</td>
+</tr>
+<tr>
+<td>cross-encoder/ms-marco-MiniLM-L-6-v2</td>
+<td align="center">74.30</td>
+<td align="center">39.01</td>
+<td align="right">1800</td>
+</tr>
+<tr>
+<td>cross-encoder/ms-marco-MiniLM-L-12-v2</td>
+<td align="center">74.31</td>
+<td align="center">39.02</td>
+<td align="right">960</td>
+</tr>
+<tr>
+<td><strong>Version 1 models</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>cross-encoder/ms-marco-TinyBERT-L-2</td>
+<td align="center">67.43</td>
+<td align="center">30.15</td>
+<td align="right">9000</td>
+</tr>
+<tr>
+<td>cross-encoder/ms-marco-TinyBERT-L-4</td>
+<td align="center">68.09</td>
+<td align="center">34.50</td>
+<td align="right">2900</td>
+</tr>
+<tr>
+<td>cross-encoder/ms-marco-TinyBERT-L-6</td>
+<td align="center">69.57</td>
+<td align="center">36.13</td>
+<td align="right">680</td>
+</tr>
+<tr>
+<td>cross-encoder/ms-marco-electra-base</td>
+<td align="center">71.99</td>
+<td align="center">36.41</td>
+<td align="right">340</td>
+</tr>
+<tr>
+<td><strong>Other models</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>nboost/pt-tinybert-msmarco</td>
+<td align="center">63.63</td>
+<td align="center">28.80</td>
+<td align="right">2900</td>
+</tr>
+<tr>
+<td>nboost/pt-bert-base-uncased-msmarco</td>
+<td align="center">70.94</td>
+<td align="center">34.75</td>
+<td align="right">340</td>
+</tr>
+<tr>
+<td>nboost/pt-bert-large-msmarco</td>
+<td align="center">73.36</td>
+<td align="center">36.48</td>
+<td align="right">100</td>
+</tr>
+<tr>
+<td>Capreolus/electra-base-msmarco</td>
+<td align="center">71.23</td>
+<td align="center">36.89</td>
+<td align="right">340</td>
+</tr>
+<tr>
+<td>amberoad/bert-multilingual-passage-reranking-msmarco</td>
+<td align="center">68.40</td>
+<td align="center">35.54</td>
+<td align="right">330</td>
+</tr>
+<tr>
+<td>sebastian-hofstaetter/distilbert-cat-margin_mse-T2-msmarco</td>
+<td align="center">72.82</td>
+<td align="center">37.88</td>
+<td align="right">720</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Runtime was computed on a V100 GPU with Huggingface Transformers v4. </p></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

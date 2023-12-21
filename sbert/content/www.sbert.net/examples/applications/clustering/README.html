@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Clustering &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/applications/clustering/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Paraphrase Mining" href="../paraphrase-mining/README.html" />
+    <link rel="prev" title="Retrieve &amp; Re-Rank" href="../retrieve_rerank/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../../index.html">
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Clustering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#k-means">k-Means</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agglomerative-clustering">Agglomerative Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fast-clustering">Fast Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#topic-modeling">Topic Modeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Clustering</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/applications/clustering/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="clustering">
+<h1>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
+<p>Sentence-Transformers can be used in different ways to perform clustering of small or large set of sentences.</p>
+<div class="section" id="k-means">
+<h2>k-Means<a class="headerlink" href="#k-means" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/applications/clustering/kmeans.py">kmeans.py</a> contains an example of using <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#k-means">K-means Clustering Algorithm</a>. K-Means requires that the number of clusters is specified beforehand. The sentences are clustered in groups of about equal size.</p>
+</div>
+<div class="section" id="agglomerative-clustering">
+<h2>Agglomerative Clustering<a class="headerlink" href="#agglomerative-clustering" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/applications/clustering/agglomerative.py">agglomerative.py</a> shows an example of using <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#hierarchical-clustering">Hierarchical clustering</a> using the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering">Agglomerative Clustering  Algorithm</a>. In contrast to k-means, we can specify a threshold for the clustering: Clusters below that threshold are merged. This algorithm can be useful if the number of clusters is unknown. By the threshold, we can control if we want to have many small and fine-grained clusters or few coarse-grained clusters.</p>
+</div>
+<div class="section" id="fast-clustering">
+<h2>Fast Clustering<a class="headerlink" href="#fast-clustering" title="Permalink to this headline">¶</a></h2>
+<p>Agglomerative Clustering for larger datasets is quite slow, so it is only applicable for maybe a few thousand sentences.</p>
+<p>In <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/applications/clustering/fast_clustering.py">fast_clustering.py</a> we present a clustering algorithm that is tuned for large datasets (50k sentences in less than 5 seconds). In a large list of sentences it searches for local communities: A local community is a set of highly similar sentences.</p>
+<p>You can configure the threshold of cosine-similarity for which we consider two sentences as similar. Also, you can specify the minimal size for a local community. This allows you to get either large coarse-grained clusters or small fine-grained clusters.</p>
+<p>We apply it on the <a class="reference external" href="https://www.quora.com/q/quoradata/First-Quora-Dataset-Release-Question-Pairs">Quora Duplicate Questions</a> dataset and the output looks something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Cluster 1, #83 Elements
+         What should I do to improve my English ?
+         What should I do to improve my spoken English?
+         Can I improve my English?
+         ...
+
+Cluster 2, #79 Elements
+         How can I earn money online?
+         How do I earn money online?
+         Can I earn money online?
+         ...
+       
+...
+
+Cluster 47, #25 Elements
+         What are some mind-blowing Mobile gadgets that exist that most people don&#39;t know about?
+         What are some mind-blowing gadgets and technologies that exist that most people don&#39;t know about?
+         What are some mind-blowing mobile technology tools that exist that most people don&#39;t know about?
+         ...
+</pre></div>
+</div>
+</div>
+<div class="section" id="topic-modeling">
+<h2>Topic Modeling<a class="headerlink" href="#topic-modeling" title="Permalink to this headline">¶</a></h2>
+<p>Topic modeling is the process of discovering topics in a collection of documents.</p>
+<p>An example is shown in the following picture, which shows the identified topics in the 20 newsgroup dataset:
+<img alt="20news" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/20news_semantic.png" /></p>
+<p>For each topic, you want to extract the words that describe this topic:
+<img alt="20news" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/20news_top2vec.png" /></p>
+<p>Sentence-Transformers can be used to identify these topics in a collection of sentences, paragraphs or short documents. For an excellent tutorial, see <a class="reference external" href="https://towardsdatascience.com/topic-modeling-with-bert-779f7db187e6">Topic Modeling with BERT</a> as well as the repositories <a class="reference external" href="https://github.com/ddangelov/Top2Vec">Top2Vec</a> and <a class="reference external" href="https://github.com/MaartenGr/BERTopic">BERTopic</a>.</p>
+<p>Image source: <a class="reference external" href="https://arxiv.org/abs/2008.09470">Top2Vec: Distributed Representations of Topics</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../paraphrase-mining/README.html" class="btn btn-neutral float-right" title="Paraphrase Mining" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../retrieve_rerank/README.html" class="btn btn-neutral float-left" title="Retrieve &amp; Re-Rank" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

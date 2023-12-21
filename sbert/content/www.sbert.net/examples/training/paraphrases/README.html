@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Paraphrase Data &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/training/paraphrases/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Quora Duplicate Questions" href="../quora_duplicate_questions/README.html" />
+    <link rel="prev" title="Natural Language Inference" href="../nli/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../../index.html">
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Paraphrase Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#datasets">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#training">Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pre-trained-models">Pre-Trained Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#work-in-progress">Work in Progress</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Paraphrase Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/training/paraphrases/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="paraphrase-data">
+<h1>Paraphrase Data<a class="headerlink" href="#paraphrase-data" title="Permalink to this headline">¶</a></h1>
+<p><strong>This page is currently work-in-progress and will be extended in the future</strong></p>
+<p>In our paper <a class="reference external" href="https://arxiv.org/abs/2004.09813">Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation</a> we showed that paraphrase dataset together with <a class="reference external" href="https://www.sbert.net/docs/package_reference/losses.html#multiplenegativesrankingloss">MultipleNegativesRankingLoss</a> is a powerful combination to learn sentence embeddings models.</p>
+<p>You can find here: <a class="reference external" href="https://www.sbert.net/examples/training/nli/README.html#multiplenegativesrankingloss">NLI - MultipleNegativesRankingLoss</a> more information how the loss can be used.</p>
+<p>In this folder, we collect different datasets and scripts to train using paraphrase data.</p>
+<div class="section" id="datasets">
+<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
+<p>You can find here: <a class="reference external" href="http://sbert.net/datasets/paraphrases">sbert.net/datasets/paraphrases</a> a list of datasets with paraphrases suitable for training.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Source</th>
+<th align="center">#Sentence-Pairs</th>
+<th align="center">STSb-dev</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/AllNLI.tsv.gz">AllNLI.tsv.gz</a></td>
+<td><a href="https://nlp.stanford.edu/projects/snli/">SNLI</a> + <a href="https://cims.nyu.edu/~sbowman/multinli/">MultiNLI</a></td>
+<td align="center">277,230</td>
+<td align="center">86.54</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/sentence-compression.tsv.gz">sentence-compression.tsv.gz</a></td>
+<td><a href="https://github.com/google-research-datasets/sentence-compression">sentence-compression</a></td>
+<td align="center">180,000</td>
+<td align="center">84.36</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/SimpleWiki.tsv.gz">SimpleWiki.tsv.gz</a></td>
+<td><a href="https://cs.pomona.edu/~dkauchak/simplification/">SimpleWiki</a></td>
+<td align="center">102,225</td>
+<td align="center">84.26</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/altlex.tsv.gz">altlex.tsv.gz</a></td>
+<td><a href="https://github.com/chridey/altlex/">altlex</a></td>
+<td align="center">112,696</td>
+<td align="center">83.34</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/msmarco-triplets.tsv.gz">msmarco-triplets.tsv.gz</a></td>
+<td><a href="https://microsoft.github.io/msmarco/">MS MARCO Passages</a></td>
+<td align="center">5,028,051</td>
+<td align="center">83.12</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/quora_duplicates.tsv.gz">quora_duplicates.tsv.gz</a></td>
+<td><a href="https://quoradata.quora.com/First-Quora-Dataset-Release-Question-Pairs">Quora</a></td>
+<td align="center">103,663</td>
+<td align="center">82.55</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/coco_captions-with-guid.tsv.gz">coco_captions-with-guid.tsv.gz</a></td>
+<td><a href="https://cocodataset.org/">COCO</a></td>
+<td align="center">828,395</td>
+<td align="center">82.25</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/flickr30k_captions-with-guid.tsv.gz">flickr30k_captions-with-guid.tsv.gz</a></td>
+<td><a href="https://shannon.cs.illinois.edu/DenotationGraph/">Flickr 30k</a></td>
+<td align="center">317,695</td>
+<td align="center">82.04</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/yahoo_answers_title_question.tsv.gz">yahoo_answers_title_question.tsv.gz</a></td>
+<td><a href="https://www.kaggle.com/soumikrakshit/yahoo-answers-dataset">Yahoo Answers Dataset</a></td>
+<td align="center">659,896</td>
+<td align="center">81.19</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/S2ORC_citation_pairs.tsv.gz">S2ORC_citation_pairs.tsv.gz</a></td>
+<td><a href="http://s2-public-api-prod.us-west-2.elasticbeanstalk.com/corpus/">Semantic Scholar Open Research Corpus</a></td>
+<td align="center">52,603,982</td>
+<td align="center">81.02</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/yahoo_answerstitle_answer.tsv.gz">yahoo_answers_title_answer.tsv.gz</a></td>
+<td><a href="https://www.kaggle.com/soumikrakshit/yahoo-answers-dataset">Yahoo Answers Dataset</a></td>
+<td align="center">1,198,260</td>
+<td align="center">80.25</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/stackexchange_duplicate_questions.tsv.gz">stackexchange_duplicate_questions.tsv.gz</a></td>
+<td><a href="https://stackexchange.com/">Stackexchange</a></td>
+<td align="center">169,438</td>
+<td align="center">80.37</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/yahoo_answers_question_answer.tsv.gz">yahoo_answers_question_answer.tsv.gz</a></td>
+<td><a href="https://www.kaggle.com/soumikrakshit/yahoo-answers-dataset">Yahoo Answers Dataset</a></td>
+<td align="center">681,164</td>
+<td align="center">79.88</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/wiki-atomic-edits.tsv.gz">wiki-atomic-edits.tsv.gz</a></td>
+<td><a href="https://github.com/google-research-datasets/wiki-atomic-edits">wiki-atomic-edits</a></td>
+<td align="center">22,980,185</td>
+<td align="center">79.58</td>
+</tr>
+<tr>
+<td><a href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/paraphrases/wiki-split.tsv.gz">wiki-split.tsv.gz</a></td>
+<td><a href="https://github.com/google-research-datasets/wiki-split">wiki-split</a></td>
+<td align="center">929,944</td>
+<td align="center">76.59</td>
+</tr>
+</tbody>
+</table><p>See the respective linked source website for the dataset license.</p>
+<p>All datasets have a sample per line and the individual sentences are seperated by a tab (\t). Some datasets (like AllNLI) has three sentences per line: An anchor, a positive, and a hard negative.</p>
+<p>We measure for each dataset the performance on the STSb development dataset after 2k training steps with a distilroberta-base model and a batch size of 256.</p>
+<p><strong>Note</strong>: We find that the STSb dataset is a suboptimal dataset to evaluate the quality of sentence embedding models. It consists mainly of rather simple sentences, it does not require any domain specific knowledge, and the included sentences are of rather high quality compared to noisy, user-written content. Please do not infer from the above numbers how the approaches will perform on your domain specific dataset.</p>
+</div>
+<div class="section" id="training">
+<h2>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/paraphrases/training.py">training.py</a> for the training script.</p>
+<p>The training script allows to load one or multiple files. We construct batches by sampling examples from the respective dataset. So far, examples are not mixed between the datasets, i.e., a batch consists only of examples from a single dataset.</p>
+<p>As the dataset sizes are quite different in size, we perform a tempurate controlled sampling from the datasets: Smaller datasets are up-sampled, while larger datasets are down-sampled. This allows an effective training with very large and smaller datasets.</p>
+</div>
+<div class="section" id="pre-trained-models">
+<h2>Pre-Trained Models<a class="headerlink" href="#pre-trained-models" title="Permalink to this headline">¶</a></h2>
+<p>Have a look at <a class="reference external" href="https://www.sbert.net/docs/pretrained_models.html">pre-trained models</a> to view all models that were trained on these paraphrase datasets.</p>
+<ul class="simple">
+<li><p><strong>paraphrase-MiniLM-L12-v2</strong> - Trained on the following datasets: AllNLI, sentence-compression, SimpleWiki, altlex, msmarco-triplets, quora_duplicates, coco_captions,flickr30k_captions, yahoo_answers_title_question, S2ORC_citation_pairs, stackexchange_duplicate_questions, wiki-atomic-edits</p></li>
+<li><p><strong>paraphrase-distilroberta-base-v2</strong> - Trained on the following datasets: AllNLI, sentence-compression, SimpleWiki, altlex, msmarco-triplets, quora_duplicates, coco_captions,flickr30k_captions, yahoo_answers_title_question, S2ORC_citation_pairs, stackexchange_duplicate_questions, wiki-atomic-edits</p></li>
+<li><p><strong>paraphrase-distilroberta-base-v1</strong> - Trained on the following datasets: AllNLI, sentence-compression, SimpleWiki, altlex, quora_duplicates, wiki-atomic-edits, wiki-split</p></li>
+<li><p><strong>paraphrase-xlm-r-multilingual-v1</strong> - Multilingual version of paraphrase-distilroberta-base-v1, trained on parallel data for 50+ languages. (Teacher: paraphrase-distilroberta-base-v1, Student: xlm-r-base)</p></li>
+</ul>
+</div>
+<div class="section" id="work-in-progress">
+<h2>Work in Progress<a class="headerlink" href="#work-in-progress" title="Permalink to this headline">¶</a></h2>
+<p>Training with this data is currently work-in-progress. Things that will be added in the next time:</p>
+<ul class="simple">
+<li><p><strong>More datasets</strong>: Are you aware of more suitable training datasets? Let me know: <a class="reference external" href="/cdn-cgi/l/email-protection#0c65626a632a2f3f3b372a2f393e372a2f3834376265607f217e696561697e7f2a2f383a376869">info<span>&#64;</span>nils-reimers<span>&#46;</span>de</a></p></li>
+<li><p><strong>Optimized batching</strong>: Currently batches are only drawn from one dataset. Future work might include also batches that are sampled across datasets</p></li>
+<li><p><strong>Optimized loss function</strong>: Currently the same parameters of MultipleNegativesRankingLoss is used for all datasets. Future work includes testing if the dataset benefit from individual loss functions.</p></li>
+<li><p><strong>Pre-trained models</strong>: Once all datasets are collected, we will train and release respective models.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../quora_duplicate_questions/README.html" class="btn btn-neutral float-right" title="Quora Duplicate Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../nli/README.html" class="btn btn-neutral float-left" title="Natural Language Inference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

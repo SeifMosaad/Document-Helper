@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Image Search &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/applications/image-search/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Training Overview" href="../../../docs/training/overview.html" />
+    <link rel="prev" title="Cross-Encoders" href="../cross-encoder/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../../index.html">
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Image Search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Image Search</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/applications/image-search/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="image-search">
+<h1>Image Search<a class="headerlink" href="#image-search" title="Permalink to this headline">¶</a></h1>
+<p>SentenceTransformers provides models that allow to embed images and text into the same vector space. This allows to find similar images as well as to implement <strong>image search</strong>.</p>
+<p><img alt="ImageSearch" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/ImageSearch.png" /></p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Ensure that you have <a class="reference external" href="https://pypi.org/project/torchvision/">torchvision</a> installed to use the image-text-models and use a recent PyTorch version (tested with PyTorch 1.7.0). Image-Text-Models have been added with SentenceTransformers version 1.0.0. Image-Text-Models are still in an experimental phase.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>SentenceTransformers provides a wrapper for the <a class="reference external" href="https://github.com/openai/CLIP">OpenAI CLIP Model</a>, which was trained on a variety of (image, text)-pairs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">util</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c1">#Load CLIP model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;clip-ViT-B-32&#39;</span><span class="p">)</span>
+
+<span class="c1">#Encode an image:</span>
+<span class="n">img_emb</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;two_dogs_in_snow.jpg&#39;</span><span class="p">))</span>
+
+<span class="c1">#Encode text descriptions</span>
+<span class="n">text_emb</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="s1">&#39;Two dogs in the snow&#39;</span><span class="p">,</span> <span class="s1">&#39;A cat on a table&#39;</span><span class="p">,</span> <span class="s1">&#39;A picture of London at night&#39;</span><span class="p">])</span>
+
+<span class="c1">#Compute cosine similarities </span>
+<span class="n">cos_scores</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">cos_sim</span><span class="p">(</span><span class="n">img_emb</span><span class="p">,</span> <span class="n">text_emb</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cos_scores</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can use the CLIP model for:</p>
+<ul class="simple">
+<li><p>Text-to-Image / Image-To-Text / Image-to-Image / Text-to-Text Search</p></li>
+<li><p>You can fine-tune it on your own image&amp;text data with the regular SentenceTransformers training code.</p></li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/applications/image-search/Image_Search.ipynb">Image_Search.ipynb</a> (<a class="reference external" href="https://colab.research.google.com/drive/16OdADinjAg3w3ceZy3-cOR9A-5ZW9BYr?usp=sharing">Colab Version</a>) depicts a larger example for <strong>text-to-image</strong> and <strong>image-to-image</strong> search using 25,000 free pictures from <a class="reference external" href="https://unsplash.com/">Unsplash</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/applications/image-search/Image_Search-multilingual.ipynb">Image_Search-multilingual.ipynb</a> (<a class="reference external" href="https://colab.research.google.com/drive/1N6woBKL4dzYsHboDNqtv-8gjZglKOZcn?usp=sharing">Colab Version</a>) example of multilingual text2image search for 50+ languages.</p></li>
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/applications/image-search/Image_Clustering.ipynb">Image_Clustering.ipynb</a> (<a class="reference external" href="https://colab.research.google.com/drive/1T3gfEF7pkXgPPajNa9ZjurB25B0RJ3_X?usp=sharing">Colab Version</a>) shows how to perform <strong>image clustering</strong>. Given 25,000 free pictures from <a class="reference external" href="https://unsplash.com/">Unsplash</a>, we find clusters of similar images. You can control how sensitive the clustering should be.</p></li>
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/applications/image-search/Image_Duplicates.ipynb">Image_Duplicates.ipynb</a> (<a class="reference external" href="https://colab.research.google.com/drive/1wLiZNedMwlM-FxBVbp3aA353yohV_wJ1?usp=sharing">Colab Version</a>) shows an example how to find duplicate and near duplicate images in a large collection of photos.</p></li>
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/applications/image-search/Image_Classification.ipynb">Image_Classification.ipynb</a> (<a class="reference external" href="https://colab.research.google.com/drive/1J0a29kSZ7qJwu2bGqjo1GYRz77v1oWq0?usp=sharing">Colab Version</a>) example for (multi-lingual) zero-shot image classifcation.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../docs/training/overview.html" class="btn btn-neutral float-right" title="Training Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../cross-encoder/README.html" class="btn btn-neutral float-left" title="Cross-Encoders" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,582 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Training Overview &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netdocs/training/overview.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Multilingual-Models" href="../../examples/training/multilingual/README.html" />
+    <link rel="prev" title="Image Search" href="../../examples/applications/image-search/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../index.html">
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Training Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#network-architecture">Network Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-networks-from-scratch">Creating Networks from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#training-data">Training Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loss-functions">Loss Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluators">Evaluators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#continue-training-on-other-data">Continue Training on Other Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-custom-sentencetransformer-models">Loading Custom SentenceTransformer Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multitask-training">Multitask Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-special-tokens">Adding Special Tokens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#best-transformer-model">Best Transformer Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Training Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/docs/training/overview.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="training-overview">
+<h1>Training Overview<a class="headerlink" href="#training-overview" title="Permalink to this headline">¶</a></h1>
+<p>Each task is unique, and having sentence / text embeddings tuned for that specific task greatly improves the performance.</p>
+<p>SentenceTransformers was designed in such way that fine-tuning your own sentence / text embeddings models is easy. It provides most of the building blocks that you can stick together to tune embeddings for your specific task.</p>
+<p>Sadly there is no single training strategy that works for all use-cases. Instead, which training strategy  to use greatly depends on your available data and on your target task.</p>
+<p>In the <strong>Training</strong> section, I will discuss the fundamentals of training your own embedding models with SentenceTransformers. In the <strong>Training Examples</strong> section, I will provide examples how to tune embedding models for common real-world applications.</p>
+<div class="section" id="network-architecture">
+<h2>Network Architecture<a class="headerlink" href="#network-architecture" title="Permalink to this headline">¶</a></h2>
+<p>For sentence / text embeddings, we want to map a variable length input text to a fixed sized dense vector. The most basic network architecture we can use is the following:</p>
+<p><img alt="SBERT  Network Architecture" src="../../_images/SBERT_Architecture.png" /></p>
+<p>We feed the input sentence or text into a transformer network like BERT. BERT produces contextualized word embeddings for all input tokens in our text. As we want a fixed-sized output representation (vector u), we need a pooling layer. Different pooling options are available, the most basic one is mean-pooling: We simply average all contextualized word embeddings BERT is giving us. This gives us a fixed 768 dimensional output vector independent how long our input text was.</p>
+<p>The depicted architecture, consisting of a BERT layer and a pooling layer is one final SentenceTransformer model.</p>
+</div>
+<div class="section" id="creating-networks-from-scratch">
+<h2>Creating Networks from Scratch<a class="headerlink" href="#creating-networks-from-scratch" title="Permalink to this headline">¶</a></h2>
+<p>In the quick start &amp; usage examples, we used pre-trained SentenceTransformer models that already come with a BERT layer and a pooling layer.</p>
+<p>But we can create the networks architectures from scratch by defining the individual layers. For example, the following code would create the depicted network architecture:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">models</span>
+
+<span class="n">word_embedding_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Transformer</span><span class="p">(</span><span class="s1">&#39;bert-base-uncased&#39;</span><span class="p">,</span> <span class="n">max_seq_length</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+<span class="n">pooling_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Pooling</span><span class="p">(</span><span class="n">word_embedding_model</span><span class="o">.</span><span class="n">get_word_embedding_dimension</span><span class="p">())</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="n">modules</span><span class="o">=</span><span class="p">[</span><span class="n">word_embedding_model</span><span class="p">,</span> <span class="n">pooling_model</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>First we define our individual layers, in this case, we define ‘bert-base-uncased’ as the <em>word_embedding_model</em>. We limit that layer to a maximal sequence length of 256, texts longer than that will be truncated. Further, we create a (mean) pooling layer. We create a new <em>SentenceTransformer</em> model by calling <code class="docutils literal notranslate"><span class="pre">SentenceTransformer(modules=[word_embedding_model,</span> <span class="pre">pooling_model])</span></code>. For the <em>modules</em> parameter, we pass a list of layers which are executed consecutively. Input text are first passed to the first entry (<em>word_embedding_model</em>). The output is then passed to the second entry (<em>pooling_model</em>), which then returns our sentence embedding.</p>
+<p>We can also construct more complex models:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+
+<span class="n">word_embedding_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Transformer</span><span class="p">(</span><span class="s1">&#39;bert-base-uncased&#39;</span><span class="p">,</span> <span class="n">max_seq_length</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+<span class="n">pooling_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Pooling</span><span class="p">(</span><span class="n">word_embedding_model</span><span class="o">.</span><span class="n">get_word_embedding_dimension</span><span class="p">())</span>
+<span class="n">dense_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="n">pooling_model</span><span class="o">.</span><span class="n">get_sentence_embedding_dimension</span><span class="p">(),</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">activation_function</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">())</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="n">modules</span><span class="o">=</span><span class="p">[</span><span class="n">word_embedding_model</span><span class="p">,</span> <span class="n">pooling_model</span><span class="p">,</span> <span class="n">dense_model</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Here, we add on top of the pooling layer a fully connected dense layer with Tanh activation, which performs a down-project to 256 dimensions. Hence, embeddings by this model will only have 256 instead of 768 dimensions.</p>
+<p>For all available building blocks see <a class="reference internal" href="../package_reference/models.html"><span class="doc">» Models Package Reference</span></a></p>
+</div>
+<div class="section" id="training-data">
+<h2>Training Data<a class="headerlink" href="#training-data" title="Permalink to this headline">¶</a></h2>
+<p>To represent our training data, we use the <code class="docutils literal notranslate"><span class="pre">InputExample</span></code> class to store training examples. As parameters, it accepts texts, which is a list of strings representing our pairs (or triplets). Further, we can also pass a label (either float or int). The following shows a simple example, where we pass text pairs to <code class="docutils literal notranslate"><span class="pre">InputExample</span></code> together with a label indicating the semantic similarity.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">InputExample</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;distilbert-base-nli-mean-tokens&#39;</span><span class="p">)</span>
+<span class="n">train_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My first sentence&#39;</span><span class="p">,</span> <span class="s1">&#39;My second sentence&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mf">0.8</span><span class="p">),</span>
+   <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Another pair&#39;</span><span class="p">,</span> <span class="s1">&#39;Unrelated sentence&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)]</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_examples</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We wrap our <code class="docutils literal notranslate"><span class="pre">train_examples</span></code> with the standard PyTorch <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code>, which shuffles our data and produces batches of certain sizes.</p>
+</div>
+<div class="section" id="loss-functions">
+<h2>Loss Functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">¶</a></h2>
+<p>The loss function plays a critical role when fine-tuning the model. It determines how well our embedding model will work for the specific downstream task.</p>
+<p>Sadly there is no “one size fits all” loss function. Which loss function is suitable depends on the available training data and on the target task.</p>
+<p>To fine-tune our network, we need somehow to tell our network which sentence pairs are similar, and should be close in vector space, and which pairs are dissimilar, and should be far away in vector space.</p>
+<p>The most simple way is to have sentence pairs annotated with a score indicating their similarity, e.g. on a scale 0 to 1. We can then train the network with a Siamese Network Architecture (for details see: <a class="reference external" href="https://arxiv.org/abs/1908.10084">Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks</a>)</p>
+<p><img alt="SBERT Siamese Network Architecture" src="../../_images/SBERT_Siamese_Network.png" /></p>
+<p>For each sentence pair, we pass sentence A and sentence B through our network which yields the embeddings <em>u</em> und <em>v</em>. The similarity of these embeddings is computed using cosine similarity and the result is compared to the gold similarity score. This allows our network to be fine-tuned and to recognize the similarity of sentences.</p>
+<p>A minimal example with <code class="docutils literal notranslate"><span class="pre">CosineSimilarityLoss</span></code> is the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">InputExample</span><span class="p">,</span> <span class="n">losses</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+
+<span class="c1">#Define the model. Either from scratch of by loading a pre-trained model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;distilbert-base-nli-mean-tokens&#39;</span><span class="p">)</span>
+
+<span class="c1">#Define your train examples. You need more than just two examples...</span>
+<span class="n">train_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My first sentence&#39;</span><span class="p">,</span> <span class="s1">&#39;My second sentence&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mf">0.8</span><span class="p">),</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Another pair&#39;</span><span class="p">,</span> <span class="s1">&#39;Unrelated sentence&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)]</span>
+
+<span class="c1">#Define your train dataset, the dataloader and the train loss</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_examples</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">CosineSimilarityLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1">#Tune the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_objectives</span><span class="o">=</span><span class="p">[(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">)],</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">warmup_steps</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We tune the model by calling model.fit(). We pass a list of <code class="docutils literal notranslate"><span class="pre">train_objectives</span></code>, which consist of tuples <code class="docutils literal notranslate"><span class="pre">(dataloader,</span> <span class="pre">loss_function)</span></code>. We can pass more than one tuple in order to perform multi-task learning on several datasets with different loss functions.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">fit</span></code> method accepts the following parameter:</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.SentenceTransformer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.</span></span><span class="sig-name descname"><span class="pre">SentenceTransformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name_or_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.nn.modules.module.Module</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache_folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_auth_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.SentenceTransformer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads or create a SentenceTransformer model, that can be used to map sentences / text to embeddings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_name_or_path</strong> – If it is a filepath on disc, it loads the model from that path. If it is not a path, it first tries to download a pre-trained SentenceTransformer model. If that fails, tries to construct a model from Huggingface models repository with that name.</p></li>
+<li><p><strong>modules</strong> – This parameter can be used to create custom SentenceTransformer models from scratch.</p></li>
+<li><p><strong>device</strong> – Device (like ‘cuda’ / ‘cpu’) that should be used for computation. If None, checks if a GPU can be used.</p></li>
+<li><p><strong>cache_folder</strong> – Path to store models</p></li>
+<li><p><strong>use_auth_token</strong> – HuggingFace authentication token to download private models.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sentence_transformers.SentenceTransformer.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">train_objectives:</span> <span class="pre">typing.Iterable[typing.Tuple[torch.utils.data.dataloader.DataLoader,</span> <span class="pre">torch.nn.modules.module.Module]],</span> <span class="pre">evaluator:</span> <span class="pre">typing.Optional[sentence_transformers.evaluation.SentenceEvaluator.SentenceEvaluator]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">epochs:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">steps_per_epoch=None,</span> <span class="pre">scheduler:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'WarmupLinear',</span> <span class="pre">warmup_steps:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">10000,</span> <span class="pre">optimizer_class:</span> <span class="pre">typing.Type[torch.optim.optimizer.Optimizer]</span> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'torch.optim.adamw.AdamW'&gt;,</span> <span class="pre">optimizer_params:</span> <span class="pre">typing.Dict[str,</span> <span class="pre">object]</span> <span class="pre">=</span> <span class="pre">{'lr':</span> <span class="pre">2e-05},</span> <span class="pre">weight_decay:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.01,</span> <span class="pre">evaluation_steps:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">output_path:</span> <span class="pre">typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">save_best_model:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">max_grad_norm:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">use_amp:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">callback:</span> <span class="pre">typing.Optional[typing.Callable[[float,</span> <span class="pre">int,</span> <span class="pre">int],</span> <span class="pre">None]]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">show_progress_bar:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">checkpoint_path:</span> <span class="pre">typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">checkpoint_save_steps:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">500,</span> <span class="pre">checkpoint_save_total_limit:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.SentenceTransformer.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train the model with the given training objective
+Each training objective is sampled in turn for one batch.
+We sample only as many batches from each objective as there are in the smallest one
+to make sure of equal training with each dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train_objectives</strong> – Tuples of (DataLoader, LossFunction). Pass more than one for multi-task learning</p></li>
+<li><p><strong>evaluator</strong> – An evaluator (sentence_transformers.evaluation) evaluates the model performance during training on held-out dev data. It is used to determine the best model that is saved to disc.</p></li>
+<li><p><strong>epochs</strong> – Number of epochs for training</p></li>
+<li><p><strong>steps_per_epoch</strong> – Number of training steps per epoch. If set to None (default), one epoch is equal the DataLoader size from train_objectives.</p></li>
+<li><p><strong>scheduler</strong> – Learning rate scheduler. Available schedulers: constantlr, warmupconstant, warmuplinear, warmupcosine, warmupcosinewithhardrestarts</p></li>
+<li><p><strong>warmup_steps</strong> – Behavior depends on the scheduler. For WarmupLinear (default), the learning rate is increased from o up to the maximal learning rate. After these many training steps, the learning rate is decreased linearly back to zero.</p></li>
+<li><p><strong>optimizer_class</strong> – Optimizer</p></li>
+<li><p><strong>optimizer_params</strong> – Optimizer parameters</p></li>
+<li><p><strong>weight_decay</strong> – Weight decay for model parameters</p></li>
+<li><p><strong>evaluation_steps</strong> – If &gt; 0, evaluate the model using evaluator after each number of training steps</p></li>
+<li><p><strong>output_path</strong> – Storage path for the model and evaluation files</p></li>
+<li><p><strong>save_best_model</strong> – If true, the best model (according to evaluator) is stored at output_path</p></li>
+<li><p><strong>max_grad_norm</strong> – Used for gradient normalization.</p></li>
+<li><p><strong>use_amp</strong> – Use Automatic Mixed Precision (AMP). Only for Pytorch &gt;= 1.6.0</p></li>
+<li><p><strong>callback</strong> – Callback function that is invoked after each evaluation.
+It must accept the following three parameters in this order:
+<cite>score</cite>, <cite>epoch</cite>, <cite>steps</cite></p></li>
+<li><p><strong>show_progress_bar</strong> – If True, output a tqdm progress bar</p></li>
+<li><p><strong>checkpoint_path</strong> – Folder to save checkpoints during training</p></li>
+<li><p><strong>checkpoint_save_steps</strong> – Will save a checkpoint after so many steps</p></li>
+<li><p><strong>checkpoint_save_total_limit</strong> – Total number of checkpoints to store</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="evaluators">
+<h2>Evaluators<a class="headerlink" href="#evaluators" title="Permalink to this headline">¶</a></h2>
+<p>During training, we usually want to measure the performance to see if the performance improves. For this, the <em><a class="reference internal" href="../package_reference/evaluation.html"><span class="doc">sentence_transformers.evaluation</span></a></em> package exists. It contains various evaluators which we can pass to the <code class="docutils literal notranslate"><span class="pre">fit</span></code>-method. These evaluators are run periodically during training. Further, they return a score and only the model with the highest score will be stored on disc.</p>
+<p>The usage is simple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">evaluation</span>
+<span class="n">sentences1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;This list contains the first column&#39;</span><span class="p">,</span> <span class="s1">&#39;With your sentences&#39;</span><span class="p">,</span> <span class="s1">&#39;You want your model to evaluate on&#39;</span><span class="p">]</span>
+<span class="n">sentences2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sentences contains the other column&#39;</span><span class="p">,</span> <span class="s1">&#39;The evaluator matches sentences1[i] with sentences2[i]&#39;</span><span class="p">,</span> <span class="s1">&#39;Compute the cosine similarity and compares it to scores[i]&#39;</span><span class="p">]</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
+
+<span class="n">evaluator</span> <span class="o">=</span> <span class="n">evaluation</span><span class="o">.</span><span class="n">EmbeddingSimilarityEvaluator</span><span class="p">(</span><span class="n">sentences1</span><span class="p">,</span> <span class="n">sentences2</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span>
+
+<span class="c1"># ... Your other code to load training data</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_objectives</span><span class="o">=</span><span class="p">[(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">)],</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">warmup_steps</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">evaluator</span><span class="o">=</span><span class="n">evaluator</span><span class="p">,</span> <span class="n">evaluation_steps</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="continue-training-on-other-data">
+<h3>Continue Training on Other Data<a class="headerlink" href="#continue-training-on-other-data" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/training/sts/training_stsbenchmark_continue_training.py">training_stsbenchmark_continue_training.py</a> shows an example where training on a fine-tuned model is continued. In that example, we use a sentence transformer model that was first fine-tuned on the NLI dataset and then continue training on the training data from the STS benchmark.</p>
+<p>First, we load a pre-trained model from the server:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;bert-base-nli-mean-tokens&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The next steps are as before. We specify training and dev data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_samples</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">CosineSimilarityLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+
+<span class="n">evaluator</span> <span class="o">=</span> <span class="n">EmbeddingSimilarityEvaluator</span><span class="o">.</span><span class="n">from_input_examples</span><span class="p">(</span><span class="n">sts_reader</span><span class="o">.</span><span class="n">get_examples</span><span class="p">(</span><span class="s1">&#39;sts-dev.csv&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>In that example, we use CosineSimilarityLoss, which computes the cosine similarity between two sentences and compares this score with a provided gold similarity score.</p>
+<p>Then we can train as before:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_objectives</span><span class="o">=</span><span class="p">[(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">)],</span>
+          <span class="n">evaluator</span><span class="o">=</span><span class="n">evaluator</span><span class="p">,</span>
+          <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span>
+          <span class="n">evaluation_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+          <span class="n">warmup_steps</span><span class="o">=</span><span class="n">warmup_steps</span><span class="p">,</span>
+          <span class="n">output_path</span><span class="o">=</span><span class="n">model_save_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-custom-sentencetransformer-models">
+<h2>Loading Custom SentenceTransformer Models<a class="headerlink" href="#loading-custom-sentencetransformer-models" title="Permalink to this headline">¶</a></h2>
+<p>Loading trained models is easy. You can specify a path:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;./my/path/to/model/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note: It is important that a / or \ is present in the path, otherwise, it is not recognized as a path.</p>
+<p>You can also host the training output on a server and download it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;http://www.server.com/path/to/model/my_model.zip&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With the first call, the model is downloaded and stored in the local torch cache-folder (<code class="docutils literal notranslate"><span class="pre">~/.cache/torch/sentence_transformers</span></code>). In order to work, you must zip all files and subfolders of your model.</p>
+</div>
+<div class="section" id="multitask-training">
+<h2>Multitask Training<a class="headerlink" href="#multitask-training" title="Permalink to this headline">¶</a></h2>
+<p>This code allows multi-task learning with training data from different datasets and with different loss-functions. For an example, see <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/training/other/training_multi-task.py">training_multi-task.py</a>.</p>
+</div>
+<div class="section" id="adding-special-tokens">
+<h2>Adding Special Tokens<a class="headerlink" href="#adding-special-tokens" title="Permalink to this headline">¶</a></h2>
+<p>Depending on the task, you might want to add special tokens to the tokenizer and the Transformer model. You can use the following code-snippet to achieve this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">models</span>
+<span class="n">word_embedding_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Transformer</span><span class="p">(</span><span class="s1">&#39;bert-base-uncased&#39;</span><span class="p">)</span>
+
+<span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;[DOC]&quot;</span><span class="p">,</span> <span class="s2">&quot;[QRY]&quot;</span><span class="p">]</span>
+<span class="n">word_embedding_model</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">add_tokens</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">word_embedding_model</span><span class="o">.</span><span class="n">auto_model</span><span class="o">.</span><span class="n">resize_token_embeddings</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word_embedding_model</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">))</span>
+
+<span class="n">pooling_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Pooling</span><span class="p">(</span><span class="n">word_embedding_model</span><span class="o">.</span><span class="n">get_word_embedding_dimension</span><span class="p">())</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="n">modules</span><span class="o">=</span><span class="p">[</span><span class="n">word_embedding_model</span><span class="p">,</span> <span class="n">pooling_model</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>If you want to extend the vocabulary for an existent SentenceTransformer model, you can use the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">models</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;all-MiniLM-L6-v2&#39;</span><span class="p">)</span>
+<span class="n">word_embedding_model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">_first_module</span><span class="p">()</span>
+
+<span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;[DOC]&quot;</span><span class="p">,</span> <span class="s2">&quot;[QRY]&quot;</span><span class="p">]</span>
+<span class="n">word_embedding_model</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">add_tokens</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">word_embedding_model</span><span class="o">.</span><span class="n">auto_model</span><span class="o">.</span><span class="n">resize_token_embeddings</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word_embedding_model</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>In the above example, the two new tokens <code class="docutils literal notranslate"><span class="pre">[DOC]</span></code> and <code class="docutils literal notranslate"><span class="pre">[QRY]</span></code> are added to the model. Their respective word embeddings are intialized randomly. It is advisable to then fine-tune the model on your downstream task.</p>
+</div>
+<div class="section" id="best-transformer-model">
+<h2>Best Transformer Model<a class="headerlink" href="#best-transformer-model" title="Permalink to this headline">¶</a></h2>
+<p>The quality of your text embedding model depends on which transformer model you choose. Sadly we cannot infer from a better performance on e.g. the GLUE or SuperGLUE benchmark that this model will also yield better representations.</p>
+<p>To test the suitability of transformer models, I use the <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/training/nli/training_nli_v2.py">training_nli_v2.py</a> script and train on 560k (anchor, positive, negative)-triplets for 1 epoch with batch size 64. I then evaluate on 14 diverse text similarity tasks (clustering, sematic search, duplicate decection etc.) from various domains.</p>
+<p>In the following table you find the performance for different models and their performance on this benchmark:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Model</th>
+<th align="center">Performance (14 sentence similarity tasks)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://huggingface.co/microsoft/mpnet-base">microsoft/mpnet-base</a></td>
+<td align="center">60.99</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/nghuyong/ernie-2.0-en">nghuyong/ernie-2.0-en</a></td>
+<td align="center">60.73</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/microsof/deberta-base">microsof/deberta-base</a></td>
+<td align="center">60.21</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/roberta-base">roberta-base</a></td>
+<td align="center">59.63</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/t5-base">t5-base</a></td>
+<td align="center">59.21</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/bert-base-uncased">bert-base-uncased</a></td>
+<td align="center">59.17</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/distilbert-base-uncased">distilbert-base-uncased</a></td>
+<td align="center">59.03</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/nreimers/TinyBERT_L-6_H-768_v2">nreimers/TinyBERT_L-6_H-768_v2</a></td>
+<td align="center">58.27</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/google/t5-v1_1-base">google/t5-v1_1-base</a></td>
+<td align="center">57.63</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/nreimers/MiniLMv2-L6-H768-distilled-from-BERT-Large">nreimers/MiniLMv2-L6-H768-distilled-from-BERT-Large</a></td>
+<td align="center">57.31</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/albert-base-v2">albert-base-v2</a></td>
+<td align="center">57.14</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/microsoft/MiniLM-L12-H384-uncased">microsoft/MiniLM-L12-H384-uncased</a></td>
+<td align="center">56.79</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/microsoft/deberta-v3-base">microsoft/deberta-v3-base</a></td>
+<td align="center">54.46</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../examples/training/multilingual/README.html" class="btn btn-neutral float-right" title="Multilingual-Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../examples/applications/image-search/README.html" class="btn btn-neutral float-left" title="Image Search" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

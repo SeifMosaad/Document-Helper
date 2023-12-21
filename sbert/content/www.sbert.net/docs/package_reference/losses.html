@@ -1,0 +1,757 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Losses &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netdocs/package_reference/losses.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Evaluation" href="evaluation.html" />
+    <link rel="prev" title="Models" href="models.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../index.html">
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Losses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#batchalltripletloss">BatchAllTripletLoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batchhardsoftmargintripletloss">BatchHardSoftMarginTripletLoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batchhardtripletloss">BatchHardTripletLoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batchsemihardtripletloss">BatchSemiHardTripletLoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contrastiveloss">ContrastiveLoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cosinesimilarityloss">CosineSimilarityLoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#denoisingautoencoderloss">DenoisingAutoEncoderLoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marginmseloss">MarginMSELoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#megabatchmarginloss">MegaBatchMarginLoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mseloss">MSELoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiplenegativesrankingloss">MultipleNegativesRankingLoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#onlinecontrastiveloss">OnlineContrastiveLoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#softmaxloss">SoftmaxLoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tripletloss">TripletLoss</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Losses</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/docs/package_reference/losses.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="losses">
+<h1>Losses<a class="headerlink" href="#losses" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">sentence_transformers.losses</span></code> define different loss functions, that can be used to fine-tune the network on training data. The loss function plays a critical role when fine-tuning the model. It determines how well our embedding model will work for the specific downstream task.</p>
+<p>Sadly there is no “one size fits all” loss function. Which loss function is suitable depends on the available training data and on the target task.</p>
+<div class="section" id="batchalltripletloss">
+<h2>BatchAllTripletLoss<a class="headerlink" href="#batchalltripletloss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.BatchAllTripletLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">BatchAllTripletLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model:</span> <span class="pre">sentence_transformers.SentenceTransformer.SentenceTransformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_metric=&lt;function</span> <span class="pre">BatchHardTripletLossDistanceFunction.eucledian_distance&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.BatchAllTripletLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>BatchAllTripletLoss takes a batch with (label, sentence) pairs and computes the loss for all possible, valid
+triplets, i.e., anchor and positive must have the same label, anchor and negative a different label. The labels
+must be integers, with same label indicating sentences from the same class. You train dataset
+must contain at least 2 examples per label class.</p>
+<div class="line-block">
+<div class="line">Source: <a class="reference external" href="https://github.com/NegatioN/OnlineMiningTripletLoss/blob/master/online_triplet_loss/losses.py">https://github.com/NegatioN/OnlineMiningTripletLoss/blob/master/online_triplet_loss/losses.py</a></div>
+<div class="line">Paper: In Defense of the Triplet Loss for Person Re-Identification, <a class="reference external" href="https://arxiv.org/abs/1703.07737">https://arxiv.org/abs/1703.07737</a></div>
+<div class="line">Blog post: <a class="reference external" href="https://omoindrot.github.io/triplet-loss">https://omoindrot.github.io/triplet-loss</a></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTransformer model</p></li>
+<li><p><strong>distance_metric</strong> – Function that returns a distance between two emeddings. The class SiameseDistanceMetric contains pre-defined metrices that can be used</p></li>
+<li><p><strong>margin</strong> – Negative samples should be at least margin further apart from the anchor than the positive.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">SentencesDataset</span><span class="p">,</span> <span class="n">losses</span>
+<span class="kn">from</span> <span class="nn">sentence_transformers.readers</span> <span class="kn">import</span> <span class="n">InputExample</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;distilbert-base-nli-mean-tokens&#39;</span><span class="p">)</span>
+<span class="n">train_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sentence from class 0&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Another sentence from class 0&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sentence from class 1&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sentence from class 2&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">2</span><span class="p">)]</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">SentencesDataset</span><span class="p">(</span><span class="n">train_examples</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">BatchAllTripletLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="batchhardsoftmargintripletloss">
+<h2>BatchHardSoftMarginTripletLoss<a class="headerlink" href="#batchhardsoftmargintripletloss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.BatchHardSoftMarginTripletLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">BatchHardSoftMarginTripletLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model:</span> <span class="pre">sentence_transformers.SentenceTransformer.SentenceTransformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_metric=&lt;function</span> <span class="pre">BatchHardTripletLossDistanceFunction.eucledian_distance&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.BatchHardSoftMarginTripletLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>BatchHardSoftMarginTripletLoss takes a batch with (label, sentence) pairs and computes the loss for all possible, valid
+triplets, i.e., anchor and positive must have the same label, anchor and negative a different label. The labels
+must be integers, with same label indicating sentences from the same class. You train dataset
+must contain at least 2 examples per label class. The margin is computed automatically.</p>
+<p>Source: <a class="reference external" href="https://github.com/NegatioN/OnlineMiningTripletLoss/blob/master/online_triplet_loss/losses.py">https://github.com/NegatioN/OnlineMiningTripletLoss/blob/master/online_triplet_loss/losses.py</a>
+Paper: In Defense of the Triplet Loss for Person Re-Identification, <a class="reference external" href="https://arxiv.org/abs/1703.07737">https://arxiv.org/abs/1703.07737</a>
+Blog post: <a class="reference external" href="https://omoindrot.github.io/triplet-loss">https://omoindrot.github.io/triplet-loss</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTransformer model</p></li>
+<li><p><strong>distance_metric</strong> – Function that returns a distance between two emeddings. The class SiameseDistanceMetric contains pre-defined metrices that can be used</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span>  <span class="n">SentencesDataset</span><span class="p">,</span> <span class="n">LoggingHandler</span><span class="p">,</span> <span class="n">losses</span>
+<span class="kn">from</span> <span class="nn">sentence_transformers.readers</span> <span class="kn">import</span> <span class="n">InputExample</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;distilbert-base-nli-mean-tokens&#39;</span><span class="p">)</span>
+<span class="n">train_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sentence from class 0&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Another sentence from class 0&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sentence from class 1&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sentence from class 2&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">2</span><span class="p">)]</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">SentencesDataset</span><span class="p">(</span><span class="n">train_examples</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">BatchHardSoftMarginTripletLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="batchhardtripletloss">
+<h2>BatchHardTripletLoss<a class="headerlink" href="#batchhardtripletloss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.BatchHardTripletLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">BatchHardTripletLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model:</span> <span class="pre">sentence_transformers.SentenceTransformer.SentenceTransformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_metric=&lt;function</span> <span class="pre">BatchHardTripletLossDistanceFunction.eucledian_distance&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.BatchHardTripletLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>BatchHardTripletLoss takes a batch with (label, sentence) pairs and computes the loss for all possible, valid
+triplets, i.e., anchor and positive must have the same label, anchor and negative a different label. It then looks
+for the hardest positive and the hardest negatives.
+The labels must be integers, with same label indicating sentences from the same class. You train dataset
+must contain at least 2 examples per label class. The margin is computed automatically.</p>
+<p>Source: <a class="reference external" href="https://github.com/NegatioN/OnlineMiningTripletLoss/blob/master/online_triplet_loss/losses.py">https://github.com/NegatioN/OnlineMiningTripletLoss/blob/master/online_triplet_loss/losses.py</a>
+Paper: In Defense of the Triplet Loss for Person Re-Identification, <a class="reference external" href="https://arxiv.org/abs/1703.07737">https://arxiv.org/abs/1703.07737</a>
+Blog post: <a class="reference external" href="https://omoindrot.github.io/triplet-loss">https://omoindrot.github.io/triplet-loss</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTransformer model</p></li>
+<li><p><strong>distance_metric</strong> – Function that returns a distance between two emeddings. The class SiameseDistanceMetric contains pre-defined metrices that can be used</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">SentencesDataset</span><span class="p">,</span> <span class="n">losses</span>
+<span class="kn">from</span> <span class="nn">sentence_transformers.readers</span> <span class="kn">import</span> <span class="n">InputExample</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;distilbert-base-nli-mean-tokens&#39;</span><span class="p">)</span>
+<span class="n">train_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sentence from class 0&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Another sentence from class 0&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sentence from class 1&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sentence from class 2&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">2</span><span class="p">)]</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">SentencesDataset</span><span class="p">(</span><span class="n">train_examples</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">BatchHardTripletLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="batchsemihardtripletloss">
+<h2>BatchSemiHardTripletLoss<a class="headerlink" href="#batchsemihardtripletloss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.BatchSemiHardTripletLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">BatchSemiHardTripletLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model:</span> <span class="pre">sentence_transformers.SentenceTransformer.SentenceTransformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_metric=&lt;function</span> <span class="pre">BatchHardTripletLossDistanceFunction.eucledian_distance&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.BatchSemiHardTripletLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>BatchSemiHardTripletLoss takes a batch with (label, sentence) pairs and computes the loss for all possible, valid
+triplets, i.e., anchor and positive must have the same label, anchor and negative a different label. It then looks
+for the semi hard positives and negatives.
+The labels must be integers, with same label indicating sentences from the same class. You train dataset
+must contain at least 2 examples per label class. The margin is computed automatically.</p>
+<p>Source: <a class="reference external" href="https://github.com/NegatioN/OnlineMiningTripletLoss/blob/master/online_triplet_loss/losses.py">https://github.com/NegatioN/OnlineMiningTripletLoss/blob/master/online_triplet_loss/losses.py</a>
+Paper: In Defense of the Triplet Loss for Person Re-Identification, <a class="reference external" href="https://arxiv.org/abs/1703.07737">https://arxiv.org/abs/1703.07737</a>
+Blog post: <a class="reference external" href="https://omoindrot.github.io/triplet-loss">https://omoindrot.github.io/triplet-loss</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTransformer model</p></li>
+<li><p><strong>distance_metric</strong> – Function that returns a distance between two emeddings. The class SiameseDistanceMetric contains pre-defined metrices that can be used</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">SentencesDataset</span><span class="p">,</span> <span class="n">losses</span>
+<span class="kn">from</span> <span class="nn">sentence_transformers.readers</span> <span class="kn">import</span> <span class="n">InputExample</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;distilbert-base-nli-mean-tokens&#39;</span><span class="p">)</span>
+<span class="n">train_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sentence from class 0&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Another sentence from class 0&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sentence from class 1&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Sentence from class 2&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">2</span><span class="p">)]</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">SentencesDataset</span><span class="p">(</span><span class="n">train_examples</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">BatchSemiHardTripletLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="contrastiveloss">
+<h2>ContrastiveLoss<a class="headerlink" href="#contrastiveloss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.ContrastiveLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">ContrastiveLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model:</span> <span class="pre">sentence_transformers.SentenceTransformer.SentenceTransformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_metric=&lt;function</span> <span class="pre">SiameseDistanceMetric.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_average:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.ContrastiveLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contrastive loss. Expects as input two texts and a label of either 0 or 1. If the label == 1, then the distance between the
+two embeddings is reduced. If the label == 0, then the distance between the embeddings is increased.</p>
+<p>Further information: <a class="reference external" href="http://yann.lecun.com/exdb/publis/pdf/hadsell-chopra-lecun-06.pdf">http://yann.lecun.com/exdb/publis/pdf/hadsell-chopra-lecun-06.pdf</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTransformer model</p></li>
+<li><p><strong>distance_metric</strong> – Function that returns a distance between two emeddings. The class SiameseDistanceMetric contains pre-defined metrices that can be used</p></li>
+<li><p><strong>margin</strong> – Negative samples (label == 0) should have a distance of at least the margin value.</p></li>
+<li><p><strong>size_average</strong> – Average by the size of the mini-batch.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">LoggingHandler</span><span class="p">,</span> <span class="n">losses</span><span class="p">,</span> <span class="n">InputExample</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;all-MiniLM-L6-v2&#39;</span><span class="p">)</span>
+<span class="n">train_examples</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;This is a positive pair&#39;</span><span class="p">,</span> <span class="s1">&#39;Where the distance will be minimized&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;This is a negative pair&#39;</span><span class="p">,</span> <span class="s1">&#39;Their distance will be increased&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
+
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_examples</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">ContrastiveLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">([(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">)],</span> <span class="n">show_progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="cosinesimilarityloss">
+<h2>CosineSimilarityLoss<a class="headerlink" href="#cosinesimilarityloss" title="Permalink to this headline">¶</a></h2>
+<p><img alt="SBERT Siamese Network Architecture" src="../../_images/SBERT_Siamese_Network.png" /></p>
+<p>For each sentence pair, we pass sentence A and sentence B through our network which yields the embeddings <em>u</em> und <em>v</em>. The similarity of these embeddings is computed using cosine similarity and the result is compared to the gold similarity score.</p>
+<p>This allows our network to be fine-tuned to recognize the similarity of sentences.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.CosineSimilarityLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">CosineSimilarityLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../examples/applications/computing-embeddings/README.html#sentence_transformers.SentenceTransformer" title="sentence_transformers.SentenceTransformer.SentenceTransformer"><span class="pre">sentence_transformers.SentenceTransformer.SentenceTransformer</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">MSELoss()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cos_score_transformation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Identity()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.CosineSimilarityLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>CosineSimilarityLoss expects, that the InputExamples consists of two texts and a float label.</p>
+<p>It computes the vectors u = model(input_text[0]) and v = model(input_text[1]) and measures the cosine-similarity between the two.
+By default, it minimizes the following loss: ||input_label - cos_score_transformation(cosine_sim(u,v))||_2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTranformer model</p></li>
+<li><p><strong>loss_fct</strong> – Which pytorch loss function should be used to compare the cosine_similartiy(u,v) with the input_label? By default, MSE:  ||input_label - cosine_sim(u,v)||_2</p></li>
+<li><p><strong>cos_score_transformation</strong> – The cos_score_transformation function is applied on top of cosine_similarity. By default, the identify function is used (i.e. no change).</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">SentencesDataset</span><span class="p">,</span> <span class="n">InputExample</span><span class="p">,</span> <span class="n">losses</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;distilbert-base-nli-mean-tokens&#39;</span><span class="p">)</span>
+<span class="n">train_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;My first sentence&#39;</span><span class="p">,</span> <span class="s1">&#39;My second sentence&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mf">0.8</span><span class="p">),</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Another pair&#39;</span><span class="p">,</span> <span class="s1">&#39;Unrelated sentence&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)]</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">SentencesDataset</span><span class="p">(</span><span class="n">train_examples</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">CosineSimilarityLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="denoisingautoencoderloss">
+<h2>DenoisingAutoEncoderLoss<a class="headerlink" href="#denoisingautoencoderloss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.DenoisingAutoEncoderLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">DenoisingAutoEncoderLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../examples/applications/computing-embeddings/README.html#sentence_transformers.SentenceTransformer" title="sentence_transformers.SentenceTransformer.SentenceTransformer"><span class="pre">sentence_transformers.SentenceTransformer.SentenceTransformer</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoder_name_or_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tie_encoder_decoder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.DenoisingAutoEncoderLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>This loss expects as input a batch consisting of damaged sentences and the corresponding original ones.
+The data generation process has already been implemented in readers/DenoisingAutoEncoderReader.py
+During training, the decoder reconstructs the original sentences from the encoded sentence embeddings.
+Here the argument ‘decoder_name_or_path’ indicates the pretrained model (supported by Huggingface) to be used as the decoder.
+Since decoding process is included, here the decoder should have a class called XXXLMHead (in the context of Huggingface’s Transformers).
+Flag ‘tie_encoder_decoder’ indicates whether to tie the trainable parameters of encoder and decoder,
+which is shown beneficial to model performance while limiting the amount of required memory.
+Only when the encoder and decoder are from the same architecture, can the flag ‘tie_encoder_decoder’ works.
+For more information, please refer to the TSDAE paper.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTransformer model</p></li>
+<li><p><strong>decoder_name_or_path</strong> – Model name or path for initializing a decoder (compatible with Huggingface’s Transformers)</p></li>
+<li><p><strong>tie_encoder_decoder</strong> – whether to tie the trainable parameters of encoder and decoder</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="marginmseloss">
+<h2>MarginMSELoss<a class="headerlink" href="#marginmseloss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.MarginMSELoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">MarginMSELoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">similarity_fct=&lt;function</span> <span class="pre">pairwise_dot_score&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.MarginMSELoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the MSE loss between the <a href="#id1"><span class="problematic" id="id2">|sim(Query, Pos) - sim(Query, Neg)|</span></a> and <a href="#id3"><span class="problematic" id="id4">|gold_sim(Q, Pos) - gold_sim(Query, Neg)|</span></a>.
+By default, sim() is the dot-product.
+For more details, please refer to <a class="reference external" href="https://arxiv.org/abs/2010.02666">https://arxiv.org/abs/2010.02666</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTransformerModel</p></li>
+<li><p><strong>similarity_fct</strong> – Which similarity function to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="megabatchmarginloss">
+<h2>MegaBatchMarginLoss<a class="headerlink" href="#megabatchmarginloss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.MegaBatchMarginLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">MegaBatchMarginLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positive_margin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative_margin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_mini_batched_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mini_batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.MegaBatchMarginLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loss function inspired from ParaNMT paper:
+<a class="reference external" href="https://www.aclweb.org/anthology/P18-1042/">https://www.aclweb.org/anthology/P18-1042/</a></p>
+<p>Given a large batch (like 500 or more examples) of (anchor_i, positive_i) pairs,
+find for each pair in the batch the hardest negative, i.e. find j != i such that cos_sim(anchor_i, positive_j)
+is maximal. Then create from this a triplet (anchor_i, positive_i, positive_j) where positive_j
+serves as the negative for this triplet.</p>
+<p>Train than as with the triplet loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTransformerModel</p></li>
+<li><p><strong>positive_margin</strong> – Positive margin, cos(anchor, positive) should be &gt; positive_margin</p></li>
+<li><p><strong>negative_margin</strong> – Negative margin, cos(anchor, negative) should be &lt; negative_margin</p></li>
+<li><p><strong>use_mini_batched_version</strong> – As large batch sizes require a lot of memory, we can use a mini-batched version. We break down the large batch with 500 examples to smaller batches with fewer examples.</p></li>
+<li><p><strong>mini_batch_size</strong> – Size for the mini-batches. Should be a devisor for the batch size in your data loader.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="mseloss">
+<h2>MSELoss<a class="headerlink" href="#mseloss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.MSELoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">MSELoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.MSELoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the MSE loss between the computed sentence embedding and a target sentence embedding. This loss
+is used when extending sentence embeddings to new languages as described in our publication
+Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation: <a class="reference external" href="https://arxiv.org/abs/2004.09813">https://arxiv.org/abs/2004.09813</a></p>
+<p>For an example, see the documentation on extending language models to new languages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model</strong> – SentenceTransformerModel</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="multiplenegativesrankingloss">
+<h2>MultipleNegativesRankingLoss<a class="headerlink" href="#multiplenegativesrankingloss" title="Permalink to this headline">¶</a></h2>
+<p><em>MultipleNegativesRankingLoss</em> is a great loss function if you only have positive pairs, for example, only pairs of similar texts like pairs of paraphrases, pairs of duplicate questions, pairs of (query, response), or pairs of (source_language, target_language).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.MultipleNegativesRankingLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">MultipleNegativesRankingLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model:</span> <span class="pre">sentence_transformers.SentenceTransformer.SentenceTransformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">20.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">similarity_fct=&lt;function</span> <span class="pre">cos_sim&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.MultipleNegativesRankingLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>This loss expects as input a batch consisting of sentence pairs (a_1, p_1), (a_2, p_2)…, (a_n, p_n)
+where we assume that (a_i, p_i) are a positive pair and (a_i, p_j) for i!=j a negative pair.</p>
+<p>For each a_i, it uses all other p_j as negative samples, i.e., for a_i, we have 1 positive example (p_i) and
+n-1 negative examples (p_j). It then minimizes the negative log-likehood for softmax normalized scores.</p>
+<p>This loss function works great to train embeddings for retrieval setups where you have positive pairs (e.g. (query, relevant_doc))
+as it will sample in each batch n-1 negative docs randomly.</p>
+<p>The performance usually increases with increasing batch sizes.</p>
+<p>For more information, see: <a class="reference external" href="https://arxiv.org/pdf/1705.00652.pdf">https://arxiv.org/pdf/1705.00652.pdf</a>
+(Efficient Natural Language Response Suggestion for Smart Reply, Section 4.4)</p>
+<p>You can also provide one or multiple hard negatives per anchor-positive pair by structering the data like this:
+(a_1, p_1, n_1), (a_2, p_2, n_2)</p>
+<p>Here, n_1 is a hard negative for (a_1, p_1). The loss will use for the pair (a_i, p_i) all p_j (j!=i) and all n_j as negatives.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">losses</span><span class="p">,</span> <span class="n">InputExample</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;distilbert-base-uncased&#39;</span><span class="p">)</span>
+<span class="n">train_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Anchor 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Positive 1&#39;</span><span class="p">]),</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Anchor 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Positive 2&#39;</span><span class="p">])]</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_examples</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">MultipleNegativesRankingLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTransformer model</p></li>
+<li><p><strong>scale</strong> – Output of similarity function is multiplied by scale value</p></li>
+<li><p><strong>similarity_fct</strong> – similarity function between sentence embeddings. By default, cos_sim. Can also be set to dot product (and then set scale to 1)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onlinecontrastiveloss">
+<h2>OnlineContrastiveLoss<a class="headerlink" href="#onlinecontrastiveloss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.OnlineContrastiveLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">OnlineContrastiveLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model:</span> <span class="pre">sentence_transformers.SentenceTransformer.SentenceTransformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_metric=&lt;function</span> <span class="pre">SiameseDistanceMetric.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.OnlineContrastiveLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Online Contrastive loss. Similar to ConstrativeLoss, but it selects hard positive (positives that are far apart)
+and hard negative pairs (negatives that are close) and computes the loss only for these pairs. Often yields
+better performances than  ConstrativeLoss.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTransformer model</p></li>
+<li><p><strong>distance_metric</strong> – Function that returns a distance between two emeddings. The class SiameseDistanceMetric contains pre-defined metrices that can be used</p></li>
+<li><p><strong>margin</strong> – Negative samples (label == 0) should have a distance of at least the margin value.</p></li>
+<li><p><strong>size_average</strong> – Average by the size of the mini-batch.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">LoggingHandler</span><span class="p">,</span> <span class="n">losses</span><span class="p">,</span> <span class="n">InputExample</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;all-MiniLM-L6-v2&#39;</span><span class="p">)</span>
+<span class="n">train_examples</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;This is a positive pair&#39;</span><span class="p">,</span> <span class="s1">&#39;Where the distance will be minimized&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;This is a negative pair&#39;</span><span class="p">,</span> <span class="s1">&#39;Their distance will be increased&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
+
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_examples</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">OnlineContrastiveLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">([(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">)],</span> <span class="n">show_progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="softmaxloss">
+<h2>SoftmaxLoss<a class="headerlink" href="#softmaxloss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.SoftmaxLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">SoftmaxLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../examples/applications/computing-embeddings/README.html#sentence_transformers.SentenceTransformer" title="sentence_transformers.SentenceTransformer.SentenceTransformer"><span class="pre">sentence_transformers.SentenceTransformer.SentenceTransformer</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentence_embedding_dimension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">concatenation_sent_rep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">concatenation_sent_difference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">concatenation_sent_multiplication</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">CrossEntropyLoss()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.SoftmaxLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>This loss was used in our SBERT publication (<a class="reference external" href="https://arxiv.org/abs/1908.10084">https://arxiv.org/abs/1908.10084</a>) to train the SentenceTransformer
+model on NLI data. It adds a softmax classifier on top of the output of two transformer networks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTransformer model</p></li>
+<li><p><strong>sentence_embedding_dimension</strong> – Dimension of your sentence embeddings</p></li>
+<li><p><strong>num_labels</strong> – Number of different labels</p></li>
+<li><p><strong>concatenation_sent_rep</strong> – Concatenate vectors u,v for the softmax classifier?</p></li>
+<li><p><strong>concatenation_sent_difference</strong> – Add abs(u-v) for the softmax classifier?</p></li>
+<li><p><strong>concatenation_sent_multiplication</strong> – Add u*v for the softmax classifier?</p></li>
+<li><p><strong>loss_fct</strong> – Optional: Custom pytorch loss function. If not set, uses nn.CrossEntropyLoss()</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">SentencesDataset</span><span class="p">,</span> <span class="n">losses</span>
+<span class="kn">from</span> <span class="nn">sentence_transformers.readers</span> <span class="kn">import</span> <span class="n">InputExample</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;distilbert-base-nli-mean-tokens&#39;</span><span class="p">)</span>
+<span class="n">train_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;First pair, sent A&#39;</span><span class="p">,</span> <span class="s1">&#39;First pair, sent B&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Second Pair, sent A&#39;</span><span class="p">,</span> <span class="s1">&#39;Second Pair, sent B&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="mi">3</span><span class="p">)]</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">SentencesDataset</span><span class="p">(</span><span class="n">train_examples</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">SoftmaxLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">sentence_embedding_dimension</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">get_sentence_embedding_dimension</span><span class="p">(),</span> <span class="n">num_labels</span><span class="o">=</span><span class="n">train_num_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="tripletloss">
+<h2>TripletLoss<a class="headerlink" href="#tripletloss" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.losses.TripletLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.losses.</span></span><span class="sig-name descname"><span class="pre">TripletLoss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model:</span> <span class="pre">sentence_transformers.SentenceTransformer.SentenceTransformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_metric=&lt;function</span> <span class="pre">TripletDistanceMetric.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triplet_margin:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.losses.TripletLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class implements triplet loss. Given a triplet of (anchor, positive, negative),
+the loss minimizes the distance between anchor and positive while it maximizes the distance
+between anchor and negative. It compute the following loss function:</p>
+<p>loss = max(||anchor - positive|| - ||anchor - negative|| + margin, 0).</p>
+<p>Margin is an important hyperparameter and needs to be tuned respectively.</p>
+<p>For further details, see: <a class="reference external" href="https://en.wikipedia.org/wiki/Triplet_loss">https://en.wikipedia.org/wiki/Triplet_loss</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – SentenceTransformerModel</p></li>
+<li><p><strong>distance_metric</strong> – Function to compute distance between two embeddings. The class TripletDistanceMetric contains common distance metrices that can be used.</p></li>
+<li><p><strong>triplet_margin</strong> – The negative should be at least this much further away from the anchor than the positive.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span>  <span class="n">SentencesDataset</span><span class="p">,</span> <span class="n">LoggingHandler</span><span class="p">,</span> <span class="n">losses</span>
+<span class="kn">from</span> <span class="nn">sentence_transformers.readers</span> <span class="kn">import</span> <span class="n">InputExample</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;distilbert-base-nli-mean-tokens&#39;</span><span class="p">)</span>
+<span class="n">train_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Anchor 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Positive 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Negative 1&#39;</span><span class="p">]),</span>
+    <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Anchor 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Positive 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Negative 2&#39;</span><span class="p">])]</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">SentencesDataset</span><span class="p">(</span><span class="n">train_examples</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">TripletLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initializes internal Module state, shared by both nn.Module and ScriptModule.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="evaluation.html" class="btn btn-neutral float-right" title="Evaluation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="models.html" class="btn btn-neutral float-left" title="Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

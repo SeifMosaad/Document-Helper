@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GenQ &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/unsupervised_learning/query_generation/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../../index.html">
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>GenQ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/unsupervised_learning/query_generation/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="genq">
+<h1>GenQ<a class="headerlink" href="#genq" title="Permalink to this headline">¶</a></h1>
+<p>In our paper <a class="reference external" href="https://arxiv.org/abs/2104.08663">BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models</a> we presented a method to adapt a model for <a class="reference external" href="../../applications/semantic-search/">asymmetric semantic search</a> without for a corpus without labeled training data.</p>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>In <a class="reference external" href="../../applications/semantic-search/">asymmetric semantic search</a>, the user provides a (short) query like some keywords or a question. We then want to retrieve a longer text passage that provides the answer.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>query: What is Python?
+passage to retrieve: Python is an interpreted, high-level and general-purpose programming language. Python&#39;s design philosophy emphasizes code readability with its notable use of significant whitespace. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects.
+</pre></div>
+</div>
+<p>We showed how to train such models if sufficient training data (query &amp; relevant passage) is available here: <a class="reference external" href="../../training/ms_marco">Training MS MARCO dataset</a></p>
+<p>In this tutorial, we show to train such models if  <strong>no training data is available</strong>, i.e., if you don’t have thousands of labeled query &amp; relevant passage pairs.</p>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>We use <strong>synthethic query generation</strong> to achieve our gold. We start with the passage from our document collection and create for these possible queries users might ask / might search for.</p>
+<p><img alt="Query Generation" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/query-generation.png" /></p>
+<p>For example, we have the following text passage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">Python</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">interpreted</span><span class="p">,</span> <span class="n">high</span><span class="o">-</span><span class="n">level</span> <span class="ow">and</span> <span class="n">general</span><span class="o">-</span><span class="n">purpose</span> <span class="n">programming</span> <span class="n">language</span><span class="o">.</span> <span class="n">Python</span><span class="s1">&#39;s design philosophy emphasizes code readability with its notable use of significant whitespace. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects.</span>
+</pre></div>
+</div>
+<p>We pass this passage through a specially trained <a class="reference external" href="https://arxiv.org/abs/1910.10683">T5 model</a> which generates possible queries for us. For the above passage, it might generate these queries:</p>
+<ul class="simple">
+<li><p>What is python</p></li>
+<li><p>definition python</p></li>
+<li><p>what language uses whitespaces</p></li>
+</ul>
+<p>We then use these generated queries to create our training set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">What</span> <span class="ow">is</span> <span class="n">python</span><span class="p">,</span> <span class="n">Python</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">interpreted</span><span class="o">...</span><span class="p">)</span>
+<span class="p">(</span><span class="n">definition</span> <span class="n">python</span><span class="p">,</span> <span class="n">Python</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">interpreted</span><span class="o">...</span><span class="p">)</span>
+<span class="p">(</span><span class="n">what</span> <span class="n">language</span> <span class="n">uses</span> <span class="n">whitespaces</span><span class="p">,</span> <span class="n">Python</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">interpreted</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And train our SentenceTransformer bi-encoder with it.</p>
+</div>
+<div class="section" id="query-generation">
+<h2>Query Generation<a class="headerlink" href="#query-generation" title="Permalink to this headline">¶</a></h2>
+<p>In <a class="reference external" href="https://huggingface.co/BeIR">BeIR</a> we provide different models that can be used for query generation. In this example, we use the T5 model that was trained by <a class="reference external" href="https://github.com/castorini/docTTTTTquery">docTTTTTquery</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">T5Tokenizer</span><span class="p">,</span> <span class="n">T5ForConditionalGeneration</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">T5Tokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;BeIR/query-gen-msmarco-t5-large-v1&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">T5ForConditionalGeneration</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;BeIR/query-gen-msmarco-t5-large-v1&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+<span class="n">para</span> <span class="o">=</span> <span class="s2">&quot;Python is an interpreted, high-level and general-purpose programming language. Python&#39;s design philosophy emphasizes code readability with its notable use of significant whitespace. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects.&quot;</span>
+
+<span class="n">input_ids</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">para</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+        <span class="n">input_ids</span><span class="o">=</span><span class="n">input_ids</span><span class="p">,</span>
+        <span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+        <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">top_p</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span>
+        <span class="n">num_return_sequences</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Paragraph:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Generated Queries:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">outputs</span><span class="p">)):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the above code, we use <a class="reference external" href="https://huggingface.co/blog/how-to-generate">Top-p (nucleus) sampling</a> which will randomly pick a word from a collection of likely words. As a consequence, the model will generate different queries each time.</p>
+</div>
+<div class="section" id="bi-encoder-training">
+<h2>Bi-Encoder Training<a class="headerlink" href="#bi-encoder-training" title="Permalink to this headline">¶</a></h2>
+<p>With the generated queries, we can then train a bi-encoder using the use <a class="reference external" href="https://www.sbert.net/docs/package_reference/losses.html#multiplenegativesrankingloss">MultipleNegativesRankingLoss</a>.</p>
+</div>
+<div class="section" id="full-example">
+<h2>Full Example<a class="headerlink" href="#full-example" title="Permalink to this headline">¶</a></h2>
+<p>We train a semantic search model to search through Wikipedia
+articles about programming articles &amp; technologies.</p>
+<p>We use the text paragraphs from the following Wikipedia articles:
+Assembly language, C , C# , C++, Go , Java , JavaScript, Keras, Laravel, MATLAB, Matplotlib, MongoDB, MySQL, Natural Language Toolkit, NumPy, pandas (software), Perl, PHP, PostgreSQL, Python , PyTorch, R , React, Rust , Scala , scikit-learn, SciPy, Swift , TensorFlow, Vue.js</p>
+<p>In:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/unsupervised_learning/query_generation/1_programming_query_generation.py">1_programming_query_generation.py</a> - We generate queries for all paragraphs from these articles</p></li>
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/unsupervised_learning/query_generation/2_programming_train_bi-encoder.py">2_programming_train_bi-encoder.py</a> - We train a SentenceTransformer bi-encoder with these generated queries. This results in a model we can then use for sematic search (for the given Wikipedia articles).</p></li>
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/unsupervised_learning/query_generation/3_programming_semantic_search.py">3_programming_semantic_search.py</a> - Shows how the trained model can be used for semantic search.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

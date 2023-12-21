@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pretrained Cross-Encoders &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netdocs/pretrained_cross-encoders.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Publications" href="publications.html" />
+    <link rel="prev" title="Pretrained Models" href="pretrained_models.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../index.html">
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pretrained Cross-Encoders</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ms-marco">MS MARCO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#squad-qnli">SQuAD (QNLI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stsbenchmark">STSbenchmark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quora-duplicate-questions">Quora Duplicate Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nli">NLI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Pretrained Cross-Encoders</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/docs/pretrained_cross-encoders.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pretrained-cross-encoders">
+<h1>Pretrained Cross-Encoders<a class="headerlink" href="#pretrained-cross-encoders" title="Permalink to this headline">¶</a></h1>
+<p>This page lists available <strong>pretrained Cross-Encoders</strong>. Cross-Encoders require the input of a text pair and output a score 0…1. They do not work for individual sentences and they don’t compute embeddings for individual texts.</p>
+<p><img alt="BiEncoder" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/Bi_vs_Cross-Encoder.png" /></p>
+<div class="section" id="ms-marco">
+<h2>MS MARCO<a class="headerlink" href="#ms-marco" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/microsoft/MSMARCO-Passage-Ranking">MS MARCO Passage Retrieval</a> is a large dataset with real user queries from Bing search engine with annotated relevant text passages.</p>
+<p>These models can be used like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">CrossEncoder</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">CrossEncoder</span><span class="p">(</span><span class="s1">&#39;model_name&#39;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([(</span><span class="s1">&#39;Query1&#39;</span><span class="p">,</span> <span class="s1">&#39;Paragraph1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Query1&#39;</span><span class="p">,</span> <span class="s1">&#39;Paragraph2&#39;</span><span class="p">)])</span>
+
+<span class="c1">#For Example</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([(</span><span class="s1">&#39;How many people live in Berlin?&#39;</span><span class="p">,</span> <span class="s1">&#39;Berlin had a population of 3,520,031 registered inhabitants in an area of 891.82 square kilometers.&#39;</span><span class="p">),</span> 
+                        <span class="p">(</span><span class="s1">&#39;How many people live in Berlin?&#39;</span><span class="p">,</span> <span class="s1">&#39;Berlin is well known for its museums.&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>cross-encoder/ms-marco-TinyBERT-L-2-v2</strong> - MRR&#64;10 on MS Marco Dev Set: 32.56</p></li>
+<li><p><strong>cross-encoder/ms-marco-MiniLM-L-2-v2</strong> - MRR&#64;10 on MS Marco Dev Set: 34.85</p></li>
+<li><p><strong>cross-encoder/ms-marco-MiniLM-L-4-v2</strong> - MRR&#64;10 on MS Marco Dev Set: 37.70</p></li>
+<li><p><strong>cross-encoder/ms-marco-MiniLM-L-6-v2</strong> - MRR&#64;10 on MS Marco Dev Set: 39.01</p></li>
+<li><p><strong>cross-encoder/ms-marco-MiniLM-L-12-v2</strong> - MRR&#64;10 on MS Marco Dev Set: 39.02</p></li>
+</ul>
+<p>For details on the usage, see <a class="reference internal" href="../examples/applications/retrieve_rerank/README.html"><span class="doc">Applications - Information Retrieval</span></a></p>
+<p><a class="reference internal" href="pretrained-models/ce-msmarco.html"><span class="doc">MS MARCO Cross-Encoders - More details</span></a></p>
+</div>
+<div class="section" id="squad-qnli">
+<h2>SQuAD (QNLI)<a class="headerlink" href="#squad-qnli" title="Permalink to this headline">¶</a></h2>
+<p>QNLI is based on the <a class="reference external" href="https://rajpurkar.github.io/SQuAD-explorer/">SQuAD dataset</a> and was introduced by the <a class="reference external" href="https://arxiv.org/abs/1804.07461">GLUE Benchmark</a>. Given a passage from Wikipedia, annotators created questions that are answerable by that passage.</p>
+<ul class="simple">
+<li><p><strong>cross-encoder/qnli-distilroberta-base</strong> - Accuracy on QNLI dev set: 90.96</p></li>
+<li><p><strong>cross-encoder/qnli-electra-base</strong> - Accuracy on QNLI dev set: 93.21</p></li>
+</ul>
+</div>
+<div class="section" id="stsbenchmark">
+<h2>STSbenchmark<a class="headerlink" href="#stsbenchmark" title="Permalink to this headline">¶</a></h2>
+<p>The following models can be used like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">CrossEncoder</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">CrossEncoder</span><span class="p">(</span><span class="s1">&#39;model_name&#39;</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([(</span><span class="s1">&#39;Sent A1&#39;</span><span class="p">,</span> <span class="s1">&#39;Sent B1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Sent A2&#39;</span><span class="p">,</span> <span class="s1">&#39;Sent B2&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>They return a score  0…1 indicating the semantic similarity of the given sentence pair.</p>
+<ul class="simple">
+<li><p><strong>cross-encoder/stsb-TinyBERT-L-4</strong> - STSbenchmark test performance: 85.50</p></li>
+<li><p><strong>cross-encoder/stsb-distilroberta-base</strong> - STSbenchmark test performance: 87.92</p></li>
+<li><p><strong>cross-encoder/stsb-roberta-base</strong> - STSbenchmark test performance: 90.17</p></li>
+<li><p><strong>cross-encoder/stsb-roberta-large</strong> - STSbenchmark test performance: 91.47</p></li>
+</ul>
+</div>
+<div class="section" id="quora-duplicate-questions">
+<h2>Quora Duplicate Questions<a class="headerlink" href="#quora-duplicate-questions" title="Permalink to this headline">¶</a></h2>
+<p>These models have been trained on the <a class="reference external" href="https://www.quora.com/q/quoradata/First-Quora-Dataset-Release-Question-Pairs">Quora duplicate questions dataset</a>. They can used like the STSb models and give a score 0…1 indicating the probability that two questions are duplicate questions.</p>
+<ul class="simple">
+<li><p><strong>cross-encoder/quora-distilroberta-base</strong> - Average Precision dev set: 87.48</p></li>
+<li><p><strong>cross-encoder/quora-roberta-base</strong> - Average Precision dev set: 87.80</p></li>
+<li><p><strong>cross-encoder/quora-roberta-large</strong> - Average Precision dev set: 87.91</p></li>
+</ul>
+<p>Note: The model don’t work for question similarity. The question <em>How to learn Java</em> and <em>How to learn Python</em> will get a low score, as these questions are not duplicates. For question similarity, the respective bi-encoder trained on the Quora dataset yields much more meaningful results.</p>
+</div>
+<div class="section" id="nli">
+<h2>NLI<a class="headerlink" href="#nli" title="Permalink to this headline">¶</a></h2>
+<p>Given two sentences, are these contradicting each other, entailing one the other or are these netural? The following models were trained on the <a class="reference external" href="https://nlp.stanford.edu/projects/snli/">SNLI</a> and <a class="reference external" href="https://cims.nyu.edu/~sbowman/multinli/">MultiNLI</a> datasets.</p>
+<ul class="simple">
+<li><p><strong>cross-encoder/nli-deberta-v3-base</strong> - Accuracy on MNLI mismatched set: 90.04</p></li>
+<li><p><strong>cross-encoder/nli-deberta-base</strong> - Accuracy on MNLI mismatched set: 88.08</p></li>
+<li><p><strong>cross-encoder/nli-deberta-v3-xsmall</strong> - Accuracy on MNLI mismatched set:  87.77</p></li>
+<li><p><strong>cross-encoder/nli-deberta-v3-small</strong> - Accuracy on MNLI mismatched set: 87.55</p></li>
+<li><p><strong>cross-encoder/nli-roberta-base</strong> - Accuracy on MNLI mismatched set: 87.47</p></li>
+<li><p><strong>cross-encoder/nli-MiniLM2-L6-H768</strong> - Accuracy on MNLI mismatched set: 86.89</p></li>
+<li><p><strong>cross-encoder/nli-distilroberta-base</strong> - Accuracy on MNLI mismatched set: 83.98</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">CrossEncoder</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">CrossEncoder</span><span class="p">(</span><span class="s1">&#39;model_name&#39;</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">([(</span><span class="s1">&#39;A man is eating pizza&#39;</span><span class="p">,</span> <span class="s1">&#39;A man eats something&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;A black race car starts up in front of a crowd of people.&#39;</span><span class="p">,</span> <span class="s1">&#39;A man is driving down a lonely road.&#39;</span><span class="p">)])</span>
+
+<span class="c1">#Convert scores to labels</span>
+<span class="n">label_mapping</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;contradiction&#39;</span><span class="p">,</span> <span class="s1">&#39;entailment&#39;</span><span class="p">,</span> <span class="s1">&#39;neutral&#39;</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">label_mapping</span><span class="p">[</span><span class="n">score_max</span><span class="p">]</span> <span class="k">for</span> <span class="n">score_max</span> <span class="ow">in</span> <span class="n">scores</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="publications.html" class="btn btn-neutral float-right" title="Publications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pretrained_models.html" class="btn btn-neutral float-left" title="Pretrained Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

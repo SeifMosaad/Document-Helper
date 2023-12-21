@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quora Duplicate Questions &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/training/quora_duplicate_questions/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="MS MARCO" href="../ms_marco/README.html" />
+    <link rel="prev" title="Paraphrase Data" href="../paraphrases/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../../index.html">
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quora Duplicate Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pretrained-models">Pretrained Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dataset">Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#duplicate-questions-mining">Duplicate Questions Mining</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#semantic-search">Semantic Search</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#training">Training</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#constrative-loss">Constrative Loss</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#multiplenegativesrankingloss">MultipleNegativesRankingLoss</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multi-task-learning">Multi-Task-Learning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Quora Duplicate Questions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/training/quora_duplicate_questions/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quora-duplicate-questions">
+<h1>Quora Duplicate Questions<a class="headerlink" href="#quora-duplicate-questions" title="Permalink to this headline">¶</a></h1>
+<p>This folder contains scripts that demonstrate how to train SentenceTransformers for <strong>Information Retrieval</strong>. As simple example, we will use the <a class="reference external" href="https://www.quora.com/q/quoradata/First-Quora-Dataset-Release-Question-Pairs">Quora Duplicate Questions dataset</a>. It contains over 500,000 sentences with over 400,000 pairwise annotations whether two questions are a duplicate or not.</p>
+<div class="section" id="pretrained-models">
+<h2>Pretrained Models<a class="headerlink" href="#pretrained-models" title="Permalink to this headline">¶</a></h2>
+<p>Currently the following models trained on Quora Duplicate Questions are available:</p>
+<ul class="simple">
+<li><p><strong>distilbert-base-nli-stsb-quora-ranking</strong>:  We extended the <em>distilbert-base-nli-stsb-mean-tokens</em> model and trained it with <em>OnlineContrastiveLoss</em> and with <em>MultipleNegativesRankingLoss</em> on the Quora Duplicate questions dataset. For the code, see <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/quora_duplicate_questions/training_multi-task-learning.py">training_multi-task-learning.py</a></p></li>
+<li><p><strong>distilbert-multilingual-nli-stsb-quora-ranking</strong>: Extension of <em>distilbert-base-nli-stsb-quora-ranking</em> to be multi-lingual. Trained on parallel data for 50 languages.</p></li>
+</ul>
+<p>You can load &amp; use pre-trained models like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;model_name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+<p>As dataset to train a <strong>Duplicate Questions Semantic Search Engine</strong> we use <a class="reference external" href="https://www.quora.com/q/quoradata/First-Quora-Dataset-Release-Question-Pairs">Quora Duplicate Questions dataset</a>. The original format looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>id	qid1	qid2	question1	question2	is_duplicate
+0	1	2	What is the step by step guide to invest in share market in india?	What is the step by step guide to invest in share market?	0
+1	3	4	What is the story of Kohinoor (Koh-i-Noor) Diamond?	What would happen if the Indian government stole the Kohinoor (Koh-i-Noor) diamond back?	0
+</pre></div>
+</div>
+<p>As a first step, we process this file to create distinct train/dev/test splits for different tasks. We define the following tasks:</p>
+<ul class="simple">
+<li><p><strong>Duplicate Questions Classification</strong>: Given two questions, are these questions duplicates? This is the original task as defined by Quora, however, it is rather a unpractical task. How do we retrieve possible duplicates in a large corpus for a given question? Further, models performing well on this classification task do not necessarily perform well on the following two task.</p></li>
+<li><p><strong>Duplicate Questions Mining</strong>: Given a large set (like 100k) of questions, identify all question pairs that are duplicates.</p></li>
+<li><p><strong>Duplicate Questions Information Retrieval</strong>: Given a large corpus (350k+) of questions. For a new, unseen question, find the most related (i.e. duplicate) questions in this corpus.</p></li>
+</ul>
+<p><strong>Download</strong>: You can download the finished dataset here: <a class="reference external" href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/quora-IR-dataset.zip">quora-IR-dataset.zip</a></p>
+<p>For details on the creation of the dataset, see <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/quora_duplicate_questions/create_splits.py">create_splits.py</a>.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="duplicate-questions-mining">
+<h3>Duplicate Questions Mining<a class="headerlink" href="#duplicate-questions-mining" title="Permalink to this headline">¶</a></h3>
+<p>Given a large set of sentences (in this case questions), identify all pairs that are duplicates. See <a class="reference internal" href="../../applications/paraphrase-mining/README.html"><span class="doc">Paraphrase Mining</span></a> for an example how to use sentence transformers to mine for duplicate questions / paraphrases. This approach can be scaled to hundred thousands of sentences given you have enough memory.</p>
+</div>
+<div class="section" id="semantic-search">
+<h3>Semantic Search<a class="headerlink" href="#semantic-search" title="Permalink to this headline">¶</a></h3>
+<p>The model can also be used for Information Retrieval / Semantic Search. Given a new question, search a large corpus of hundred thousands of questions for duplicate questions. Given you have enough memory, this approach works well to copora up in the Millions (depending on your real-time requirements).</p>
+<p>For an interactive example, see <a class="reference internal" href="../../applications/semantic-search/README.html"><span class="doc">Semantic Search</span></a>.</p>
+</div>
+</div>
+<div class="section" id="training">
+<h2>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h2>
+<p>Choosing the right loss function is crucial for getting well working sentence embeddings. For the given task, two loss functions are especially suitable: <strong>ConstrativeLoss</strong> and <strong>MultipleNegativesRankingLoss</strong></p>
+<div class="section" id="constrative-loss">
+<h3>Constrative Loss<a class="headerlink" href="#constrative-loss" title="Permalink to this headline">¶</a></h3>
+<p>For the complete example, see <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/quora_duplicate_questions/training_OnlineContrastiveLoss.py">training_OnlineContrastiveLoss.py</a>.</p>
+<p>In the original dataset, we have questions given with a label of 0=not duplicate and 1=duplicate. In that case, we can use constrative loss: Similar pairs with label 1 are pulled together, so that they are close in vector space. Dissimilar pairs, that are closer than a defined margin, are pushed away in vector space.</p>
+<p>Choosing the distance function and especially choosing a sensible margin are quite important for the success of constrative loss. In the given example, we use cosine_distance (which is 1-cosine_similarity) with a margin of 0.5. I.e., non-duplicate questions should have a cosine_distance of at least 0.5 (which is equivalent to a 0.5 cosine similarity difference).</p>
+<p>An improved version of constrative loss is OnlineConstrativeLoss, which looks which negative pairs have a lower distance that the largest positive pair and which positive pairs have a higher distance than the lowest distance of negative pairs. I.e., this loss automatically detects the hard cases in a batch and computes the loss only for these cases.</p>
+<p>The loss can be used like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_samples</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="s2">&quot;classification/train_pairs.tsv&quot;</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fIn</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fIn</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_NONE</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">sample</span> <span class="o">=</span> <span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;question1&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;question2&#39;</span><span class="p">]],</span> <span class="n">label</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;is_duplicate&#39;</span><span class="p">]))</span>
+        <span class="n">train_samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+
+
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">SentencesDataset</span><span class="p">(</span><span class="n">train_samples</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">OnlineContrastiveLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">distance_metric</span><span class="o">=</span><span class="n">distance_metric</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="n">margin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For each row in our train dataset, we create new InputExample objects and the two questions as texts and the is_duplicate as the label.</p>
+</div>
+</div>
+<div class="section" id="multiplenegativesrankingloss">
+<h2>MultipleNegativesRankingLoss<a class="headerlink" href="#multiplenegativesrankingloss" title="Permalink to this headline">¶</a></h2>
+<p>For the complete example, see <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/quora_duplicate_questions/training_MultipleNegativesRankingLoss.py">training_MultipleNegativesRankingLoss.py</a>.</p>
+<p><em>MultipleNegativesRankingLoss</em> is especially suitable for Information Retrieval / Semantic Search. A nice advantage of <em>MultipleNegativesRankingLoss</em> is that it only requires positive pairs, i.e., we only need examples of duplicate questions.</p>
+<p>From all pairs, we sample a mini-batch <em>(a_1, b_1), …, (a_n, b_n)</em> where <em>(a_i, b_i)</em> is a duplicate question.</p>
+<p>MultipleNegativesRankingLoss now uses all <em>b_j</em> with j != i as negative example for <em>(a_i, b_i)</em>. For example, for <em>a_1</em> we have given the options <em>(b_1, …, b_n)</em> and we need to identify which is the correct duplicate question to <em>a_1</em>. We do this by computing the dot-product between the embedding of <em>a_1</em> and all <em>b</em>’s and softmax normalize it so that we get a proability distribution over <em>(b_1, …, b_n)</em>. In the best case, the positive example <em>b_1</em> get a probability of close to 1 while all others get scores close to 0. We use negative log-likelihood to compute the loss.</p>
+<p><em>MultipleNegativesRankingLoss</em> implements this idea in an efficient way so that the embeddings are re-used. With a batch-size of 64, we have 64 positive pairs and each positive pairs has 64-1 negative distractors.</p>
+<p>Using the loss is easy and does not require tuning of any hyperparameters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_samples</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="s2">&quot;classification/train_pairs.tsv&quot;</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fIn</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fIn</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_NONE</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;is_duplicate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+            <span class="n">train_samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;question1&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;question2&#39;</span><span class="p">]],</span> <span class="n">label</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">train_samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;question2&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;question1&#39;</span><span class="p">]],</span> <span class="n">label</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="c1">#if A is a duplicate of B, then B is a duplicate of A</span>
+
+
+<span class="c1"># After reading the train_samples, we create a SentencesDataset and a DataLoader</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">SentencesDataset</span><span class="p">(</span><span class="n">train_samples</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">MultipleNegativesRankingLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We only use the positive examples. As ‘is_duplicate’ is a symmetric relation, we not only add (A, B) but also (B, A) to our training sample set.</p>
+<p><strong>Note 1:</strong> Increasing the batch sizes usually yields better results, as the task gets harder. It is more difficult to identify the correct duplicate question out of a set of 100 questions than out of a set of only 10 questions. So it is advisable to set the training batch size as large as possible. I trained it with a batch size of 350 on 32 GB GPU memory.</p>
+<p><strong>Note 2:</strong> MultipleNegativesRankingLoss only works if <em>(a_i, b_j)</em> with j != i is actually a negative, non-duplicate question pair. In few instances, this assumption is wrong. But in the majority of cases, if we sample two random questions, they are not duplicates. If your dataset cannot fullfil this property,  MultipleNegativesRankingLoss might not work well.</p>
+<div class="section" id="multi-task-learning">
+<h3>Multi-Task-Learning<a class="headerlink" href="#multi-task-learning" title="Permalink to this headline">¶</a></h3>
+<p>Constrative Loss works well for pair classification, i.e., given two pairs, are these duplicates or not. It pushes negative pairs far away in vector space, so that the distinguishing between duplicate and non-duplicate pairs works good.</p>
+<p>MultipleNegativesRankingLoss on the other sides mainly reduces the distance between positive pairs out of large set of possible candidates. However, the distance between  non-duplicate questions is not so large, so that this loss does not work that weill for pair classification.</p>
+<p>In <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/quora_duplicate_questions/training_multi-task-learning.py">training_multi-task-learning.py</a> I demonstrate how we can train the network with both losses. The essential code is to define both losses and to pass it to the fit method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_samples_MultipleNegativesRankingLoss</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">train_samples_ConstrativeLoss</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="s2">&quot;classification/train_pairs.tsv&quot;</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fIn</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fIn</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_NONE</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">train_samples_ConstrativeLoss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;question1&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;question2&#39;</span><span class="p">]],</span> <span class="n">label</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;is_duplicate&#39;</span><span class="p">])))</span>
+        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;is_duplicate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+            <span class="n">train_samples_MultipleNegativesRankingLoss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;question1&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;question2&#39;</span><span class="p">]],</span> <span class="n">label</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">train_samples_MultipleNegativesRankingLoss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;question2&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;question1&#39;</span><span class="p">]],</span> <span class="n">label</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># if A is a duplicate of B, then B is a duplicate of A</span>
+
+<span class="c1"># Create data loader and loss for MultipleNegativesRankingLoss</span>
+<span class="n">train_dataset_MultipleNegativesRankingLoss</span> <span class="o">=</span> <span class="n">SentencesDataset</span><span class="p">(</span><span class="n">train_samples_MultipleNegativesRankingLoss</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+<span class="n">train_dataloader_MultipleNegativesRankingLoss</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset_MultipleNegativesRankingLoss</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss_MultipleNegativesRankingLoss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">MultipleNegativesRankingLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+
+<span class="c1"># Create data loader and loss for OnlineContrastiveLoss</span>
+<span class="n">train_dataset_ConstrativeLoss</span> <span class="o">=</span> <span class="n">SentencesDataset</span><span class="p">(</span><span class="n">train_samples_ConstrativeLoss</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+<span class="n">train_dataloader_ConstrativeLoss</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset_ConstrativeLoss</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss_ConstrativeLoss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">OnlineContrastiveLoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">distance_metric</span><span class="o">=</span><span class="n">distance_metric</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="n">margin</span><span class="p">)</span>
+
+<span class="c1"># .....</span>
+<span class="c1"># Train the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_objectives</span><span class="o">=</span><span class="p">[(</span><span class="n">train_dataloader_MultipleNegativesRankingLoss</span><span class="p">,</span> <span class="n">train_loss_MultipleNegativesRankingLoss</span><span class="p">),</span> <span class="p">(</span><span class="n">train_dataloader_ConstrativeLoss</span><span class="p">,</span> <span class="n">train_loss_ConstrativeLoss</span><span class="p">)],</span>
+          <span class="n">evaluator</span><span class="o">=</span><span class="n">seq_evaluator</span><span class="p">,</span>
+          <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span>
+          <span class="n">warmup_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+          <span class="n">output_path</span><span class="o">=</span><span class="n">model_save_path</span>
+          <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ms_marco/README.html" class="btn btn-neutral float-right" title="MS MARCO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../paraphrases/README.html" class="btn btn-neutral float-left" title="Paraphrase Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

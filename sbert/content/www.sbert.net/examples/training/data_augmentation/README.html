@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Augmented SBERT &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/training/data_augmentation/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Semantic Textual Similarity" href="../sts/README.html" />
+    <link rel="prev" title="Cross-Encoders" href="../cross-encoder/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../../index.html">
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Augmented SBERT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extend-to-your-own-datasets">Extend to your own datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methodology">Methodology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scenario-1-limited-or-small-annotated-datasets-few-labeled-sentence-pairs">Scenario 1: Limited or small annotated datasets (few labeled sentence-pairs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scenario-2-no-annotated-datasets-only-unlabeled-sentence-pairs">Scenario 2: No annotated datasets (Only unlabeled sentence-pairs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#training">Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#citation">Citation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Augmented SBERT</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/training/data_augmentation/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="augmented-sbert">
+<h1>Augmented SBERT<a class="headerlink" href="#augmented-sbert" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Bi-encoders (a.k.a. sentence embeddings models) require substantial training data and fine-tuning over the target task to achieve competitive performances. However, in many scenarios, there is only little training data available.</p>
+<p>To solve this practical issue, we release an effective data-augmentation strategy known as <b>Augmented SBERT</b> where we utilize a high performing and slow cross-encoder (BERT) to label a larger set of input pairs to augment the training data for the bi-encoder (SBERT).</p>
+<p>For more details, refer to our publication - <a class="reference external" href="https://arxiv.org/abs/2010.08240">Augmented SBERT: Data Augmentation Method for Improving Bi-Encoders for Pairwise Sentence Scoring Tasks</a> which is a joint effort by Nandan Thakur, Nils Reimers and Johannes Daxenberger of UKP Lab, TU Darmstadt.</p>
+<p>Chien Vu also wrote a nice blog article on this technique: <a class="reference external" href="https://towardsdatascience.com/advance-nlp-model-via-transferring-knowledge-from-cross-encoders-to-bi-encoders-3e0fc564f554">Advance BERT model via transferring knowledge from Cross-Encoders to Bi-Encoders</a></p>
+</div>
+<div class="section" id="extend-to-your-own-datasets">
+<h2>Extend to your own datasets<a class="headerlink" href="#extend-to-your-own-datasets" title="Permalink to this headline">¶</a></h2>
+<p><strong>Scenario 1: Limited or small annotated datasets (few labeled sentence-pairs (1k-3k))</strong><br />If you have specialized datsets in your company or reseach which are small-sized or contain labeled few sentence-pairs. You can extend the idea of Augmented SBERT (in-domain) strategy by training a cross-encoder over your small gold  dataset and use BM25 sampling to generate combinations not seen earlier. Use the cross-encoder to label these unlabeled pairs to create the silver dataset. Finally train a bi-encoder (i.e. SBERT) over your extended dataset (gold+silver) dataset as shown in <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/data_augmentation/train_sts_indomain_bm25.py">train_sts_indomain_bm25.py</a>.</p>
+<p><strong>Scenario 2: No annotated datasets (Only unlabeled sentence-pairs)</strong><br />If you have specialized datsets in your company or reseach which only contain unlabeled sentence-pairs. You can extend the idea of Augmented SBERT (domain-transfer) strategy by training a cross-encoder over a source dataset which is annotated (for eg. QQP). Use this cross-encoder to label your specialised unlabeled dataset i.e. target dataset. Finally train a bi-encoder i.e. SBERT over your labeled target dataset as shown in <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/data_augmentation/train_sts_qqp_crossdomain.py">train_sts_qqp_crossdomain.py</a>.</p>
+</div>
+<div class="section" id="methodology">
+<h2>Methodology<a class="headerlink" href="#methodology" title="Permalink to this headline">¶</a></h2>
+<p>There are two major scenarios for the Augmented SBERT approach for pairwise-sentence regression or classification tasks.</p>
+</div>
+<div class="section" id="scenario-1-limited-or-small-annotated-datasets-few-labeled-sentence-pairs">
+<h2>Scenario 1: Limited or small annotated datasets (few labeled sentence-pairs)<a class="headerlink" href="#scenario-1-limited-or-small-annotated-datasets-few-labeled-sentence-pairs" title="Permalink to this headline">¶</a></h2>
+<p>We apply the Augmented SBERT (<b>In-domain</b>) strategy, it involves three steps -</p>
+<ul class="simple">
+<li><p>Step 1:  Train a cross-encoder (BERT) over the small (gold or annotated) dataset</p></li>
+<li><p>Step 2.1: Create pairs by recombination and reduce the pairs via BM25 or semantic search</p></li>
+<li><p>Step 2.2: Weakly label new pairs with cross-encoder (BERT). These are silver pairs or (silver) dataset</p></li>
+<li><p>Step 3:  Finally, train a bi-encoder (SBERT) on the extended (gold + silver) training dataset</p></li>
+</ul>
+<img src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/augsbert-indomain.png" width="400" height="500"></div>
+<div class="section" id="scenario-2-no-annotated-datasets-only-unlabeled-sentence-pairs">
+<h2>Scenario 2: No annotated datasets (Only unlabeled sentence-pairs)<a class="headerlink" href="#scenario-2-no-annotated-datasets-only-unlabeled-sentence-pairs" title="Permalink to this headline">¶</a></h2>
+<p>We apply the Augmented SBERT (<b>Domain-Transfer</b>) strategy, it involves three steps -</p>
+<ul class="simple">
+<li><p>Step 1: Train from scratch a cross-encoder (BERT) over a source dataset, for which we contain annotations</p></li>
+<li><p>Step 2: Use this cross-encoder (BERT) to label your target dataset i.e. unlabled sentence pairs</p></li>
+<li><p>Step 3: Finally, train a bi-encoder (SBERT) on the labeled target dataset</p></li>
+</ul>
+<img src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/augsbert-domain-transfer.png" width="500" height="300"></div>
+<div class="section" id="training">
+<h2>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/training/data_augmentation/">examples/training/data_augmentation</a> folder contains simple training examples for each scenario explained below:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/data_augmentation/train_sts_seed_optimization.py">train_sts_seed_optimization.py</a></p>
+<ul>
+<li><p>This script trains a bi-encoder (SBERT) model from scratch for STS benchmark dataset with seed-optimization.</p></li>
+<li><p>Seed optimization technique is insiped from <a class="reference external" href="https://arxiv.org/abs/2002.06305">(Dodge et al., 2020)</a>.</p></li>
+<li><p>For Seed opt., we train our bi-encoder for various seeds and evaluate using an early stopping algorithm.</p></li>
+<li><p>Finally, measure dev performance across the seeds to get the highest performing seeds.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/data_augmentation/train_sts_indomain_nlpaug.py">train_sts_indomain_nlpaug.py</a></p>
+<ul>
+<li><p>This script trains a bi-encoder (SBERT) model from scratch for STS benchmark dataset using easy data augmentation.</p></li>
+<li><p>Data augmentation strategies are used from popular <a class="reference external" href="https://github.com/makcedward/nlpaug">nlpaug</a> package.</p></li>
+<li><p>Augment single sentences with synonyms using (word2vec, BERT or WordNet). Forms our silver dataset.</p></li>
+<li><p>Train bi-encoder model on both original small training dataset and synonym based silver dataset.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/data_augmentation/train_sts_indomain_bm25.py">train_sts_indomain_bm25.py</a></p>
+<ul>
+<li><p>Script intially trains a cross-encoder (BERT) model from scratch for small STS benchmark dataset.</p></li>
+<li><p>Recombine sentences from our small training dataset and form lots of sentence-pairs.</p></li>
+<li><p>Limit number of combinations with BM25 sampling using <a class="reference external" href="https://www.elastic.co/">ElasticSearch</a>.</p></li>
+<li><p>Retrieve top-k sentences given a sentence and label these pairs using the cross-encoder (silver dataset).</p></li>
+<li><p>Train a bi-encoder (SBERT) model on both gold + silver STSb dataset. (Augmented SBERT (In-domain) Strategy).</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/data_augmentation/train_sts_indomain_semantic.py">train_sts_indomain_semantic.py</a></p>
+<ul>
+<li><p>This script intially trains a cross-encoder (BERT) model from scratch for small STS benchmark dataset.</p></li>
+<li><p>We recombine sentences from our small training dataset and form lots of sentence-pairs.</p></li>
+<li><p>Limit number of combinations with Semantic Search sampling using pretrained SBERT model.</p></li>
+<li><p>Retrieve top-k sentences given a sentence and label these pairs using the cross-encoder (silver dataset).</p></li>
+<li><p>Train a bi-encoder (SBERT) model on both gold + silver STSb dataset. (Augmented SBERT (In-domain) Strategy).</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/data_augmentation/train_sts_qqp_crossdomain.py">train_sts_qqp_crossdomain.py</a></p>
+<ul>
+<li><p>This script intially trains a cross-encoder (BERT) model from scratch for STS benchmark dataset.</p></li>
+<li><p>Label the Quora Questions Pair (QQP) training dataset (Assume no labels present) using the cross-encoder.</p></li>
+<li><p>Train a bi-encoder (SBERT) model on the QQP dataset. (Augmented SBERT (Domain-Transfer) Strategy).</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h2>
+<p>If you use the code for augmented sbert, feel free to cite our publication <a class="reference external" href="https://arxiv.org/abs/2010.08240">Augmented SBERT: Data Augmentation Method for Improving Bi-Encoders for Pairwise Sentence Scoring Tasks</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">thakur</span><span class="o">-</span><span class="mi">2020</span><span class="o">-</span><span class="n">AugSBERT</span><span class="p">,</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Augmented SBERT: Data Augmentation Method for Improving Bi-Encoders for Pairwise Sentence Scoring Tasks&quot;</span><span class="p">,</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;Thakur, Nandan and Reimers, Nils and Daxenberger, Johannes and  Gurevych, Iryna&quot;</span><span class="p">,</span> 
+    <span class="n">journal</span><span class="o">=</span> <span class="s2">&quot;arXiv preprint arXiv:2010.08240&quot;</span><span class="p">,</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="s2">&quot;2020&quot;</span><span class="p">,</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://arxiv.org/abs/2010.08240&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sts/README.html" class="btn btn-neutral float-right" title="Semantic Textual Similarity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../cross-encoder/README.html" class="btn btn-neutral float-left" title="Cross-Encoders" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

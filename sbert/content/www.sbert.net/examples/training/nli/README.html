@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Natural Language Inference &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/training/nli/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Paraphrase Data" href="../paraphrases/README.html" />
+    <link rel="prev" title="Semantic Textual Similarity" href="../sts/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../../index.html">
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Natural Language Inference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#softmaxloss">SoftmaxLoss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiplenegativesrankingloss">MultipleNegativesRankingLoss</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multiplenegativesrankingloss-with-hard-negatives">MultipleNegativesRankingLoss with Hard Negatives</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Natural Language Inference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/training/nli/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="natural-language-inference">
+<h1>Natural Language Inference<a class="headerlink" href="#natural-language-inference" title="Permalink to this headline">¶</a></h1>
+<p>Given two sentence (premise and hypothesis), Natural Language Inference (NLI) is the task of deciding if the premise entails the hypothesis, if they are contradiction or if they are neutral. Commonly used NLI dataset are <a class="reference external" href="https://arxiv.org/abs/1508.05326">SNLI</a> and <a class="reference external" href="https://arxiv.org/abs/1704.05426">MultiNLI</a>.</p>
+<p><a class="reference external" href="https://arxiv.org/abs/1705.02364">Conneau et al.</a> showed that NLI data can be quite useful when training Sentence Embedding methods. We also found this in our <a class="reference external" href="https://arxiv.org/abs/1908.10084">Sentence-BERT-Paper</a> and often use NLI as a first fine-tuning step for sentence embedding methods.</p>
+<p>To train on NLI, see the follwing example files:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/nli/training_nli.py">training_nli.py</a></strong> - This example uses the Softmax-Classification-Loss, as described in the <a class="reference external" href="https://arxiv.org/abs/1908.10084">SBERT-Paper</a>, to learn sentence embeddings.</p></li>
+<li><p><strong><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/nli/training_nli_v2.py">training_nli_v2.py</a></strong> - The Softmax-Classification-Loss, as used in our original SBERT paper, does not yield optimal performance. A better loss is <a class="reference external" href="https://www.sbert.net/docs/package_reference/losses.html#multiplenegativesrankingloss">MultipleNegativesRankingLoss</a>, where we provide pairs or triplets. In that example, we provide a triplet of the format: (anchor, entailment_sentence, contradiction_sentence). The NLI data provides such triplets. The MultipleNegativesRankingLoss yields much higher performances and is more intuitive than the Softmax-Classifiation-Loss. We have used this loss to train the paraphrase model in our <a class="reference external" href="https://arxiv.org/abs/2004.09813">Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation</a> paper.</p></li>
+</ul>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>In our experiments we combine <a class="reference external" href="https://arxiv.org/abs/1508.05326">SNLI</a> and <a class="reference external" href="https://arxiv.org/abs/1704.05426">MultiNLI</a>, which we call AllNLI. These two datasets contain sentence pairs and one of three labels: entailment, neutral, contradiction:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Sentence A (Premise)</th>
+<th>Sentence B (Hypothesis)</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A soccer game with multiple males playing.</td>
+<td>Some men are playing a sport.</td>
+<td>entailment</td>
+</tr>
+<tr>
+<td>An older and younger man smiling.</td>
+<td>Two men are smiling and laughing at the cats playing on the floor.</td>
+<td>neutral</td>
+</tr>
+<tr>
+<td>A man inspects the uniform of a figure in some East Asian country.</td>
+<td>The man is sleeping.</td>
+<td>contradiction</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="softmaxloss">
+<h2>SoftmaxLoss<a class="headerlink" href="#softmaxloss" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://arxiv.org/abs/1705.02364">Conneau et al.</a> described how a softmax classifier on top of a siamese network can be used to learn meaningful sentence representation. We can achieve this by using the  <a class="reference external" href="../../../docs/package_reference/losses.html#softmaxloss">losses.SoftmaxLoss</a> package.</p>
+<p>The softmax loss looks like this:</p>
+<p><img alt="SBERT SoftmaxLoss" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/SBERT_SoftmaxLoss.png" /></p>
+<p>We pass the two sentences through our SentenceTransformer network and get the sentence embeddings <em>u</em> and <em>v</em>. We then concatenate u, v and |u-v| to form one, long vector. This vector is then passed to a softmax classifier, which predicts our three classes (entailnment, neutral, contradiction).</p>
+<p>This setup learns sentence embeddings, that can later be used for wide varity of tasks.</p>
+</div>
+<div class="section" id="multiplenegativesrankingloss">
+<h2>MultipleNegativesRankingLoss<a class="headerlink" href="#multiplenegativesrankingloss" title="Permalink to this headline">¶</a></h2>
+<p>That the softmax-loss with NLI data produces (relatively) good sentence embeddings is rather coincidental. The <a class="reference external" href="https://www.sbert.net/docs/package_reference/losses.html#multiplenegativesrankingloss">MultipleNegativesRankingLoss</a> is much more intuitive and produces also significantly better sentence representations.</p>
+<p>The training data for MultipleNegativesRankingLoss consists of sentence pairs [(a<sub>1</sub>, b<sub>1</sub>), …, (a<sub>n</sub>, b<sub>n</sub>)] where we assume that (a<sub>i</sub>, b<sub>i</sub>) are similar sentences and (a<sub>i</sub>, b<sub>j</sub>) are dissimilar sentences for i != j. The minimizes the distance between (a<sub>i</sub>, b<sub>i</sub>) while it simultaneously maximizes the distance  (a<sub>i</sub>, b<sub>j</sub>) for all i != j.</p>
+<p>For example in the following picture:</p>
+<p><img alt="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/MultipleNegativeRankingLoss.png" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/MultipleNegativeRankingLoss.png" /></p>
+<p>The distance between (a<sub>1</sub>, b<sub>1</sub>) is reduced, while the distance between (a<sub>1</sub>, b<sub>2…5</sub>) will be increased. The same is done for a<sub>2</sub>, …, a<sub>5</sub>.</p>
+<p>Using MultipleNegativeRankingLoss with NLI is rather easy: We define sentences that have an <em>entailment</em> label as positive pairs. E.g, we have pairs like (<em>“A soccer game with multiple males playing.”</em>, <em>“Some men are playing a sport.”</em>) and want that these pairs are close in vector space.</p>
+<div class="section" id="multiplenegativesrankingloss-with-hard-negatives">
+<h3>MultipleNegativesRankingLoss with Hard Negatives<a class="headerlink" href="#multiplenegativesrankingloss-with-hard-negatives" title="Permalink to this headline">¶</a></h3>
+<p>We can further improve MultipleNegativesRankingLoss by not only providing pairs, but by providing triplets: [(a<sub>1</sub>, b<sub>1</sub>, c<sub>1</sub>), …, (a<sub>n</sub>, b<sub>n</sub>, c<sub>n</sub>)]</p>
+<p>The entry for c<sub>i</sub> are so-called hard-negatives: On a lexical level, they are similar to a<sub>i</sub> and b<sub>i</sub>. But on a semantic level, they mean different things and should not be close in the vector space.</p>
+<p>For NLI data, we can use the contradiction-label to create such triplets with a hard negative. So our triplets look like this:
+(“<em>A soccer game with multiple males playing.”</em>, <em>“Some men are playing a sport.”</em>, <em>“A group of men playing a baseball game.”</em>).</p>
+<p>We want the sentences <em>“A soccer game with multiple males playing.”</em> and <em>“Some men are playing a sport.”</em> to be close in the vector space, while there should be a larger distance between <em>“A soccer game with multiple males playing.”</em> and “<em>A group of men playing a baseball game.”</em>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../paraphrases/README.html" class="btn btn-neutral float-right" title="Paraphrase Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../sts/README.html" class="btn btn-neutral float-left" title="Semantic Textual Similarity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

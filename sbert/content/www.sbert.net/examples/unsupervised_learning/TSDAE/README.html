@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TSDAE &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/unsupervised_learning/TSDAE/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../../index.html">
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>TSDAE</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/unsupervised_learning/TSDAE/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tsdae">
+<h1>TSDAE<a class="headerlink" href="#tsdae" title="Permalink to this headline">¶</a></h1>
+<p>This section shows an example, of how we can train an unsupervised <a class="reference external" href="https://arxiv.org/abs/2104.06979">TSDAE (Tranformer-based Denoising AutoEncoder)</a> model with pure sentences as training data.</p>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>During training, TSDAE encodes damaged sentences into fixed-sized vectors and requires the decoder to reconstruct the original sentences from these sentenceembeddings. For good reconstruction quality, thesemantics must be captured well in the sentenceembeddings from the encoder. Later, at inference,we only use the encoder for creating sentence embeddings. The architecture is illustrated in the figure below:</p>
+<p><img alt="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/TSDAE.png" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/TSDAE.png" /></p>
+</div>
+<div class="section" id="unsupervised-training-with-tsdae">
+<h2>Unsupervised Training with TSDAE<a class="headerlink" href="#unsupervised-training-with-tsdae" title="Permalink to this headline">¶</a></h2>
+<p>Training with TSDAE is simple. You just need a set of sentences:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">LoggingHandler</span>
+<span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">util</span><span class="p">,</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">evaluation</span><span class="p">,</span> <span class="n">losses</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+
+<span class="c1"># Define your sentence transformer model using CLS pooling</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s1">&#39;bert-base-uncased&#39;</span>
+<span class="n">word_embedding_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Transformer</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span class="n">pooling_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Pooling</span><span class="p">(</span><span class="n">word_embedding_model</span><span class="o">.</span><span class="n">get_word_embedding_dimension</span><span class="p">(),</span> <span class="s1">&#39;cls&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="n">modules</span><span class="o">=</span><span class="p">[</span><span class="n">word_embedding_model</span><span class="p">,</span> <span class="n">pooling_model</span><span class="p">])</span>
+
+<span class="c1"># Define a list with sentences (1k - 100k sentences)</span>
+<span class="n">train_sentences</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Your set of sentences&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;Model will automatically add the noise&quot;</span><span class="p">,</span> 
+                   <span class="s2">&quot;And re-construct it&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;You should provide at least 1k sentences&quot;</span><span class="p">]</span>
+
+<span class="c1"># Create the special denoising dataset that adds noise on-the-fly</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">DenoisingAutoEncoderDataset</span><span class="p">(</span><span class="n">train_sentences</span><span class="p">)</span>
+
+<span class="c1"># DataLoader to batch your data</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Use the denoising auto-encoder loss</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">DenoisingAutoEncoderLoss</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">decoder_name_or_path</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span> <span class="n">tie_encoder_decoder</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Call the fit method</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">train_objectives</span><span class="o">=</span><span class="p">[(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">)],</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">weight_decay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">scheduler</span><span class="o">=</span><span class="s1">&#39;constantlr&#39;</span><span class="p">,</span>
+    <span class="n">optimizer_params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="mf">3e-5</span><span class="p">},</span>
+    <span class="n">show_progress_bar</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;output/tsdae-model&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tsdae-from-sentences-file">
+<h2>TSDAE from Sentences File<a class="headerlink" href="#tsdae-from-sentences-file" title="Permalink to this headline">¶</a></h2>
+<p><strong><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/unsupervised_learning/TSDAE/train_tsdae_from_file.py">train_tsdae_from_file.py</a></strong> loads sentences from a provided text file. It is expected, that the there is one sentence per line in that text file.</p>
+<p>TSDAE will be training using these sentences. Checkpoints are stored every 500 steps to the output folder.</p>
+</div>
+<div class="section" id="tsdae-on-askubuntu-dataset">
+<h2>TSDAE on AskUbuntu Dataset<a class="headerlink" href="#tsdae-on-askubuntu-dataset" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/taolei87/askubuntu">AskUbuntu dataset</a> is a manually annotated dataset for the <a class="reference external" href="https://askubuntu.com/">AskUbuntu forum</a>. For 400 questions, experts annotated for each question 20 other questions if they are related or not. The questions are split into train &amp; development set.</p>
+<p><strong><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/unsupervised_learning/TSDAE/train_askubuntu_tsdae.py">train_askubuntu_tsdae.py</a></strong> - Shows an example how to train a model on AskUbuntu using only sentences without any labels. As sentences, we use the titles that are not used in the dev / test set.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Model</th>
+<th align="center">MAP-Score on test set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TSDAE (bert-base-uncased)</td>
+<td align="center">59.4</td>
+</tr>
+<tr>
+<td><strong>pretrained SentenceTransformer models</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>nli-bert-base</td>
+<td align="center">50.7</td>
+</tr>
+<tr>
+<td>paraphrase-distilroberta-base-v1</td>
+<td align="center">54.8</td>
+</tr>
+<tr>
+<td>stsb-roberta-large</td>
+<td align="center">54.6</td>
+</tr>
+</tbody>
+</table></div>
+<hr class="docutils" />
+<div class="section" id="tsdae-as-pre-training-task">
+<h2>TSDAE as Pre-Training Task<a class="headerlink" href="#tsdae-as-pre-training-task" title="Permalink to this headline">¶</a></h2>
+<p>As we show in our <a class="reference external" href="https://arxiv.org/abs/2104.06979">TSDAE paper</a>, TSDAE also a powerful pre-training method outperforming the classical Mask Language Model (MLM) pre-training task.</p>
+<p>You first train your model with the TSDAE loss. After you have trained for a certain number of steps / after the model converges, you can further fine-tune your pre-trained model like any other SentenceTransformer model.</p>
+</div>
+<div class="section" id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h2>
+<p>If you use the code for augmented sbert, feel free to cite our publication <a class="reference external" href="https://arxiv.org/abs/2104.06979">TSDAE: Using Transformer-based Sequential Denoising Auto-Encoderfor Unsupervised Sentence Embedding Learning</a>:</p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@article</span><span class="p">{</span><span class="nl">wang-2021-TSDAE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;TSDAE: Using Transformer-based Sequential Denoising Auto-Encoderfor Unsupervised Sentence Embedding Learning&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Wang, Kexin and Reimers, Nils and  Gurevych, Iryna&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="na">journal</span><span class="p">=</span><span class="w"> </span><span class="s">&quot;arXiv preprint arXiv:2104.06979&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">month</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;4&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;2021&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;https://arxiv.org/abs/2104.06979&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

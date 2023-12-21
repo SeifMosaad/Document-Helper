@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MS MARCO &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/training/ms_marco/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Unsupervised Learning" href="../../unsupervised_learning/README.html" />
+    <link rel="prev" title="Quora Duplicate Questions" href="../quora_duplicate_questions/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../../index.html">
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MS MARCO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#bi-encoder">Bi-Encoder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multiplenegativesrankingloss">MultipleNegativesRankingLoss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#marginmse">MarginMSE</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cross-encoder">Cross-Encoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cross-encoder-knowledge-distillation">Cross-Encoder Knowledge Distillation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>MS MARCO</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/training/ms_marco/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ms-marco">
+<h1>MS MARCO<a class="headerlink" href="#ms-marco" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://github.com/microsoft/MSMARCO-Passage-Ranking">MS MARCO Passage Ranking</a> is a large dataset to train models for information retrieval. It consists of about 500k real search queries from Bing search engine with the relevant text passage that answers the query.</p>
+<p>This pages shows how to <strong>train</strong> models (Cross-Encoder and Sentence Embedding Models) on this dataset so that it can be used for searching text passages given queries (key words, phrases or questions).</p>
+<p>If you are interested in how to use these models, see <a class="reference internal" href="../../applications/retrieve_rerank/README.html"><span class="doc">Application - Retrieve &amp; Re-Rank</span></a>.</p>
+<p>There are <strong>pre-trained models</strong> available, which you can directly use without the need of training your own models. For more information, see: <a class="reference external" href="https://www.sbert.net/docs/pretrained_models.html">Pretrained Models</a> | <a class="reference external" href="https://www.sbert.net/docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></p>
+<div class="section" id="bi-encoder">
+<h2>Bi-Encoder<a class="headerlink" href="#bi-encoder" title="Permalink to this headline">¶</a></h2>
+<p>Cross-Encoder are only suitable for reranking a small set of passages. For retrieval of suitable documents from a large collection, we have to use a bi-encoder. The documents are independently encoded into fixed-sized embeddings. A query is embedded into the same vector space. Relevant documents can then be found by using dot-product.</p>
+<p><img alt="BiEncoder" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/BiEncoder.png" /></p>
+<p>There are two strategies to <strong>train an bi-encoder</strong> on the MS MARCO dataset:</p>
+<div class="section" id="multiplenegativesrankingloss">
+<h3>MultipleNegativesRankingLoss<a class="headerlink" href="#multiplenegativesrankingloss" title="Permalink to this headline">¶</a></h3>
+<p><strong>Training code: <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/ms_marco/train_bi-encoder_mnrl.py">train_bi-encoder_mnrl.py</a></strong></p>
+<p>When we use <a class="reference external" href="https://www.sbert.net/docs/package_reference/losses.html#multiplenegativesrankingloss">MultipleNegativesRankingLoss</a>, we provide triplets: <code class="docutils literal notranslate"><span class="pre">(query,</span> <span class="pre">positive_passage,</span> <span class="pre">negative_passage)</span></code> where <code class="docutils literal notranslate"><span class="pre">positive_passage</span></code> is the relevant passage to the query and <code class="docutils literal notranslate"><span class="pre">negative_passage</span></code> is a non-relevant passage to the query.</p>
+<p>We compute the embeddings for all queries, positive passages, and negative passages in the corpus and then optimize the following objective: We want to have the <code class="docutils literal notranslate"><span class="pre">(query,</span> <span class="pre">positive_passage)</span></code> pair to be close in the vector space, while <code class="docutils literal notranslate"><span class="pre">(query,</span> <span class="pre">negative_passage)</span></code> should be distant in vector space.</p>
+<p>To further improve the training, we use <strong>in-batch negatives</strong>:</p>
+<p><img alt="MultipleNegativesRankingLoss" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/MultipleNegativeRankingLoss.png" /></p>
+<p>We embed all <code class="docutils literal notranslate"><span class="pre">queries</span></code>, <code class="docutils literal notranslate"><span class="pre">positive_passages</span></code>, and <code class="docutils literal notranslate"><span class="pre">negative_passages</span></code> into the vector space. The matching <code class="docutils literal notranslate"><span class="pre">(query_i,</span> <span class="pre">positive_passage_i)</span></code> should be close, while there should be a large distance between a <code class="docutils literal notranslate"><span class="pre">query</span></code> and all other (positive/negative) passages from all other triplets in a batch. For a batch size of 64, we compare a query against 64+64=128 passages, from which only one passage should be close and the 127 others should be distant in vector space.</p>
+<p>One way to <strong>improve training</strong> is to choose really good negatives, also know as <strong>hard negative</strong>: The negative should look really similar to the positive passage, but it should not be relevant to the query.</p>
+<p>We find these hard negatives in the following way: We use existing retrieval systems (e.g. lexical search and other bi-encoder retrieval systems), and for each query we find the most relevant passages. We then use a powerful <a class="reference internal" href="../../applications/cross-encoder/README.html"><span class="doc">Cross-Encoder</span></a> to score the found <code class="docutils literal notranslate"><span class="pre">(query,</span> <span class="pre">passage)</span></code> pairs. We provide scores for 160 million such pairs in our <a class="reference external" href="https://huggingface.co/datasets/sentence-transformers/msmarco-hard-negatives">msmarco-hard-negatives dataset</a>.</p>
+<p>For MultipleNegativesRankingLoss, we must ensure that in the triplet <code class="docutils literal notranslate"><span class="pre">(query,</span> <span class="pre">positive_passage,</span> <span class="pre">negative_passage)</span></code> that the <code class="docutils literal notranslate"><span class="pre">negative_passage</span></code> is actually not relevant for the query. The MS MARCO dataset is sadly <strong>highly redundant</strong>, and even though that there is on average only one passage marked as relevant for a query, it actually contains many passages that humans would consider as relevant. We must ensure that these passages are <strong>not passed as negatives</strong>: We do this by ensuring a certain threshold in the CrossEncoder scores between the relevant passages and the mined hard negative. By default, we set a threshold of 3: If the <code class="docutils literal notranslate"><span class="pre">(query,</span> <span class="pre">positive_passage)</span></code> gets a score of 9 from the CrossEncoder, than we will only consider negatives with a score below 6 from the CrossEncoder. This threshold ensures that we actually use negatives in our triplets.</p>
+</div>
+<div class="section" id="marginmse">
+<h3>MarginMSE<a class="headerlink" href="#marginmse" title="Permalink to this headline">¶</a></h3>
+<p><strong>Training code: <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/ms_marco/train_bi-encoder_margin-mse.py">train_bi-encoder_margin-mse.py</a></strong></p>
+<p><a class="reference external" href="https://www.sbert.net/docs/package_reference/losses.html#marginmseloss">MarginMSELoss</a> is based on the paper of <a class="reference external" href="https://arxiv.org/abs/2010.02666">Hofstätter et al</a>. As for MultipleNegativesRankingLoss, we have triplets: <code class="docutils literal notranslate"><span class="pre">(query,</span> <span class="pre">passage1,</span> <span class="pre">passage2)</span></code>. In contrast to MultipleNegativesRankingLoss, <code class="docutils literal notranslate"><span class="pre">passage1</span></code> and <code class="docutils literal notranslate"><span class="pre">passage2</span></code> do not have to be strictly positive/negative, both can be relevant or not relevant for a given query.</p>
+<p>We then compute the <a class="reference internal" href="../../applications/cross-encoder/README.html"><span class="doc">Cross-Encoder</span></a> score for <code class="docutils literal notranslate"><span class="pre">(query,</span> <span class="pre">passage1)</span></code> and <code class="docutils literal notranslate"><span class="pre">(query,</span> <span class="pre">passage2)</span></code>. We provide scores for 160 million such pairs in our <a class="reference external" href="https://huggingface.co/datasets/sentence-transformers/msmarco-hard-negatives">msmarco-hard-negatives dataset</a>. We then compute the distance: <code class="docutils literal notranslate"><span class="pre">CE_distance</span> <span class="pre">=</span> <span class="pre">CEScore(query,</span> <span class="pre">passage1)</span> <span class="pre">-</span> <span class="pre">CEScore(query,</span> <span class="pre">passage2)</span></code></p>
+<p>For our bi-encoder training, we encode <code class="docutils literal notranslate"><span class="pre">query</span></code>, <code class="docutils literal notranslate"><span class="pre">passage1</span></code>, and <code class="docutils literal notranslate"><span class="pre">passage2</span></code> into vector spaces and then measure the dot-product between  <code class="docutils literal notranslate"><span class="pre">(query,</span> <span class="pre">passage1)</span></code> and <code class="docutils literal notranslate"><span class="pre">(query,</span> <span class="pre">passage2)</span></code>. Again, we measure the distance: <code class="docutils literal notranslate"><span class="pre">BE_distance</span> <span class="pre">=</span> <span class="pre">DotScore(query,</span> <span class="pre">passage1)</span> <span class="pre">-</span> <span class="pre">DotScore(query,</span> <span class="pre">passage2)</span></code></p>
+<p>We then want to ensure that the distance predicted by the bi-encoder is close to the distance predicted by the cross-encoder, i.e., we optimize the mean-squared error (MSE) between <code class="docutils literal notranslate"><span class="pre">CE_distance</span></code> and <code class="docutils literal notranslate"><span class="pre">BE_distance</span></code>.</p>
+<p>An <strong>advantage</strong> of MarginMSELoss compared to MultipleNegativesRankingLoss is that we <strong>don’t require</strong> a <code class="docutils literal notranslate"><span class="pre">positive</span></code> and <code class="docutils literal notranslate"><span class="pre">negative</span></code> passage. As mentioned before, MS MARCO is redundant, and many passages contain the same or similar content. With MarginMSELoss, we can train on two relevant passages without issues: In that case, the <code class="docutils literal notranslate"><span class="pre">CE_distance</span></code> will be smaller and we expect that our bi-encoder also puts both passages closer in the vector space.</p>
+<p>And <strong>disadvantage</strong> of MarginMSELoss is the slower training time: We need way more epochs to get good results. In MultipleNegativesRankingLoss, with a batch size of 64, we compare one query against 128 passages. With MarginMSELoss, we compare a query only against two passages.</p>
+</div>
+</div>
+<div class="section" id="cross-encoder">
+<h2>Cross-Encoder<a class="headerlink" href="#cross-encoder" title="Permalink to this headline">¶</a></h2>
+<p>A <a class="reference external" href="https://www.sbert.net/examples/applications/cross-encoder/README.html">Cross-Encoder</a> accepts both inputs, the query and the possible relevant passage and returns a score between 0 and 1 how relevant the passage is for the given query.</p>
+<p><img alt="CrossEncoder" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/CrossEncoder.png" /></p>
+<p>Cross-Encoders are often used for <strong>re-ranking:</strong> Given a list with possible relevant passages for a query, for example retrieved from BM25 / ElasticSearch, the cross-encoder re-ranks this list so that the most relevant passages are the top of the result list.</p>
+<p>To <strong>train an cross-encoder</strong> on the MS MARCO dataset, see:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/ms_marco/train_cross-encoder_scratch.py">train_cross-encoder_scratch.py</a></strong> trains a cross-encoder from scratch using the provided data from the MS MARCO dataset.</p></li>
+</ul>
+</div>
+<div class="section" id="cross-encoder-knowledge-distillation">
+<h2>Cross-Encoder Knowledge Distillation<a class="headerlink" href="#cross-encoder-knowledge-distillation" title="Permalink to this headline">¶</a></h2>
+<p><img alt="https://github.com/UKPLab/sentence-transformers/raw/master/docs/img/msmarco-training-ce-distillation.png" src="https://github.com/UKPLab/sentence-transformers/raw/master/docs/img/msmarco-training-ce-distillation.png" /></p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/ms_marco/train_cross-encoder_kd.py">train_cross-encoder_kd.py</a></strong> uses a knowledge distillation setup: <a class="reference external" href="https://arxiv.org/abs/2010.02666">Hostätter et al.</a> trained an ensemble of 3 (large) models for the MS MARCO dataset and predicted the scores for various (query, passage)-pairs (50% positive, 50% negative). In this example, we use knowledge distillation with a small &amp; fast model and learn the logits scores from the teacher ensemble. This yields performances comparable to  large models, while being 18 times faster.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../unsupervised_learning/README.html" class="btn btn-neutral float-right" title="Unsupervised Learning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../quora_duplicate_questions/README.html" class="btn btn-neutral float-left" title="Quora Duplicate Questions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

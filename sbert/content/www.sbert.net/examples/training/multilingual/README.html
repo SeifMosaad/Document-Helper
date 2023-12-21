@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Multilingual-Models &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/training/multilingual/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Model Distillation" href="../distillation/README.html" />
+    <link rel="prev" title="Training Overview" href="../../../docs/training/overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../../index.html">
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Multilingual-Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#available-pre-trained-models">Available Pre-trained Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extend-your-own-models">Extend your own models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#training">Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-format">Data Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-training-datasets">Loading Training Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sources-for-training-data">Sources for Training Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluation">Evaluation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mse-evaluation">MSE Evaluation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#translation-accuracy">Translation Accuracy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-lingual-semantic-textual-similarity">Multi-Lingual Semantic Textual Similarity</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#citation">Citation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Multilingual-Models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/training/multilingual/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multilingual-models">
+<h1>Multilingual-Models<a class="headerlink" href="#multilingual-models" title="Permalink to this headline">¶</a></h1>
+<p>The issue with multilingual BERT (mBERT) as well as with XLM-RoBERTa is that those produce rather bad sentence representation out-of-the-box. Further, the vectors spaces between languages are not  aligned, i.e., the sentences with the same content in different languages would be mapped to different locations in the vector space.</p>
+<p>In my publication <a class="reference external" href="https://arxiv.org/abs/2004.09813">Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation</a> I describe any easy approach to extend sentence embeddings to further languages.</p>
+<p>Chien Vu also wrote a nice blog article on this technique: <a class="reference external" href="https://towardsdatascience.com/a-complete-guide-to-transfer-learning-from-english-to-other-languages-using-sentence-embeddings-8c427f8804a9">A complete guide to transfer learning from English to other Languages using Sentence Embeddings BERT Models</a></p>
+<div class="section" id="available-pre-trained-models">
+<h2>Available Pre-trained Models<a class="headerlink" href="#available-pre-trained-models" title="Permalink to this headline">¶</a></h2>
+<p>For a list of available models, see <a class="reference external" href="https://www.sbert.net/docs/pretrained_models.html#multi-lingual-models">Pretrained Models</a>.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>You can use the models in the following way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
+<span class="n">embedder</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;model-name&#39;</span><span class="p">)</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">embedder</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="s1">&#39;Hello World&#39;</span><span class="p">,</span> <span class="s1">&#39;Hallo Welt&#39;</span><span class="p">,</span> <span class="s1">&#39;Hola mundo&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
+<p>The performance was evaluated on the <a class="reference external" href="http://ixa2.si.ehu.es/stswiki/index.php/Main_Page">Semantic Textual Similarity (STS) 2017 dataset</a>. The task is to predict the semantic similarity (on a scale 0-5) of two given sentences. STS2017 has monolingual test data for English, Arabic, and Spanish, and cross-lingual test data for English-Arabic, -Spanish and -Turkish.</p>
+<p>We extended the STS2017 and added cross-lingual test data for English-German, French-English, Italian-English, and Dutch-English (<a class="reference external" href="https://public.ukp.informatik.tu-darmstadt.de/reimers/sentence-transformers/datasets/STS2017-extended.zip">STS2017-extended.zip</a>). The performance is measured using Spearman correlation between the predicted similarity score and the gold score.</p>
+<table class="docutils">
+  <tr>
+    <th>Model</th>
+    <th>AR-AR</th>
+    <th>AR-EN</th>
+    <th>ES-ES</th>
+    <th>ES-EN</th>
+    <th>EN-EN</th>
+    <th>TR-EN</th>
+    <th>EN-DE</th>
+    <th>FR-EN</th>
+    <th>IT-EN</th>
+    <th>NL-EN</th>
+    <th>Average</th>
+  </tr>
+  <tr>
+    <td>XLM-RoBERTa mean pooling </td>
+    <td align="center">25.7</td>
+    <td align="center">17.4</td>
+    <td align="center">51.8</td>
+    <td align="center">10.9</td>
+    <td align="center">50.7</td>
+    <td align="center">9.2</td>
+    <td align="center">21.3</td>
+    <td align="center">16.6</td>
+    <td align="center">22.9</td>
+    <td align="center">26.0</td>
+    <td align="center">25.2</td>
+  </tr>
+  <tr>
+    <td>mBERT mean pooling </td>
+    <td align="center">50.9</td>
+    <td align="center">16.7</td>
+    <td align="center">56.7</td>
+    <td align="center">21.5</td>
+    <td align="center">54.4</td>
+    <td align="center">16.0</td>
+    <td align="center">33.9</td>
+    <td align="center">33.0</td>
+    <td align="center">34.0</td>
+    <td align="center">35.6</td>
+    <td align="center">35.3</td>
+  </tr>
+  <tr>
+    <td>LASER</td>
+    <td align="center">68.9</td>
+    <td align="center">66.5</td>
+    <td align="center">79.7</td>
+    <td align="center">57.9</td>
+    <td align="center">77.6</td>
+    <td align="center">72.0</td>
+    <td align="center">64.2</td>
+    <td align="center">69.1</td>
+    <td align="center">70.8</td>
+    <td align="center">68.5</td>
+    <td align="center">69.5</td>
+  </tr> 
+  <tr>
+    <td colspan="12"><b>Sentence Transformer Models</b></td>
+  </tr>
+  <tr>
+  <td>distiluse-base-multilingual-cased</td>
+    <td align="center">75.9</td>
+    <td align="center">77.6</td>
+    <td align="center">85.3</td>
+    <td align="center">78.7</td>
+    <td align="center">85.4</td>
+    <td align="center">75.5</td>
+    <td align="center">80.3</td>
+    <td align="center">80.2</td>
+    <td align="center">80.5</td>
+    <td align="center">81.7</td>
+    <td align="center">80.1</td>
+    </tr>
+</table></div>
+<div class="section" id="extend-your-own-models">
+<h2>Extend your own models<a class="headerlink" href="#extend-your-own-models" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Multilingual Knowledge Distillation" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/multilingual-distillation.png" /></p>
+<p>The idea is based on a fixed (monolingual) <strong>teacher model</strong>, that produces sentence embeddings with our desired properties in one language. The <strong>student model</strong> is supposed to mimic the teacher model, i.e., the same English sentence should be mapped to the same vector by the teacher and by the student model. In order that the student model works for further languages, we train the student model on parallel (translated) sentences. The translation of each sentence should also be mapped to the same vector as the original sentence.</p>
+<p>In the above figure, the student model should map <em>Hello World</em> and the German translation <em>Hallo Welt</em> to the vector of <em>teacher_model(‘Hello World’)</em>. We achieve this by training the student model using mean squared error (MSE) loss.</p>
+<p>In our experiments we initiliazed the student model with the multilingual XLM-RoBERTa model.</p>
+</div>
+<div class="section" id="training">
+<h2>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h2>
+<p>For a <strong>fully automatic code example</strong>, see <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/multilingual/make_multilingual.py">make_multilingual.py</a>.</p>
+<p>This scripts downloads the <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/blob/master/docs/datasets/TED2020.md?">TED2020 corpus</a>, a corpus with transcripts and translations from TED and TEDx talks. It than extends a monolingual model to several languages (en, de, es, it, fr, ar, tr). TED2020 contains parallel data for more than 100 languages, hence, you can simple change the script and train a multilingual model in your favorite languages.</p>
+</div>
+<div class="section" id="data-format">
+<h2>Data Format<a class="headerlink" href="#data-format" title="Permalink to this headline">¶</a></h2>
+<p>As training data we require parallel sentences, i.e., sentences translated in various languages. As data format, we use a tab-seperated .tsv file. In the first column, you have your source sentence, for example, an English sentence. In the following columns, you have the translations of this source sentence. If you have multiple translations per source sentence, you can put them in the same line or in different lines.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Source_sentence</span> <span class="n">Target_lang1</span>    <span class="n">Target_lang2</span>    <span class="n">Target_lang3</span>
+<span class="n">Source_sentence</span> <span class="n">Target_lang1</span>    <span class="n">Target_lang2</span>
+</pre></div>
+</div>
+<p>An example file could look like this (EN DE ES):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span> <span class="n">World</span> <span class="n">Hallo</span> <span class="n">Welt</span>  <span class="n">Hola</span> <span class="n">Mundo</span>
+<span class="n">Sentences</span> <span class="n">are</span> <span class="n">separated</span> <span class="k">with</span> <span class="n">a</span> <span class="n">tab</span> <span class="n">character</span><span class="o">.</span>    <span class="n">Die</span> <span class="n">Sätze</span> <span class="n">sind</span> <span class="n">per</span> <span class="n">Tab</span> <span class="n">getrennt</span><span class="o">.</span>    <span class="n">Las</span> <span class="n">oraciones</span> <span class="n">se</span> <span class="n">separan</span> <span class="n">con</span> <span class="n">un</span> <span class="n">carácter</span> <span class="n">de</span> <span class="n">tabulación</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The order of the translations are not important, it is only important that the first column contains a sentence in a language that is understood by the teacher model.</p>
+</div>
+<div class="section" id="loading-training-datasets">
+<h2>Loading Training Datasets<a class="headerlink" href="#loading-training-datasets" title="Permalink to this headline">¶</a></h2>
+<p>You can load such a training file using the <em>ParallelSentencesDataset</em> class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers.datasets</span> <span class="kn">import</span> <span class="n">ParallelSentencesDataset</span>
+
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">ParallelSentencesDataset</span><span class="p">(</span><span class="n">student_model</span><span class="o">=</span><span class="n">student_model</span><span class="p">,</span> <span class="n">teacher_model</span><span class="o">=</span><span class="n">teacher_model</span><span class="p">)</span>
+<span class="n">train_data</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="s1">&#39;path/to/tab/separated/train-en-de.tsv&#39;</span><span class="p">)</span>
+<span class="n">train_data</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="s1">&#39;path/to/tab/separated/train-en-es.tsv.gz&#39;</span><span class="p">)</span>
+<span class="n">train_data</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="s1">&#39;path/to/tab/separated/train-en-fr.tsv.gz&#39;</span><span class="p">)</span>
+
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">train_batch_size</span><span class="p">)</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">student_model</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You load a file with the <em>load_data()</em> method. You can load multiple files by calling load_data multiple times. You can also regular files or .gz-compressed files.</p>
+<p>Per default, all datasets are weighted equally. In the above example a (source, translation)-pair will be sampled equally from all three datasets. If you pass a <code class="docutils literal notranslate"><span class="pre">weight</span></code> parameter (integer), you can weight some datasets higher or lower.</p>
+</div>
+<div class="section" id="sources-for-training-data">
+<h2>Sources for Training Data<a class="headerlink" href="#sources-for-training-data" title="Permalink to this headline">¶</a></h2>
+<p>A great website for a vast number of parallel (translated) datasets is <a class="reference external" href="http://opus.nlpl.eu/">OPUS</a>. There, you find parallel datasets for more than 400 languages.</p>
+<p>The <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/training/multilingual/">examples/training/multilingual</a> folder contains some scripts that downloads parallel training data and brings it into the right format:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/multilingual/get_parallel_data_opus.py">get_parallel_data_opus.py</a>: This script downloads data from the <a class="reference external" href="http://opus.nlpl.eu/">OPUS</a> website.</p></li>
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/multilingual/get_parallel_data_tatoeba.py">get_parallel_data_tatoeba.py</a>: This script downloads data from the <a class="reference external" href="https://tatoeba.org/">Tatoeba</a> website, a website for language learners with example sentences for more than many languages.</p></li>
+<li><p><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/multilingual/get_parallel_data_ted2020.py">get_parallel_data_ted2020.py</a>: This script downloads data the <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/blob/master/docs/datasets/TED2020.md">TED2020 corpus</a>, which contains transcripts and translations of more than 4,000 TED and TEDx talks in 100+ languages.</p></li>
+</ul>
+</div>
+<div class="section" id="evaluation">
+<h2>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h2>
+<p>Training can be evaluated in different ways. For an example how to use these evaluation methods, see <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/training/multilingual/make_multilingual.py">make_multilingual.py</a>.</p>
+<div class="section" id="mse-evaluation">
+<h3>MSE Evaluation<a class="headerlink" href="#mse-evaluation" title="Permalink to this headline">¶</a></h3>
+<p>You can measure the mean squared error (MSE) between the student embeddings and teacher embeddings. This can be achieved with the ``</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># src_sentences and trg_sentences are lists of translated sentences, such that trg_sentences[i] is the translation of src_sentences[i]</span>
+ <span class="n">dev_mse</span> <span class="o">=</span> <span class="n">evaluation</span><span class="o">.</span><span class="n">MSEEvaluator</span><span class="p">(</span><span class="n">src_sentences</span><span class="p">,</span> <span class="n">trg_sentences</span><span class="p">,</span> <span class="n">teacher_model</span><span class="o">=</span><span class="n">teacher_model</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This evaluator computes the teacher embeddings for the <code class="docutils literal notranslate"><span class="pre">src_sentences</span></code>, for example, for English. During training, the student model is used to compute embeddings for the <code class="docutils literal notranslate"><span class="pre">trg_sentences</span></code>, for example, for Spanish. The distance between teacher and student embeddings is measures. Lower scores indicate a better performance.</p>
+</div>
+<div class="section" id="translation-accuracy">
+<h3>Translation Accuracy<a class="headerlink" href="#translation-accuracy" title="Permalink to this headline">¶</a></h3>
+<p>You can also measure the translation accuracy. Given a list with source sentences, for example, 1000 English sentences. And a list with matching target (translated) sentences, for example, 1000 Spanish sentences.</p>
+<p>For each sentence pair, we check if their embeddings are the closest using cosine similarity. I.e., for each <code class="docutils literal notranslate"><span class="pre">src_sentences[i]</span></code> we check if <code class="docutils literal notranslate"><span class="pre">trg_sentences[i]</span></code> has the highest similarity out of all target sentences. If this is the case, we have a hit, otherwise an error. This evaluator reports accuracy (higher = better).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># src_sentences and trg_sentences are lists of translated sentences, such that trg_sentences[i] is the translation of src_sentences[i]</span>
+<span class="n">dev_trans_acc</span> <span class="o">=</span> <span class="n">evaluation</span><span class="o">.</span><span class="n">TranslationEvaluator</span><span class="p">(</span><span class="n">src_sentences</span><span class="p">,</span> <span class="n">trg_sentences</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">dev_file</span><span class="p">),</span><span class="n">batch_size</span><span class="o">=</span><span class="n">inference_batch_size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multi-lingual-semantic-textual-similarity">
+<h3>Multi-Lingual Semantic Textual Similarity<a class="headerlink" href="#multi-lingual-semantic-textual-similarity" title="Permalink to this headline">¶</a></h3>
+<p>You can also measure the semantic textual similarity (STS) between sentence pairs in different languages:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sts_evaluator</span> <span class="o">=</span> <span class="n">evaluation</span><span class="o">.</span><span class="n">EmbeddingSimilarityEvaluatorFromList</span><span class="p">(</span><span class="n">sentences1</span><span class="p">,</span> <span class="n">sentences2</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">sentences1</span></code> and <code class="docutils literal notranslate"><span class="pre">sentences2</span></code> are lists of sentences and score is numeric value indicating the sematic similarity between <code class="docutils literal notranslate"><span class="pre">sentences1[i]</span></code> and <code class="docutils literal notranslate"><span class="pre">sentences2[i]</span></code>.</p>
+</div>
+</div>
+<div class="section" id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h2>
+<p>If you use the code for multilingual models, feel free to cite our publication <a class="reference external" href="https://arxiv.org/abs/2004.09813">Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">reimers</span><span class="o">-</span><span class="mi">2020</span><span class="o">-</span><span class="n">multilingual</span><span class="o">-</span><span class="n">sentence</span><span class="o">-</span><span class="n">bert</span><span class="p">,</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation&quot;</span><span class="p">,</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;Reimers, Nils and Gurevych, Iryna&quot;</span><span class="p">,</span>
+    <span class="n">journal</span><span class="o">=</span> <span class="s2">&quot;arXiv preprint arXiv:2004.09813&quot;</span><span class="p">,</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="s2">&quot;04&quot;</span><span class="p">,</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="s2">&quot;2020&quot;</span><span class="p">,</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://arxiv.org/abs/2004.09813&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../distillation/README.html" class="btn btn-neutral float-right" title="Model Distillation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../../docs/training/overview.html" class="btn btn-neutral float-left" title="Training Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Datasets &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netdocs/package_reference/datasets.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="cross_encoder" href="cross_encoder.html" />
+    <link rel="prev" title="Evaluation" href="evaluation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../index.html">
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parallelsentencesdataset">ParallelSentencesDataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sentencelabeldataset">SentenceLabelDataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#denoisingautoencoderdataset">DenoisingAutoEncoderDataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#noduplicatesdataloader">NoDuplicatesDataLoader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Datasets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/docs/package_reference/datasets.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="datasets">
+<h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">sentence_transformers.datasets</span></code> contains classes to organize your training input examples.</p>
+<div class="section" id="parallelsentencesdataset">
+<h2>ParallelSentencesDataset<a class="headerlink" href="#parallelsentencesdataset" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ParallelSentencesDataset</span></code> is used for multilingual training. For details, see <a class="reference internal" href="../../examples/training/multilingual/README.html"><span class="doc">multilingual training</span></a>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.datasets.ParallelSentencesDataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.datasets.</span></span><span class="sig-name descname"><span class="pre">ParallelSentencesDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_model:</span> <span class="pre">&lt;module</span> <span class="pre">'sentence_transformers.SentenceTransformer'</span> <span class="pre">from</span> <span class="pre">'d:\\dropbox\\doktor\\githubrepositories\\sentence-transformers\\sentence_transformers\\SentenceTransformer.py'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">teacher_model:</span> <span class="pre">&lt;module</span> <span class="pre">'sentence_transformers.SentenceTransformer'</span> <span class="pre">from</span> <span class="pre">'d:\\dropbox\\doktor\\githubrepositories\\sentence-transformers\\sentence_transformers\\SentenceTransformer.py'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_embedding_cache:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.datasets.ParallelSentencesDataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>This dataset reader can be used to read-in parallel sentences, i.e., it reads in a file with tab-seperated sentences with the same
+sentence in different languages. For example, the file can look like this (EN       DE      ES):
+hello world     hallo welt  hola mundo
+second sentence zweiter satz    segunda oración</p>
+<p>The sentence in the first column will be mapped to a sentence embedding using the given the embedder. For example,
+embedder is a mono-lingual sentence embedding method for English. The sentences in the other languages will also be
+mapped to this English sentence embedding.</p>
+<p>When getting a sample from the dataset, we get one sentence with the according sentence embedding for this sentence.</p>
+<p>teacher_model can be any class that implement an encode function. The encode function gets a list of sentences and
+returns a list of sentence embeddings</p>
+<p>Parallel sentences dataset reader to train student model given a teacher model
+:param student_model: Student sentence embedding model that should be trained
+:param teacher_model: Teacher model, that provides the sentence embeddings for the first column in the dataset file</p>
+</dd></dl>
+
+</div>
+<div class="section" id="sentencelabeldataset">
+<h2>SentenceLabelDataset<a class="headerlink" href="#sentencelabeldataset" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">SentenceLabelDataset</span></code> can be used if you have labeled sentences and want to train with triplet loss.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.datasets.SentenceLabelDataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.datasets.</span></span><span class="sig-name descname"><span class="pre">SentenceLabelDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">examples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">sentence_transformers.readers.InputExample.InputExample</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples_per_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_replacement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.datasets.SentenceLabelDataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>This dataset can be used for some specific Triplet Losses like BATCH_HARD_TRIPLET_LOSS which requires
+multiple examples with the same label in a batch.</p>
+<p>It draws n consecutive, random and unique samples from one label at a time. This is repeated for each label.</p>
+<p>Labels with fewer than n unique samples are ignored.
+This also applied to drawing without replacement, once less than n samples remain for a label, it is skipped.</p>
+<p>This <em>DOES NOT</em> check if there are more labels than the batch is large or if the batch size is divisible
+by the samples drawn per label.</p>
+<p>Creates a LabelSampler for a SentenceLabelDataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>examples</strong> – a list with InputExamples</p></li>
+<li><p><strong>samples_per_label</strong> – the number of consecutive, random and unique samples drawn per label. Batch size should be a multiple of samples_per_label</p></li>
+<li><p><strong>with_replacement</strong> – if this is True, then each sample is drawn at most once (depending on the total number of samples per label).
+if this is False, then one sample can be drawn in multiple draws, but still not multiple times in the same
+drawing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="denoisingautoencoderdataset">
+<h2>DenoisingAutoEncoderDataset<a class="headerlink" href="#denoisingautoencoderdataset" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DenoisingAutoEncoderDataset</span></code> is used for unsupervised training with the TSDAE method.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.datasets.DenoisingAutoEncoderDataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.datasets.</span></span><span class="sig-name descname"><span class="pre">DenoisingAutoEncoderDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sentences:</span> <span class="pre">typing.List[str],</span> <span class="pre">noise_fn=&lt;function</span> <span class="pre">DenoisingAutoEncoderDataset.&lt;lambda&gt;&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.datasets.DenoisingAutoEncoderDataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>The DenoisingAutoEncoderDataset returns InputExamples in the format: texts=[noise_fn(sentence), sentence]
+It is used in combination with the DenoisingAutoEncoderLoss: Here, a decoder tries to re-construct the
+sentence without noise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sentences</strong> – A list of sentences</p></li>
+<li><p><strong>noise_fn</strong> – A noise function: Given a string, it returns a string with noise, e.g. deleted words</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="noduplicatesdataloader">
+<h2>NoDuplicatesDataLoader<a class="headerlink" href="#noduplicatesdataloader" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">NoDuplicatesDataLoader</span></code>can be used together with MultipleNegativeRankingLoss to ensure that no duplicates are within the same batch.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sentence_transformers.datasets.NoDuplicatesDataLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sentence_transformers.datasets.</span></span><span class="sig-name descname"><span class="pre">NoDuplicatesDataLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train_examples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sentence_transformers.datasets.NoDuplicatesDataLoader" title="Permalink to this definition">¶</a></dt>
+<dd><p>A special data loader to be used with MultipleNegativesRankingLoss.
+The data loader ensures that there are no duplicate sentences within the same batch</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cross_encoder.html" class="btn btn-neutral float-right" title="cross_encoder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="evaluation.html" class="btn btn-neutral float-left" title="Evaluation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

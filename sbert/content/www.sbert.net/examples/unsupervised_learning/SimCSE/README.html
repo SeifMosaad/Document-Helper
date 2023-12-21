@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SimCSE &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/unsupervised_learning/SimCSE/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../../index.html">
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>SimCSE</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/unsupervised_learning/SimCSE/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="simcse">
+<h1>SimCSE<a class="headerlink" href="#simcse" title="Permalink to this headline">¶</a></h1>
+<p>Gao et al. present in <a class="reference external" href="https://arxiv.org/abs/2104.08821">SimCSE</a> a simple method to train sentence embeddings without having training data.</p>
+<p>The idea is to encode the same sentence twice. Due to the used dropout in transformer models, both sentence embeddings will be at slightly different positions. The distance between these two embeddings will be minized, while the distance to other embeddings of the other sentences in the same batch will be maximized (they serve as negative examples).</p>
+<p><img alt="SimCSE working" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/SimCSE.png" /></p>
+<div class="section" id="usage-with-sentencetransformers">
+<h2>Usage with SentenceTransformers<a class="headerlink" href="#usage-with-sentencetransformers" title="Permalink to this headline">¶</a></h2>
+<p>SentenceTransformers implements the <a class="reference external" href="https://www.sbert.net/docs/package_reference/losses.html#multiplenegativesrankingloss">MultipleNegativesRankingLoss</a>, which makes training with SimCSE trivial:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">InputExample</span>
+<span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">losses</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+
+<span class="c1"># Define your sentence transformer model using CLS pooling</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s1">&#39;distilroberta-base&#39;</span>
+<span class="n">word_embedding_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Transformer</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">max_seq_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">pooling_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Pooling</span><span class="p">(</span><span class="n">word_embedding_model</span><span class="o">.</span><span class="n">get_word_embedding_dimension</span><span class="p">())</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="n">modules</span><span class="o">=</span><span class="p">[</span><span class="n">word_embedding_model</span><span class="p">,</span> <span class="n">pooling_model</span><span class="p">])</span>
+
+<span class="c1"># Define a list with sentences (1k - 100k sentences)</span>
+<span class="n">train_sentences</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Your set of sentences&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;Model will automatically add the noise&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;And re-construct it&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;You should provide at least 1k sentences&quot;</span><span class="p">]</span>
+
+<span class="c1"># Convert train sentences to sentence pairs</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">InputExample</span><span class="p">(</span><span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">])</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">train_sentences</span><span class="p">]</span>
+
+<span class="c1"># DataLoader to batch your data</span>
+<span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Use the denoising auto-encoder loss</span>
+<span class="n">train_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">MultipleNegativesRankingLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># Call the fit method</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">train_objectives</span><span class="o">=</span><span class="p">[(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">)],</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">show_progress_bar</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;output/simcse-model&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simcse-from-sentences-file">
+<h2>SimCSE from Sentences File<a class="headerlink" href="#simcse-from-sentences-file" title="Permalink to this headline">¶</a></h2>
+<p><strong><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/unsupervised_learning/SimCSE/train_simcse_from_file.py">train_simcse_from_file.py</a></strong> loads sentences from a provided text file. It is expected, that the there is one sentence per line in that text file.</p>
+<p>SimCSE will be training using these sentences. Checkpoints are stored every 500 steps to the output folder.</p>
+</div>
+<div class="section" id="training-examples">
+<h2>Training Examples<a class="headerlink" href="#training-examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/unsupervised_learning/SimCSE/train_askubuntu_simcse.py">train_askubuntu_simcse.py</a></strong> - Shows the example how to train with SimCSE on the <a class="reference external" href="https://github.com/taolei87/askubuntu">AskUbuntu Questions dataset</a>.</p></li>
+<li><p><strong><a class="reference external" href="https://github.com/UKPLab/sentence-transformers/tree/master/examples/unsupervised_learning/SimCSE/train_stsb_simcse.py">train_stsb_simcse.py</a></strong> - This script uses 1 million sentences and evaluates SimCSE on the <a class="reference external" href="https://ixa2.si.ehu.eus/stswiki/index.php/STSbenchmark">STSbenchmark dataset</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="ablation-study">
+<h2>Ablation Study<a class="headerlink" href="#ablation-study" title="Permalink to this headline">¶</a></h2>
+<p>We use the evaluation setup proposed in our <a class="reference external" href="https://arxiv.org/abs/2104.06979">TSDAE paper</a>.</p>
+<p>Using mean pooling, with max_seq_length=32 and batch_size=128</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Base Model</th>
+<th align="center">AskUbuntu Test-Performance (MAP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>distilbert-base-uncased</td>
+<td align="center">53.59</td>
+</tr>
+<tr>
+<td>bert-base-uncased</td>
+<td align="center">54.89</td>
+</tr>
+<tr>
+<td><strong>distilroberta-base</strong></td>
+<td align="center"><strong>56.16</strong></td>
+</tr>
+<tr>
+<td>roberta-base</td>
+<td align="center">55.89</td>
+</tr>
+</tbody>
+</table><p>Using mean pooling, with max_seq_length=32 and distilroberta-base model.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Batch Size</th>
+<th align="center">AskUbuntu Test-Performance (MAP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>128</td>
+<td align="center">56.16</td>
+</tr>
+<tr>
+<td>256</td>
+<td align="center">56.63</td>
+</tr>
+<tr>
+<td><strong>512</strong></td>
+<td align="center"><strong>56.69</strong></td>
+</tr>
+</tbody>
+</table><p>Using max_seq_length=32, distilroberta-base model, and 512 batch size.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Pooling Mode</th>
+<th align="center">AskUbuntu Test-Performance (MAP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mean pooling</strong></td>
+<td align="center"><strong>56.69</strong></td>
+</tr>
+<tr>
+<td>CLS pooling</td>
+<td align="center">56.56</td>
+</tr>
+<tr>
+<td>Max pooling</td>
+<td align="center">52.91</td>
+</tr>
+</tbody>
+</table><p><strong>Note:</strong>
+This is a re-implementation of SimCSE within sentence-transformers. For the official CT code, see: <a class="reference external" href="https://github.com/princeton-nlp/SimCSE">princeton-nlp/SimCSE</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

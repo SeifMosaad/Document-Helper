@@ -1,0 +1,564 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Domain Adaptation &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/domain_adaptation/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="SentenceTransformer" href="../../docs/package_reference/SentenceTransformer.html" />
+    <link rel="prev" title="Unsupervised Learning" href="../unsupervised_learning/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../index.html">
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Domain Adaptation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#domain-adaptation-vs-unsupervised-learning">Domain Adaptation vs. Unsupervised Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adaptive-pre-training">Adaptive Pre-Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gpl-generative-pseudo-labeling">GPL: Generative Pseudo-Labeling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gpl-steps">GPL Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpl-code">GPL Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#citation">Citation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Domain Adaptation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/domain_adaptation/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="domain-adaptation">
+<h1>Domain Adaptation<a class="headerlink" href="#domain-adaptation" title="Permalink to this headline">¶</a></h1>
+<p>The goal of <strong>Domain Adaptation</strong> is to adapt text embedding models to your specific text domain without the need to labeled training data.</p>
+<p>Domain adaptation is still an active research field and there exists no perfect solution yet. However, in our two recent papers <a class="reference external" href="https://arxiv.org/abs/2104.06979">TSDAE</a> and <a class="reference external" href="https://arxiv.org/abs/2112.07577">GPL</a> we evaluated several methods how text embeddings model can be adapted to your specific domain. You can find an overview of these methods in my <a class="reference external" href="https://youtu.be/xbdLowiQTlk">talk on unsupervised domain adaptation</a>.</p>
+<div class="section" id="domain-adaptation-vs-unsupervised-learning">
+<h2>Domain Adaptation vs. Unsupervised Learning<a class="headerlink" href="#domain-adaptation-vs-unsupervised-learning" title="Permalink to this headline">¶</a></h2>
+<p>There exists methods for <a class="reference internal" href="../unsupervised_learning/README.html"><span class="doc">unsupervised text embedding learning</span></a>, however, they generally perform rather badly: They are not really able to learn domain specific concepts.</p>
+<p>A much better approach is domain adaptation: Here you have an unlabeled corpus from your specific domain together with an existing labeled corpus. You can find many suitable labeled training datasets here: <a class="reference external" href="https://huggingface.co/datasets/sentence-transformers/embedding-training-data">embedding-training-data</a></p>
+</div>
+<div class="section" id="adaptive-pre-training">
+<h2>Adaptive Pre-Training<a class="headerlink" href="#adaptive-pre-training" title="Permalink to this headline">¶</a></h2>
+<p>When using adaptive pre-training, you first pre-train on your target corpus using e.g. <a class="reference internal" href="../unsupervised_learning/MLM/README.html"><span class="doc">Masked Language Modeling</span></a> or <a class="reference internal" href="../unsupervised_learning/TSDAE/README.html"><span class="doc">TSDAE</span></a> and then you fine-tune on an existing training dataset (see <a class="reference external" href="https://huggingface.co/datasets/sentence-transformers/embedding-training-data">embedding-training-data</a>).</p>
+<p><img alt="Adaptive Pre-Training" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/adaptive_pre-training.png" /></p>
+<p>In our paper <a class="reference external" href="https://arxiv.org/abs/2104.06979">TSDAE</a> we evaluated several methods for domain adaptation on 4 domain specific sentence embedding tasks:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Approach</th>
+<th align="center">AskUbuntu</th>
+<th align="center">CQADupStack</th>
+<th align="center">Twitter</th>
+<th align="center">SciDocs</th>
+<th align="center">Avg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zero-Shot Model</td>
+<td align="center">54.5</td>
+<td align="center">12.9</td>
+<td align="center">72.2</td>
+<td align="center">69.4</td>
+<td align="center">52.3</td>
+</tr>
+<tr>
+<td>TSDAE</td>
+<td align="center">59.4</td>
+<td align="center"><strong>14.4</strong></td>
+<td align="center"><strong>74.5</strong></td>
+<td align="center"><strong>77.6</strong></td>
+<td align="center"><strong>56.5</strong></td>
+</tr>
+<tr>
+<td>MLM</td>
+<td align="center"><strong>60.6</strong></td>
+<td align="center">14.3</td>
+<td align="center">71.8</td>
+<td align="center">76.9</td>
+<td align="center">55.9</td>
+</tr>
+<tr>
+<td>CT</td>
+<td align="center">56.4</td>
+<td align="center">13.4</td>
+<td align="center">72.4</td>
+<td align="center">69.7</td>
+<td align="center">53.0</td>
+</tr>
+<tr>
+<td>SimCSE</td>
+<td align="center">56.2</td>
+<td align="center">13.1</td>
+<td align="center">71.4</td>
+<td align="center">68.9</td>
+<td align="center">52.4</td>
+</tr>
+</tbody>
+</table><p>As we can see, the performance can improve up-to 8 points when you first perform pre-training on your specific corpus and then fine-tune on provided labeled training data.</p>
+<p>In  <a class="reference external" href="https://arxiv.org/abs/2112.07577">GPL</a> we evaluate these methods for semantic search: Given a short query, find the relevant passage. Here, performance can improve up to 10 points:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Approach</th>
+<th align="center">FiQA</th>
+<th align="center">SciFact</th>
+<th align="center">BioASQ</th>
+<th align="center">TREC-COVID</th>
+<th align="center">CQADupStack</th>
+<th align="center">Robust04</th>
+<th align="center">Avg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zero-Shot Model</td>
+<td align="center">26.7</td>
+<td align="center">57.1</td>
+<td align="center">52.9</td>
+<td align="center">66.1</td>
+<td align="center">29.6</td>
+<td align="center">39.0</td>
+<td align="center">45.2</td>
+</tr>
+<tr>
+<td>TSDAE</td>
+<td align="center">29.3</td>
+<td align="center"><strong>62.8</strong></td>
+<td align="center"><strong>55.5</strong></td>
+<td align="center"><strong>76.1</strong></td>
+<td align="center"><strong>31.8</strong></td>
+<td align="center"><strong>39.4</strong></td>
+<td align="center"><strong>49.2</strong></td>
+</tr>
+<tr>
+<td>MLM</td>
+<td align="center"><strong>30.2</strong></td>
+<td align="center">60.0</td>
+<td align="center">51.3</td>
+<td align="center">69.5</td>
+<td align="center">30.4</td>
+<td align="center">38.8</td>
+<td align="center">46.7</td>
+</tr>
+<tr>
+<td>ICT</td>
+<td align="center">27.0</td>
+<td align="center">58.3</td>
+<td align="center">55.3</td>
+<td align="center">69.7</td>
+<td align="center">31.3</td>
+<td align="center">37.4</td>
+<td align="center">46.5</td>
+</tr>
+<tr>
+<td>SimCSE</td>
+<td align="center">26.7</td>
+<td align="center">55.0</td>
+<td align="center">53.2</td>
+<td align="center">68.3</td>
+<td align="center">29.0</td>
+<td align="center">37.9</td>
+<td align="center">45.0</td>
+</tr>
+<tr>
+<td>CD</td>
+<td align="center">27.0</td>
+<td align="center">62.7</td>
+<td align="center">47.7</td>
+<td align="center">65.4</td>
+<td align="center">30.6</td>
+<td align="center">34.5</td>
+<td align="center">44.7</td>
+</tr>
+<tr>
+<td>CT</td>
+<td align="center">28.3</td>
+<td align="center">55.6</td>
+<td align="center">49.9</td>
+<td align="center">63.8</td>
+<td align="center">30.5</td>
+<td align="center">35.9</td>
+<td align="center">44.0</td>
+</tr>
+</tbody>
+</table><p>A big <strong>disadvantage of adaptive pre-training</strong> is the high computational overhead, as you must first run pre-training on your corpus and then supervised learning on a labeled training dataset. The labeled trained datasets can be quite large (e.g. the <code class="docutils literal notranslate"><span class="pre">all-*-v1</span></code> models had been trained on over 1 billion training pairs).</p>
+</div>
+<div class="section" id="gpl-generative-pseudo-labeling">
+<h2>GPL: Generative Pseudo-Labeling<a class="headerlink" href="#gpl-generative-pseudo-labeling" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://arxiv.org/abs/2112.07577">GPL</a> overcomes the aforementioned issue: It can be applied on-top of a fine-tuned model. Hence, you can use one of the <a class="reference external" href="https://www.sbert.net/docs/pretrained_models.html">pre-trained models</a> and adapt it to your specific domain:</p>
+<p><img alt="GPL_Overview" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/gpl_overview.png" /></p>
+<p>The longer you train, the better your model gets. In our experiments, we were training the models for about 1 day on a V100-GPU. GPL can be combined with adaptive pre-training, which can give another performance boost.</p>
+<p><img alt="GPL_Steps" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/gpl_steps.png" /></p>
+<div class="section" id="gpl-steps">
+<h3>GPL Steps<a class="headerlink" href="#gpl-steps" title="Permalink to this headline">¶</a></h3>
+<p>GPL works in three phases:</p>
+<p><img alt="GPL Architecture" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/gpl_architecture.png" /></p>
+<ul class="simple">
+<li><p><strong>Query Generation</strong>: For a given text from our domain, we first use a T5 model that generates a possible query for the given text. E.g. when your text is <em>“Python is a high-level general-purpose programming language”</em>, the model might generate a query like <em>“What is Python”</em>. You can find various query generators on our <a class="reference external" href="https://huggingface.co/doc2query">doc2query-hub</a>.</p></li>
+<li><p><strong>Negative Mining</strong>: Next, for the generate query <em>“What is Python”</em> we mine negative passages from our corpus, i.e. passages that are similar to the query but don’t which a user would not consider relevant. Such a negative passage could be <em>“Java is a high-level, class-based, object-oriented programming language.”</em>. We do this mining using dense retrieval, i.e. we use one of the existing text embedding models and retrieve relevant paragraphs for the given query.</p></li>
+<li><p><strong>Pseudo Labeling</strong>: It might be that in the negative mining step we retrieve a passage that is actually relevant for the query (like another definition for <em>“What is Python”</em>). To overcome this issue, we use a <a class="reference external" href="https://www.sbert.net/examples/applications/cross-encoder/README.html">Cross-Encoder</a> to score all (query, passage)-pairs.</p></li>
+<li><p><strong>Training</strong>: Once we have the triplets <em>(generated query, positive passage, mined negative passage)</em> and the Cross-Encoder socres for <em>(query, positive)</em> and <em>(query, negative)</em> we can start training the text embedding model using <a class="reference external" href="https://www.sbert.net/docs/package_reference/losses.html#marginmseloss">MarginMSELoss</a>.</p></li>
+</ul>
+<p>The <strong>pseudo labeling</strong> step is quite important and which results in the increased performance compared to the previous method QGen, which treated passages just as positive (1) or negative (0). As we see in the following picture, for a generate query (<em>“what is futures contract”</em>), the negative mining step retrieves passages that are partly or highly relevant to the generated query. Using MarginMSELoss and the Cross-Encoder, we can identify these passages and teach the text embedding model that these passages are also relevant for the given query.
+<img alt="GPL Architecture" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/gpl_negatives.jpg" /></p>
+<p>The following tables gives an overview of GPL in comparison to adaptive pre-training (MLM and TSDAE). As mentioned, GPL can be combined with adaptive pre-training.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Approach</th>
+<th align="center">FiQA</th>
+<th align="center">SciFact</th>
+<th align="center">BioASQ</th>
+<th align="center">TREC-COVID</th>
+<th align="center">CQADupStack</th>
+<th align="center">Robust04</th>
+<th align="center">Avg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zero-Shot model</td>
+<td align="center">26.7</td>
+<td align="center">57.1</td>
+<td align="center">52.9</td>
+<td align="center">66.1</td>
+<td align="center">29.6</td>
+<td align="center">39.0</td>
+<td align="center">45.2</td>
+</tr>
+<tr>
+<td>TSDAE + GPL</td>
+<td align="center"><strong>33.3</strong></td>
+<td align="center"><strong>67.3</strong></td>
+<td align="center"><strong>62.8</strong></td>
+<td align="center">74.0</td>
+<td align="center"><strong>35.1</strong></td>
+<td align="center"><strong>42.1</strong></td>
+<td align="center"><strong>52.4</strong></td>
+</tr>
+<tr>
+<td>GPL</td>
+<td align="center">33.1</td>
+<td align="center">65.2</td>
+<td align="center">61.6</td>
+<td align="center">71.7</td>
+<td align="center">34.4</td>
+<td align="center"><strong>42.1</strong></td>
+<td align="center">51.4</td>
+</tr>
+<tr>
+<td>TSDAE</td>
+<td align="center">29.3</td>
+<td align="center">62.8</td>
+<td align="center">55.5</td>
+<td align="center"><strong>76.1</strong></td>
+<td align="center">31.8</td>
+<td align="center">39.4</td>
+<td align="center">49.2</td>
+</tr>
+<tr>
+<td>MLM</td>
+<td align="center">30.2</td>
+<td align="center">60.0</td>
+<td align="center">51.3</td>
+<td align="center">69.5</td>
+<td align="center">30.4</td>
+<td align="center">38.8</td>
+<td align="center">46.7</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="gpl-code">
+<h3>GPL Code<a class="headerlink" href="#gpl-code" title="Permalink to this headline">¶</a></h3>
+<p>You can find the code for GPL here: <a class="reference external" href="https://github.com/UKPLab/gpl">https://github.com/UKPLab/gpl</a></p>
+<p>We made the code simple to use, so that you just need to pass your corpus and everything else is handled by the training code.</p>
+</div>
+<div class="section" id="citation">
+<h3>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h3>
+<p>If you find these resources helpful, feel free to cite our papers.</p>
+<p><a class="reference external" href="https://arxiv.org/abs/2104.06979">TSDAE: Using Transformer-based Sequential Denoising Auto-Encoderfor Unsupervised Sentence Embedding Learning</a></p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">wang-2021-TSDAE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;TSDAE: Using Transformer-based Sequential Denoising Auto-Encoderfor Unsupervised Sentence Embedding Learning&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Wang, Kexin and Reimers, Nils and Gurevych, Iryna&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="na">booktitle</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Findings of the Association for Computational Linguistics: EMNLP 2021&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">month</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nv">nov</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;2021&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">address</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Punta Cana, Dominican Republic&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">publisher</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Association for Computational Linguistics&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">pages</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;671--688&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;https://arxiv.org/abs/2104.06979&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://arxiv.org/abs/2112.07577">GPL: Generative Pseudo Labeling for Unsupervised Domain Adaptation of Dense Retrieval</a>:</p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">wang-2021-GPL</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;GPL: Generative Pseudo Labeling for Unsupervised Domain Adaptation of Dense Retrieval&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Wang, Kexin and Thakur, Nandan and Reimers, Nils and Gurevych, Iryna&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="na">journal</span><span class="p">=</span><span class="w"> </span><span class="s">&quot;arXiv preprint arXiv:2112.07577&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">month</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;12&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;2021&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;https://arxiv.org/abs/2112.07577&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../docs/package_reference/SentenceTransformer.html" class="btn btn-neutral float-right" title="SentenceTransformer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../unsupervised_learning/README.html" class="btn btn-neutral float-left" title="Unsupervised Learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

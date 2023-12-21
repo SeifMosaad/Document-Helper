@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Unsupervised Learning &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netexamples/unsupervised_learning/README.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Domain Adaptation" href="../domain_adaptation/README.html" />
+    <link rel="prev" title="MS MARCO" href="../training/ms_marco/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../../index.html">
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Unsupervised Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tsdae">TSDAE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simcse">SimCSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ct">CT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ct-in-batch-negative-sampling">CT (In-Batch Negative Sampling)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#masked-language-model-mlm">Masked Language Model (MLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#genq">GenQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gpl">GPL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-comparison">Performance Comparison</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docs/package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Unsupervised Learning</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/unsupervised_learning/README.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="unsupervised-learning">
+<h1>Unsupervised Learning<a class="headerlink" href="#unsupervised-learning" title="Permalink to this headline">¶</a></h1>
+<p>This page contains a collection of unsupervised learning methods to learn sentence embeddings. The methods have in common that they <strong>do not require labeled training data</strong>. Instead, they can learn semantically meaningful sentence embeddings just from the text itself.</p>
+<p><strong>Note:</strong> Unsupervised learning approaches are still an activate research area and in many cases the models perform rather poorly compared to models that are using training pairs as provided in our <a class="reference external" href="https://huggingface.co/datasets/sentence-transformers/embedding-training-data">training data collection</a>. A better approach is <strong><a class="reference internal" href="../domain_adaptation/README.html"><span class="doc">Domain Adaptation</span></a></strong> where you combine unsupervised learning on your target domain with existent labeled data. This gives the best performance on your specific corpus.</p>
+<div class="section" id="tsdae">
+<h2>TSDAE<a class="headerlink" href="#tsdae" title="Permalink to this headline">¶</a></h2>
+<p>In our work <a class="reference external" href="https://arxiv.org/abs/2104.06979">TSDAE (Tranformer-based Denoising AutoEncoder)</a> we present an unsupervised sentence embedding learning method based on denoising auto-encoders:</p>
+<p><img alt="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/TSDAE.png" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/TSDAE.png" /></p>
+<p>We add noise to the input text, in our case, we delete about 60% of the words in the text. The encoder maps this input to a fixed-sized sentence embeddings. A decoder then tries to re-create the original text without the noise. Later, we use the encoder as the sentence embedding methods.</p>
+<p>See <strong><a class="reference internal" href="TSDAE/README.html"><span class="doc">TSDAE</span></a></strong> for more information and training examples.</p>
+</div>
+<div class="section" id="simcse">
+<h2>SimCSE<a class="headerlink" href="#simcse" title="Permalink to this headline">¶</a></h2>
+<p>Gao et al. present in <a class="reference external" href="https://arxiv.org/abs/2104.08821">SimCSE: Simple Contrastive Learning of Sentence Embeddings</a> a method that passes the same sentence twice to the sentence embedding encoder. Due to the drop-out, it will be encoded at slightly different positions in vector space.</p>
+<p>The distance between these two embeddings will be minized, while the distance to other embeddings of the other sentences in the same batch will be maximized.</p>
+<p><img alt="SimCSE working" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/SimCSE.png" /></p>
+<p>See <strong><a class="reference internal" href="SimCSE/README.html"><span class="doc">SimCSE</span></a></strong> for more information and training examples.</p>
+</div>
+<div class="section" id="ct">
+<h2>CT<a class="headerlink" href="#ct" title="Permalink to this headline">¶</a></h2>
+<p>Carlsson et al. present in <a class="reference external" href="https://openreview.net/pdf?id=Ov_sMNau-PF">Semantic Re-Tuning With Contrastive Tension (CT)</a> an unsupervised method that uses two models: If the same sentences are passed to Model1 and Model2, then the respective sentence embeddings should get a large dot-score. If the different sentences are passed, then the sentence embeddings should get a low score.</p>
+<p><img alt="CT working" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/CT.jpg" /></p>
+<p>See <strong><a class="reference internal" href="CT/README.html"><span class="doc">CT</span></a></strong> for more information and training examples.</p>
+</div>
+<div class="section" id="ct-in-batch-negative-sampling">
+<h2>CT (In-Batch Negative Sampling)<a class="headerlink" href="#ct-in-batch-negative-sampling" title="Permalink to this headline">¶</a></h2>
+<p>The CT method from Carlsson et al. provides sentence pairs to the two models. This can be improved by using in-batch negative sampling: Model1 and Model2 both encode the same set of sentences. We maximize the scores for matching indexes (i.e. Model1(S_i) and Model2(S_i)) while we minimize the scores for different indexes (i.e. Model1(S_i) and Model2(S_j) for i != j).</p>
+<p>See <strong><a class="reference internal" href="CT_In-Batch_Negatives/README.html"><span class="doc">CT_In-Batch_Negatives</span></a></strong> for more information and training examples.</p>
+</div>
+<div class="section" id="masked-language-model-mlm">
+<h2>Masked Language Model (MLM)<a class="headerlink" href="#masked-language-model-mlm" title="Permalink to this headline">¶</a></h2>
+<p>BERT showed that Masked Language Model (MLM) is a powerful pre-training approach. It is advisable to first run MLM a large dataset from your domain before you do fine-tuning. See <strong><a class="reference internal" href="MLM/README.html"><span class="doc">MLM</span></a></strong> for more information and training examples.</p>
+</div>
+<div class="section" id="genq">
+<h2>GenQ<a class="headerlink" href="#genq" title="Permalink to this headline">¶</a></h2>
+<p>In our paper <a class="reference external" href="https://arxiv.org/abs/2104.08663">BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models</a>  we present a method to learn a semantic search method by generating queries for given passages. This method has been improved in <a class="reference external" href="https://arxiv.org/abs/2112.07577">GPL: Generative Pseudo Labeling for Unsupervised Domain Adaptation of Dense Retrieval</a>.</p>
+<p>We pass all passages in our collection through a trained T5 model, which generates potential queries from users. We then use these (query, passage) pairs to train a SentenceTransformer model.</p>
+<p><img alt="Query Generation" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/query-generation.png" /></p>
+<p>See <strong><a class="reference internal" href="query_generation/README.html"><span class="doc">GenQ</span></a></strong> for more information and training examples. See <strong><a class="reference internal" href="../domain_adaptation/README.html"><span class="doc">GPL</span></a></strong> for the improved version that uses a multi-step training approach.</p>
+</div>
+<div class="section" id="gpl">
+<h2>GPL<a class="headerlink" href="#gpl" title="Permalink to this headline">¶</a></h2>
+<p>In <a class="reference external" href="https://arxiv.org/abs/2112.07577">GPL: Generative Pseudo Labeling for Unsupervised Domain Adaptation of Dense Retrieval</a> we show an improved version go GenQ, which combines the generation with negative mining and pseudo labeling cosing a Cross-Encoder. It leads to significantly improved results. See <strong><a class="reference internal" href="../domain_adaptation/README.html"><span class="doc">Domain Adaptation</span></a></strong> for more information.</p>
+<p><img alt="GPL Architecture" src="https://raw.githubusercontent.com/UKPLab/sentence-transformers/master/docs/img/gpl_architecture.png" /></p>
+</div>
+<div class="section" id="performance-comparison">
+<h2>Performance Comparison<a class="headerlink" href="#performance-comparison" title="Permalink to this headline">¶</a></h2>
+<p>In our paper
+<a class="reference external" href="https://arxiv.org/abs/2104.06979">TSDAE</a> we compare approaches for sentence embedding tasks, and in <a class="reference external" href="https://arxiv.org/abs/2112.07577">GPL</a> we compare them for semantic search tasks (given a query, find relevant passages). While the unsupervised approach achieve acceptable performances for sentence embedding tasks, they perform poorly for semantic search tasks.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../domain_adaptation/README.html" class="btn btn-neutral float-right" title="Domain Adaptation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../training/ms_marco/README.html" class="btn btn-neutral float-left" title="MS MARCO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

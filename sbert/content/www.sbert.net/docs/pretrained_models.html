@@ -1,0 +1,548 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pretrained Models &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netdocs/pretrained_models.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pretrained Cross-Encoders" href="pretrained_cross-encoders.html" />
+    <link rel="prev" title="Quickstart" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../index.html">
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pretrained Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#model-overview">Model Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semantic-search">Semantic Search</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multi-qa-models">Multi-QA Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#msmarco-passage-models">MSMARCO Passage Models</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-lingual-models">Multi-Lingual Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#image-text-models">Image &amp; Text-Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-models">Other Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scientific-publications">Scientific Publications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#natural-questions-nq-dataset-models">Natural Questions (NQ) Dataset Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#average-word-embeddings-models">Average Word Embeddings Models</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hugging_face.html">Hugging Face 🤗</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Pretrained Models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/docs/pretrained_models.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pretrained-models">
+<h1>Pretrained Models<a class="headerlink" href="#pretrained-models" title="Permalink to this headline">¶</a></h1>
+<p>We provide various pre-trained models. Using these models is easy:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;model_name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All models are hosted on the <a class="reference external" href="https://huggingface.co/sentence-transformers">HuggingFace Model Hub</a>.</p>
+<div class="section" id="model-overview">
+<h2>Model Overview<a class="headerlink" href="#model-overview" title="Permalink to this headline">¶</a></h2>
+<p>The following table provides an overview of (selected) models. They have been extensively evaluated for their quality to embedded sentences (Performance Sentence Embeddings) and to embedded search queries &amp; paragraphs (Performance Semantic Search).</p>
+<p>The <strong>all-</strong>* models where trained on all available training data (more than 1 billion training pairs) and are designed as <strong>general purpose</strong> models. The <strong>all-mpnet-base-v2</strong> model provides the best quality, while <strong>all-MiniLM-L6-v2</strong> is 5 times faster and still offers good quality. Toggle <em>All models</em> to see all evaluated models or visit <a class="reference external" href="https://huggingface.co/models?library=sentence-transformers">HuggingFace Model Hub</a> to view all existing sentence-transformers models.</p>
+<iframe src="../_static/html/models_en_sentence_embeddings.html" height="600" style="width:100%; border:none;" title="Iframe Example"></iframe></div>
+<hr class="docutils" />
+<div class="section" id="semantic-search">
+<h2>Semantic Search<a class="headerlink" href="#semantic-search" title="Permalink to this headline">¶</a></h2>
+<p>The following models have been specifically trained for <strong>Semantic Search</strong>: Given a question / search query, these models are able to find relevant text passages. For more details, see <a class="reference internal" href="../examples/applications/semantic-search/README.html"><span class="doc">Usage - Semantic Search</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">util</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;multi-qa-MiniLM-L6-cos-v1&#39;</span><span class="p">)</span>
+
+<span class="n">query_embedding</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;How big is London&#39;</span><span class="p">)</span>
+<span class="n">passage_embedding</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="s1">&#39;London has 9,787,426 inhabitants at the 2011 census&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;London is known for its finacial district&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Similarity:&quot;</span><span class="p">,</span> <span class="n">util</span><span class="o">.</span><span class="n">dot_score</span><span class="p">(</span><span class="n">query_embedding</span><span class="p">,</span> <span class="n">passage_embedding</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="section" id="multi-qa-models">
+<h3>Multi-QA Models<a class="headerlink" href="#multi-qa-models" title="Permalink to this headline">¶</a></h3>
+<p>The following models have been trained on <a class="reference external" href="https://huggingface.co/sentence-transformers/multi-qa-MiniLM-L6-dot-v1#training">215M question-answer pairs</a> from various sources and domains, including StackExchange, Yahoo Answers, Google &amp; Bing search queries and many more. These model perform well across many search tasks and domains.</p>
+<p>These models were tuned to be used with dot-product:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Model</th>
+<th align="center">Performance Semantic Search (6 Datasets)</th>
+<th align="center">Queries (GPU / CPU) per sec.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/multi-qa-MiniLM-L6-dot-v1">multi-qa-MiniLM-L6-dot-v1</a></td>
+<td align="center">49.19</td>
+<td align="center">18,000 / 750</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/multi-qa-distilbert-dot-v1">multi-qa-distilbert-dot-v1</a></td>
+<td align="center">52.51</td>
+<td align="center">7,000 / 350</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/multi-qa-mpnet-base-dot-v1">multi-qa-mpnet-base-dot-v1</a></td>
+<td align="center">57.60</td>
+<td align="center">4,000 / 170</td>
+</tr>
+</tbody>
+</table><p>These models produce normalized vectors of length 1, which can be used with dot-product, cosine-similarity and Euclidean distance:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Model</th>
+<th align="center">Performance Semantic Search (6 Datasets)</th>
+<th align="center">Queries (GPU / CPU) per sec.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/multi-qa-MiniLM-L6-cos-v1">multi-qa-MiniLM-L6-cos-v1</a></td>
+<td align="center">51.83</td>
+<td align="center">18,000 / 750</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/multi-qa-distilbert-cos-v1">multi-qa-distilbert-cos-v1</a></td>
+<td align="center">52.83</td>
+<td align="center">7,000 / 350</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/multi-qa-mpnet-base-cos-v1">multi-qa-mpnet-base-cos-v1</a></td>
+<td align="center">57.46</td>
+<td align="center">4,000 / 170</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="msmarco-passage-models">
+<h3>MSMARCO Passage Models<a class="headerlink" href="#msmarco-passage-models" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://github.com/microsoft/MSMARCO-Passage-Ranking">MSMARCO Passage Ranking Dataset</a> contains 500k real queries from Bing search together with the relevant passages from various web sources. Given the diversity of the MSMARCO dataset, models also perform well on other domains.</p>
+<p>Models tuned to be used with dot-product:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Model</th>
+<th align="center">MSMARCO MRR@10 dev set</th>
+<th align="center">Performance Semantic Search (6 Datasets)</th>
+<th align="center">Queries (GPU / CPU) per sec.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/msmarco-distilbert-base-tas-b">msmarco-distilbert-base-tas-b</a></td>
+<td align="center">34.43</td>
+<td align="center">49.25</td>
+<td align="center">7,000 / 350</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/msmarco-distilbert-dot-v5">msmarco-distilbert-dot-v5</a></td>
+<td align="center">37.25</td>
+<td align="center">49.47</td>
+<td align="center">7,000 / 350</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/msmarco-bert-base-dot-v5">msmarco-bert-base-dot-v5</a></td>
+<td align="center">38.08</td>
+<td align="center">52.11</td>
+<td align="center">4,000 / 170</td>
+</tr>
+</tbody>
+</table><p>These models produce normalized vectors of length 1, which can be used with dot-product, cosine-similarity and Euclidean distance:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Model</th>
+<th align="center">MSMARCO MRR@10 dev set</th>
+<th align="center">Performance Semantic Search (6 Datasets)</th>
+<th align="center">Queries (GPU / CPU) per sec.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/msmarco-MiniLM-L6-cos-v5">msmarco-MiniLM-L6-cos-v5</a></td>
+<td align="center">32.27</td>
+<td align="center">42.16</td>
+<td align="center">18,000 / 750</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/msmarco-MiniLM-L12-cos-v5">msmarco-MiniLM-L12-cos-v5</a></td>
+<td align="center">32.75</td>
+<td align="center">43.89</td>
+<td align="center">11,000 / 400</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/msmarco-distilbert-cos-v5">msmarco-distilbert-cos-v5</a></td>
+<td align="center">33.79</td>
+<td align="center">44.98</td>
+<td align="center">7,000 / 350</td>
+</tr>
+</tbody>
+</table><p><a class="reference internal" href="pretrained-models/msmarco-v5.html"><span class="doc">MSMARCO Models - More details</span></a></p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="multi-lingual-models">
+<h2>Multi-Lingual Models<a class="headerlink" href="#multi-lingual-models" title="Permalink to this headline">¶</a></h2>
+<p>The following models generate aligned vector spaces, i.e., similar inputs in different languages are mapped close in vector space. You do not need to specify the input language.  Details are in our publication <a class="reference external" href="https://arxiv.org/abs/2004.09813">Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation</a>. We used the following 50+ languages: ar, bg, ca, cs, da, de, el, en, es, et, fa, fi, fr, fr-ca, gl, gu, he, hi, hr, hu, hy, id, it, ja, ka, ko, ku, lt, lv, mk, mn, mr, ms, my, nb, nl, pl, pt, pt-br, ro, ru, sk, sl, sq, sr, sv, th, tr, uk, ur, vi, zh-cn, zh-tw.</p>
+<p><strong>Semantic Similarity</strong></p>
+<p>These models find semantically similar sentences within one language or across languages:</p>
+<ul class="simple">
+<li><p><strong>distiluse-base-multilingual-cased-v1</strong>: Multilingual knowledge distilled version of <a class="reference external" href="https://arxiv.org/abs/1907.04307">multilingual Universal Sentence Encoder</a>. Supports 15 languages:  Arabic, Chinese, Dutch, English, French, German, Italian, Korean, Polish, Portuguese, Russian, Spanish, Turkish.</p></li>
+<li><p><strong>distiluse-base-multilingual-cased-v2</strong>: Multilingual knowledge distilled version of <a class="reference external" href="https://arxiv.org/abs/1907.04307">multilingual Universal Sentence Encoder</a>. This version supports 50+ languages, but performs a bit weaker than the v1 model.</p></li>
+<li><p><strong>paraphrase-multilingual-MiniLM-L12-v2</strong> - Multilingual version of <em>paraphrase-MiniLM-L12-v2</em>, trained on parallel data for 50+ languages.</p></li>
+<li><p><strong>paraphrase-multilingual-mpnet-base-v2</strong> - Multilingual version of <em>paraphrase-mpnet-base-v2</em>, trained on parallel data for 50+ languages.</p></li>
+</ul>
+<p><strong>Bitext Mining</strong></p>
+<p>Bitext mining describes the process of finding translated sentence pairs in two languages. If this is your use-case, the following model gives the best performance:</p>
+<ul class="simple">
+<li><p><strong>LaBSE</strong> - <a class="reference external" href="https://arxiv.org/abs/2007.01852">LaBSE</a> Model. Supports 109 languages. Works well for finding translation pairs in multiple languages. As detailed  <a class="reference external" href="https://arxiv.org/abs/2004.09813">here</a>, LaBSE works less well for assessing the similarity of sentence pairs that are not translations of each other.</p></li>
+</ul>
+<p>Extending a model to new languages is easy by following <a class="reference external" href="https://www.sbert.net/examples/training/multilingual/README.html">the description here</a>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="image-text-models">
+<h2>Image &amp; Text-Models<a class="headerlink" href="#image-text-models" title="Permalink to this headline">¶</a></h2>
+<p>The following models can embed images and text into a joint vector space. See <a class="reference internal" href="../examples/applications/image-search/README.html"><span class="doc">Image Search</span></a>  for more details how to use for text2image-search, image2image-search, image clustering, and zero-shot image classification.</p>
+<p>The following models are available with their respective Top 1 accuracy on zero-shot ImageNet validation dataset.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Model</th>
+<th align="center">Top 1 Performance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/clip-ViT-B-32">clip-ViT-B-32</a></td>
+<td align="center">63.3</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/clip-ViT-B-16">clip-ViT-B-16</a></td>
+<td align="center">68.1</td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/sentence-transformers/clip-ViT-L-14">clip-ViT-L-14</a></td>
+<td align="center">75.4</td>
+</tr>
+</tbody>
+</table><p>We further provide this multilingual text-image model:</p>
+<ul class="simple">
+<li><p><strong>clip-ViT-B-32-multilingual-v1</strong> - Multilingual text encoder for the <a class="reference external" href="https://huggingface.co/sentence-transformers/clip-ViT-B-32">clip-ViT-B-32</a>   model using <a class="reference external" href="https://arxiv.org/abs/2004.09813">Multilingual Knowledge Distillation</a>. This model can encode text in 50+ languages to match the image vectors from the <a class="reference external" href="https://huggingface.co/sentence-transformers/clip-ViT-B-32">clip-ViT-B-32</a>  model.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="other-models">
+<h2>Other Models<a class="headerlink" href="#other-models" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scientific-publications">
+<h3>Scientific Publications<a class="headerlink" href="#scientific-publications" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://arxiv.org/abs/2004.07180">SPECTER</a> is a model trained on scientific citations and can be used to estimate the similarity of two publications. We can use it to find similar papers.</p>
+<ul class="simple">
+<li><p><strong>allenai-specter</strong> - <a class="reference external" href="https://github.com/UKPLab/sentence-transformers/blob/master/examples/applications/semantic-search/semantic_search_publications.py">Semantic Search Python Example</a> / <a class="reference external" href="https://colab.research.google.com/drive/12hfBveGHRsxhPIUMmJYrll2lFU4fOX06">Semantic Search Colab Example</a></p></li>
+</ul>
+</div>
+<div class="section" id="natural-questions-nq-dataset-models">
+<h3>Natural Questions (NQ) Dataset Models<a class="headerlink" href="#natural-questions-nq-dataset-models" title="Permalink to this headline">¶</a></h3>
+<p>The following models were trained on <a class="reference external" href="https://ai.google.com/research/NaturalQuestions">Google’s Natural Questions dataset</a>, a dataset with 100k real queries from Google search together with the relevant passages from Wikipedia.</p>
+<ul class="simple">
+<li><p><strong>nq-distilbert-base-v1</strong>: MRR10: 72.36 on NQ dev set (small)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">util</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;nq-distilbert-base-v1&#39;</span><span class="p">)</span>
+
+<span class="n">query_embedding</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;How many people live in London?&#39;</span><span class="p">)</span>
+
+<span class="c1">#The passages are encoded as [ [title1, text1], [title2, text2], ...]</span>
+<span class="n">passage_embedding</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">([[</span><span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;London has 9,787,426 inhabitants at the 2011 census.&#39;</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Similarity:&quot;</span><span class="p">,</span> <span class="n">util</span><span class="o">.</span><span class="n">cos_sim</span><span class="p">(</span><span class="n">query_embedding</span><span class="p">,</span> <span class="n">passage_embedding</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>You can index the passages as shown <a class="reference internal" href="../examples/applications/semantic-search/README.html"><span class="doc">here</span></a>.</p>
+<p><strong>Note:</strong> The NQ model doesn’t perform well. Use the above mentioned Multi-QA models to achieve the optimal performance.</p>
+<p><a class="reference internal" href="pretrained-models/nq-v1.html"><span class="doc">More details</span></a></p>
+<p><strong>DPR-Models</strong></p>
+<p>In <a class="reference external" href="https://arxiv.org/abs/2004.04906">Dense Passage Retrieval  for Open-Domain Question Answering</a>  Karpukhin et al. trained models based on <a class="reference external" href="https://ai.google.com/research/NaturalQuestions">Google’s Natural Questions dataset</a>:</p>
+<ul class="simple">
+<li><p><strong>facebook-dpr-ctx_encoder-single-nq-base</strong></p></li>
+<li><p><strong>facebook-dpr-question_encoder-single-nq-base</strong></p></li>
+</ul>
+<p>They also trained models on the combination of Natural Questions, TriviaQA, WebQuestions, and CuratedTREC.</p>
+<ul class="simple">
+<li><p><strong>facebook-dpr-ctx_encoder-multiset-base</strong></p></li>
+<li><p><strong>facebook-dpr-question_encoder-multiset-base</strong></p></li>
+</ul>
+<p><strong>Note:</strong> The DPR models perform comparabily bad. Use the above mentioned Multi-QA models to achieve the optimal performance.</p>
+<p><a class="reference internal" href="pretrained-models/dpr.html"><span class="doc">More details &amp; usage of the DPR models</span></a></p>
+</div>
+<div class="section" id="average-word-embeddings-models">
+<h3>Average Word Embeddings Models<a class="headerlink" href="#average-word-embeddings-models" title="Permalink to this headline">¶</a></h3>
+<p>The following models apply compute the average word embedding for some well-known word embedding methods. Their computation speed is much higher than the transformer based models, but the quality of the embeddings are worse.</p>
+<ul class="simple">
+<li><p><strong>average_word_embeddings_glove.6B.300d</strong></p></li>
+<li><p><strong>average_word_embeddings_komninos</strong></p></li>
+<li><p><strong>average_word_embeddings_levy_dependency</strong></p></li>
+<li><p><strong>average_word_embeddings_glove.840B.300d</strong></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pretrained_cross-encoders.html" class="btn btn-neutral float-right" title="Pretrained Cross-Encoders" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

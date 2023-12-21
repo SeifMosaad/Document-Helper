@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hugging Face 🤗 &mdash; Sentence-Transformers  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://www.sbert.netdocs/hugging_face.html"/>
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/custom.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Computing Sentence Embeddings" href="../examples/applications/computing-embeddings/README.html" />
+    <link rel="prev" title="Publications" href="publications.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+            <a href="../index.html">
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+              <span class="icon icon-home project-name"> Sentence-Transformers</span>
+            </a>
+
+            <div style="display: flex; justify-content: center;">
+              <div id="twitter-button">
+                <a href="https://twitter.com/Nils_Reimers" target="_blank" title="Follow SBERT on Twitter"><img src="/_static/Twitter_Logo_White.svg" height="20" style="margin: 0px 10px 0px -10px;"> </a>
+              </div>
+              <div id="github-button"></div>
+            </div>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pretrained_models.html">Pretrained Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pretrained_cross-encoders.html">Pretrained Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hugging Face 🤗</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-hugging-face-hub">The Hugging Face Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-hugging-face-models">Using Hugging Face models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sharing-your-models">Sharing your models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sharing-your-embeddings">Sharing your embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-resources">Additional resources</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/computing-embeddings/README.html">Computing Sentence Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/semantic_textual_similarity.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/semantic-search/README.html">Semantic Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/retrieve_rerank/README.html">Retrieve &amp; Re-Rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/clustering/README.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/paraphrase-mining/README.html">Paraphrase Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/parallel-sentence-mining/README.html">Translated Sentence Mining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/applications/image-search/README.html">Image Search</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="training/overview.html">Training Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/multilingual/README.html">Multilingual-Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/distillation/README.html">Model Distillation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/cross-encoder/README.html">Cross-Encoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/data_augmentation/README.html">Augmented SBERT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Training Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/sts/README.html">Semantic Textual Similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/nli/README.html">Natural Language Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/paraphrases/README.html">Paraphrase Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/quora_duplicate_questions/README.html">Quora Duplicate Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/training/ms_marco/README.html">MS MARCO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Unsupervised Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/unsupervised_learning/README.html">Unsupervised Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/domain_adaptation/README.html">Domain Adaptation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/SentenceTransformer.html">SentenceTransformer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/util.html">util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/losses.html">Losses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/evaluation.html">Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package_reference/cross_encoder.html">cross_encoder</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sentence-Transformers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Hugging Face 🤗</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/UKPLab/sentence-transformers/blob/master/docs/hugging_face.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hugging-face">
+<h1>Hugging Face 🤗<a class="headerlink" href="#hugging-face" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-hugging-face-hub">
+<h2>The Hugging Face Hub<a class="headerlink" href="#the-hugging-face-hub" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the official <a class="reference external" href="https://www.sbert.net/docs/pretrained_models.html">pre-trained models</a>, you can find over 500 <code class="docutils literal notranslate"><span class="pre">sentence-transformer</span></code> models on the <a class="reference external" href="http://hf.co/models?library=sentence-transformers&amp;sort=downloads">Hugging Face Hub</a>.</p>
+<p>All models on the Hugging Face Hub come with the following:</p>
+<ol class="simple">
+<li><p>An <a class="reference external" href="https://huggingface.co/docs/hub/models-cards#what-are-model-cards">automatically generated model card</a> with a description, example code snippets, architecture overview, and more.</p></li>
+<li><p><a class="reference external" href="https://huggingface.co/docs/hub/models-cards#model-card-metadata">Metadata tags</a> that help for discoverability and contain additional information such as a usage license.</p></li>
+<li><p>An <a class="reference external" href="https://huggingface.co/docs/hub/models-widgets">interactive widget</a> you can use to play with the model directly in the browser.</p></li>
+<li><p>An <a class="reference external" href="https://huggingface.co/docs/hub/models-inference">Inference API</a> that allows you to make inference requests.</p></li>
+</ol>
+<img style="height:400px;display:block;margin-left:auto;margin-right:auto;" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-sentence_transformers_widget.png"/></div>
+<div class="section" id="using-hugging-face-models">
+<h2>Using Hugging Face models<a class="headerlink" href="#using-hugging-face-models" title="Permalink to this headline">¶</a></h2>
+<p>Any pre-trained models from the Hub can be loaded with a single line of code:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;model_name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can even click <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">in</span> <span class="pre">sentence-transformers</span></code> to get a code snippet that you can copy and paste!</p>
+<div style="display:flex; flex-direction:column; gap: 15px; margin-bottom: 15px;">
+<img style=max-height:150px;object-fit:contain;" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-sentence_transformers_snippet1.png"/>
+<img style="max-height:130px;object-fit:contain" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-sentence_transformers_snippet2.png"/>
+</div><p>Here is an example that loads the <a class="reference external" href="https://huggingface.co/sentence-transformers/multi-qa-MiniLM-L6-cos-v1">multi-qa-MiniLM-L6-cos-v1 model</a> and uses it to encode sentences and then compute the distance between them for doing semantic search.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">util</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;multi-qa-MiniLM-L6-cos-v1&#39;</span><span class="p">)</span>
+
+<span class="n">query_embedding</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;How big is London&#39;</span><span class="p">)</span>
+<span class="n">passage_embedding</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="s1">&#39;London has 9,787,426 inhabitants at the 2011 census&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;London is known for its finacial district&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Similarity:&quot;</span><span class="p">,</span> <span class="n">util</span><span class="o">.</span><span class="n">dot_score</span><span class="p">(</span><span class="n">query_embedding</span><span class="p">,</span> <span class="n">passage_embedding</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Here is another example, this time using the <a class="reference external" href="https://huggingface.co/clips/mfaq">clips/mfaq model</a> for multilingual FAQ retrieval. After embedding the query and the answers, we perform a semantic search to find the most relevant answer.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">util</span>
+
+<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;&lt;Q&gt;How many models can I host on HuggingFace?&quot;</span>
+<span class="n">answer_1</span> <span class="o">=</span> <span class="s2">&quot;&lt;A&gt;All plans come with unlimited private models and datasets.&quot;</span>
+<span class="n">answer_2</span> <span class="o">=</span> <span class="s2">&quot;&lt;A&gt;AutoNLP is an automatic way to train and deploy state-of-the-art NLP models, seamlessly integrated with the Hugging Face ecosystem.&quot;</span>
+<span class="n">answer_3</span> <span class="o">=</span> <span class="s2">&quot;&lt;A&gt;Based on how much training data and model variants are created, we send you a compute cost and payment link - as low as $10 per job.&quot;</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="s1">&#39;clips/mfaq&#39;</span><span class="p">)</span>
+<span class="n">query_embedding</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+<span class="n">corpus_embeddings</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">([</span><span class="n">answer_1</span><span class="p">,</span> <span class="n">answer_2</span><span class="p">,</span> <span class="n">answer_3</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">semantic_search</span><span class="p">(</span><span class="n">query_embedding</span><span class="p">,</span> <span class="n">corpus_embeddings</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sharing-your-models">
+<h2>Sharing your models<a class="headerlink" href="#sharing-your-models" title="Permalink to this headline">¶</a></h2>
+<p>Once you’ve installed the <a class="reference external" href="https://huggingface.co/docs/huggingface_hub/quick-start">Hub Client Library</a>, you can login through your terminal with your Hugging Face account.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install huggingface_hub
+huggingface-cli login
+</pre></div>
+</div>
+<p>Then, you can share your SentenceTransformers models by calling the <a class="reference external" href="https://www.sbert.net/docs/package_reference/SentenceTransformer.html#sentence_transformers.SentenceTransformer.save_to_hub"><code class="docutils literal notranslate"><span class="pre">save_to_hub</span></code> method</a> from a trained model. By default, the model will be uploaded to your account, but you can upload to an <a class="reference external" href="https://huggingface.co/docs/hub/organizations">organization</a> by passing setting an <code class="docutils literal notranslate"><span class="pre">organization</span></code> parameter. <code class="docutils literal notranslate"><span class="pre">save_to_hub</span></code> automatically generates a model card, an inference widget, example code snippets, and more.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
+
+<span class="c1"># Load or train a model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save_to_hub</span><span class="p">(</span><span class="s2">&quot;my_new_model&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can automatically add to the Hub’s model card a list of datasets you used to train the model with the argument <code class="docutils literal notranslate"><span class="pre">train_datasets:</span> <span class="pre">Optional[List[str]]</span> <span class="pre">=</span> <span class="pre">None)</span></code>. See the “Datasets used to train” section in the <a class="reference external" href="https://huggingface.co/ITESM/sentece-embeddings-BETO">ITESM/sentece-embeddings-BETO</a> model for an example of the final result.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save_to_hub</span><span class="p">(</span><span class="s2">&quot;my_new_model&quot;</span><span class="p">,</span> <span class="n">train_datasets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GEM/wiki_lingua&quot;</span><span class="p">,</span> <span class="s2">&quot;code_search_net&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sharing-your-embeddings">
+<h2>Sharing your embeddings<a class="headerlink" href="#sharing-your-embeddings" title="Permalink to this headline">¶</a></h2>
+<p>The Hugging Face Hub can also be used to store and share any embeddings you generate. You can export your embeddings to CSV, ZIP, Pickle, or any other format, and then upload them to the Hub as a <a class="reference external" href="https://huggingface.co/docs/hub/datasets-adding">Dataset</a>. Read the <a class="reference external" href="https://huggingface.co/blog/getting-started-with-embeddings#2-host-embeddings-for-free-on-the-hugging-face-hub">“Getting Started With Embeddings” blog post</a> for more information.</p>
+</div>
+<div class="section" id="additional-resources">
+<h2>Additional resources<a class="headerlink" href="#additional-resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/docs/hub/index">Hugging Face Hub docs</a></p></li>
+<li><p>Integration with Hub <a class="reference external" href="https://huggingface.co/blog/sentence-transformers-in-the-hub">announcement</a>.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../examples/applications/computing-embeddings/README.html" class="btn btn-neutral float-right" title="Computing Sentence Embeddings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="publications.html" class="btn btn-neutral float-left" title="Publications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2022, Nils Reimers
+
+       &bull; <a href="/docs/contact.html">Contact</a>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
