@@ -8,7 +8,6 @@ This is a web application is using a Pinecone as a vectorsotre and answers quest
 
 
 ![Logo](https://github.com/emarco177/documentation-helper/blob/main/static/banner.gif)
-[![udemy](https://img.shields.io/badge/LangChain%20Udemy%20Course-%2412.99-green)]
 
 ## Environment Variables
 
